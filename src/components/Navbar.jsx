@@ -1,8 +1,8 @@
 import React from "react";
 import logo from "../assets/images/Logo.png";
 import { ArrowDropDown, Menu, ShoppingCart } from "@mui/icons-material";
-import { Button } from "@mui/material";
-import "../assets/Global.css";
+import { Avatar, Button } from "@mui/material";
+import '../assets/Navbar.scss'
 
 const Navbar = () => {
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
       <Button className="Button" varient="text">
         signup/login
       </Button>
-      <div className="avatar-container"></div>
+      <Avatar/>
       <Menu className="btn-menu"/>
     </div>
   );
