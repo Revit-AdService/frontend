@@ -1,9 +1,10 @@
 import React from "react";
 import Slider from "../components/Slider";
 import SearchInput from "../components/SearchInput";
-import { Switch } from "@mui/material";
+import { Grid, Switch } from "@mui/material";
 import { Star } from "@mui/icons-material";
 import Card from "../components/Card";
+import ThemeSwitch from "../components/ThemeSwitch";
 
 const Home = () => {
   return (
@@ -19,11 +20,28 @@ const Home = () => {
           <Switch defaultChecked size="small" />
         </div>
       </div>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+
+      <Grid container>
+        <Grid item xs={12} sm={6} md={4}>
+          <Card />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4}>
+          <Card />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4}>
+          <Card />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4}>
+          <Card />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4}>
+          <Card />
+        </Grid>
+      </Grid>
     </div>
   );
 };
