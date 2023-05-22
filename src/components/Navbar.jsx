@@ -4,12 +4,24 @@ import { ArrowDropDown, Menu, ShoppingCart } from "@mui/icons-material";
 import {
   AppBar,
   Avatar,
+  Badge,
   Button,
   IconButton,
   Stack,
   Toolbar,
   Typography,
+  styled,
 } from "@mui/material";
+import MenuDrawer from "./Menu";
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0",
+  },
+}));
 
 const Navbar = () => {
   return (
@@ -21,13 +33,17 @@ const Navbar = () => {
         <Typography sx={{ flexGrow: 1 }}></Typography>
         <Stack direction="row" spacing={1}>
           <IconButton size="large" color="#242254" aria-label="cart">
-            <ShoppingCart sx={{ color:'#242254', fontSize:'17px' }}/>
+            <StyledBadge badgeContent={1} color="primary">
+              <ShoppingCart sx={{ color: "#242254", fontSize: "17px" }} />
+            </StyledBadge>
           </IconButton>
+
           {/* <Button color="inherit" href="">
             Login
           </Button> */}
         </Stack>
-        <Menu sx={{color:'#242254'}} />
+        {/* <Menu sx={{ color: "#242254" }} /> */}
+        <MenuDrawer/>
       </Toolbar>
     </AppBar>
 
