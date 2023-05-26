@@ -10,10 +10,16 @@ import {
   alpha,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import MenuDrawer from "../components/Menu";
 import logo from "../assets/images/Logo.png";
-import { Category, Search, ShoppingCart, DarkMode } from "@mui/icons-material";
+import {
+  Category,
+  Search,
+  ShoppingCart,
+  DarkMode,
+  LightMode,
+} from "@mui/icons-material";
 
 const SearchInput = styled("div")(({ theme }) => ({
   position: "relative",
@@ -67,6 +73,19 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const NavBar = () => {
+  const [icon, setIcon] = useState(<DarkMode color="primary" />);
+
+  const handleIconChange = () => {
+    setIcon(
+      icon === <LightMode color="primary" /> ? (
+        <DarkMode color="primary" />
+      ) : (
+        <LightMode color="primary" />
+      )
+    ),
+      [];
+  };
+
   return (
     <>
       <AppBar
@@ -94,11 +113,14 @@ const NavBar = () => {
 
           <Stack direction="row" spacing={0.25}>
             <Tooltip title="DarkMode">
-              <IconButton size="large" aria-label="category">
-                <DarkMode color="primary" />
+              <IconButton
+                onClick={handleIconChange}
+                size="large"
+                aria-label="category"
+              >
+                {icon}
               </IconButton>
             </Tooltip>
-
 
             <Tooltip title="Cart">
               <IconButton size="large" aria-label="cart">
