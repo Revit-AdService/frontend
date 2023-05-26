@@ -1,13 +1,12 @@
 import "./App.css";
-import "../src/assets/Global.scss";
-import Navbar from "./components/Navbar";
+import NavBar from "./common/NavBar";
 import Home from "./pages/Home";
-import SwipeableTemporaryDrawer from "./components/Menu";
+
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <NavBar />
       <Home />
     </div>
   );

@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { Menu, Person, ShoppingCart } from "@mui/icons-material";
-import { Avatar, IconButton, Stack, Toolbar } from "@mui/material";
+import { Avatar, IconButton, Stack, Toolbar, Tooltip } from "@mui/material";
 
 const MenuDrawer = () => {
   const [state, setState] = React.useState({
@@ -57,7 +57,7 @@ const MenuDrawer = () => {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <ShoppingCart/>
+                <ShoppingCart />
               </ListItemIcon>
               <ListItemText primary="Cart" />
             </ListItemButton>
@@ -80,9 +80,11 @@ const MenuDrawer = () => {
   return (
     <div>
       <React.Fragment key={anchor}>
-        <IconButton onClick={toggleDrawer(anchor, true)}>
-          <Menu />
-        </IconButton>
+        <Tooltip title="Menu">
+          <IconButton onClick={toggleDrawer(anchor, true)}>
+            <Menu />
+          </IconButton>
+        </Tooltip>
 
         <SwipeableDrawer
           anchor={anchor}
