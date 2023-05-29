@@ -14,11 +14,14 @@ const Home = () => {
       <Fab
         sx={{
           m: 3,
-          position: "absolute",
+          position: "fixed",
           float: "left",
-          left: "0",
+          right: "0",
+          bottom: "0",
+          color: "#FFFFFF",
+          backgroundColor: "chatBtn.main",
+          // "&:hover": { backgroundColor: "darkblue" },
         }}
-        color="primary"
         aria-label="chat"
       >
         <Chat />

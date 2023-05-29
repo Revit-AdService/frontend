@@ -4,6 +4,7 @@ import {
   IconButton,
   InputBase,
   Stack,
+  Switch,
   Toolbar,
   Tooltip,
   Typography,
@@ -50,7 +51,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -72,25 +72,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const NavBar = () => {
-  const [icon, setIcon] = useState(<DarkMode color="primary" />);
-
-  const handleIconChange = () => {
-    setIcon(
-      icon === <LightMode color="primary" /> ? (
-        <DarkMode color="primary" />
-      ) : (
-        <LightMode color="primary" />
-      )
-    ),
-      [];
-  };
-
+const NavBar = ({ check, change }) => {
   return (
     <>
       <AppBar
-        sx={{ backgroundColor: "inherit" }}
-        position="static"
+        sx={{ backgroundColor: "backColor.main", }}
+        position="fixed"
         elevation={0}
       >
         <Toolbar>
@@ -113,19 +100,21 @@ const NavBar = () => {
 
           <Stack direction="row" spacing={0.25}>
             <Tooltip title="DarkMode">
-              <IconButton
-                onClick={handleIconChange}
-                size="large"
-                aria-label="category"
-              >
-                {icon}
+              <IconButton>
+                <Switch
+                  size="small"
+                  defaultChecked
+                  inputProps={{ "aria-label": "checkbox" }}
+                  onChange={change}
+                  checked={check}
+                />
               </IconButton>
             </Tooltip>
 
             <Tooltip title="Cart">
               <IconButton size="large" aria-label="cart">
-                <StyledBadge badgeContent={1} color="primary">
-                  <ShoppingCart sx={{ color: "primary", fontSize: "17px" }} />
+                <StyledBadge badgeContent={1} color="secondary">
+                  <ShoppingCart color="primary" sx={{ fontSize: "17px" }} />
                 </StyledBadge>
               </IconButton>
             </Tooltip>

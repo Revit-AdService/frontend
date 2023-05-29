@@ -1,10 +1,18 @@
 import { Verified } from "@mui/icons-material";
-import { Avatar, Box, Button, Card, Tooltip, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  Paper,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
 const MyCard = () => {
   return (
-    <Box
+    <Paper
       className="card"
       sx={{
         display: "flex",
@@ -12,17 +20,22 @@ const MyCard = () => {
         border: "0",
         margin: "10px 0",
       }}
+      elevation={0}
     >
       <Box
         sx={{
           width: 291,
           height: 220,
-          bgcolor: "#e8e8e8",
+          bgcolor: "cardColor.main",
           borderRadius: 15,
         }}
       ></Box>
 
-      <Typography m={1} align="center">
+      <Typography
+        variant="title"
+        align="center"
+        sx={{ m: 1, color: "post.main" }}
+      >
         Graphics Design and Logo Design
       </Typography>
 
@@ -34,7 +47,9 @@ const MyCard = () => {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ width: 61, height: 61, mr: 1 }} />
+        <Avatar
+          sx={{ width: 61, height: 61, mr: 1, bgcolor: "cardColor.main" }}
+        />
 
         <Box
           sx={{
@@ -51,7 +66,9 @@ const MyCard = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h8">John Smith</Typography>
+            <Typography variant="artistName" sx={{ color: "post.main" }}>
+              John Smith
+            </Typography>
             <Verified
               sx={{ fontSize: "17px", color: "gold", margin: "0 5px" }}
             />
@@ -65,7 +82,7 @@ const MyCard = () => {
                   height: 16,
                   fontSize: 7,
                   borderRadius: 9,
-                  backgroundColor: "#e1209e",
+                  backgroundColor: "orderBtn.main",
                 }}
                 variant="contained"
               >
@@ -81,7 +98,7 @@ const MyCard = () => {
               flexDirection: "row",
             }}
           >
-            <Typography fontSize={9} mr={2}>
+            <Typography variant="smallText" sx={{ color: "post.main", mr: 2 }}>
               <Box
                 component={"span"}
                 color={"#e1209e"}
@@ -92,7 +109,7 @@ const MyCard = () => {
               sales
             </Typography>
 
-            <Typography fontSize={9}>
+            <Typography variant="smallText" sx={{ color: "post.main" }}>
               <Box
                 component={"span"}
                 color={"#e1209e"}
@@ -105,7 +122,7 @@ const MyCard = () => {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Paper>
   );
 };
 

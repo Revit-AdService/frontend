@@ -34,7 +34,9 @@ const MenuDrawer = () => {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+      }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -82,7 +84,7 @@ const MenuDrawer = () => {
       <React.Fragment key={anchor}>
         <Tooltip title="Menu">
           <IconButton onClick={toggleDrawer(anchor, true)}>
-            <Menu />
+            <Menu sx={{ color: "chatBtn.main" }} />
           </IconButton>
         </Tooltip>
 

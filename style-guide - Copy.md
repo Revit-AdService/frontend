@@ -12,7 +12,7 @@ The designs were created to the following widths:
 ### Light Theme		##Dark Theme		Position
 
 #F9F9F9			#OE112B			BackColor
-#25898			#242254			Header text
+#25898				#242254			Header text
 #E8E8E8			#191E48			All elements
 
 #215898			#73CEE2			Top Rated and Star

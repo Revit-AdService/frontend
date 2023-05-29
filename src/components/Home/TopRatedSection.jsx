@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import { Star } from "@mui/icons-material";
 import MyCard from "./MyCard";
 
@@ -9,7 +9,7 @@ const TopRatedSection = () => {
   const l = 4;
 
   return (
-    <Box>
+    <Paper elevation={0}>
       <Box
         m={2.5}
         sx={{
@@ -18,22 +18,26 @@ const TopRatedSection = () => {
           justifyContent: "center",
         }}
       >
-        <Typography>
+        <Typography variant="h1" sx={{color:'heading1.main'}}>
           TOP RATED
-          <Box component="span" color={"#e2209e"}>
+          <Box component="span" sx={{color:'heading2.main'}}>
             {" "}
             SERVICES
           </Box>
         </Typography>
         <Star
           sx={{
-            color: "#242254;",
-            fontSize: 20,
+            color: "heading1.main",
+            fontSize: 27,
+            ml: 0.5,
+            mt: 0.1
           }}
         />
       </Box>
 
-      <Grid container>
+      <Grid container sx={{
+        bgcolor: 'background'
+      }}>
         <Grid item xs={s} sm={m} md={l}>
           <MyCard />
         </Grid>
@@ -46,9 +50,8 @@ const TopRatedSection = () => {
         <Grid item xs={s} sm={m} md={l}>
           <MyCard />
         </Grid>
-
       </Grid>
-    </Box>
+    </Paper>
   );
 };
 
