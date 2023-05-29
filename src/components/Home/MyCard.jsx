@@ -1,13 +1,5 @@
 import { Verified } from "@mui/icons-material";
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  Paper,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Button, Paper, Tooltip, Typography } from "@mui/material";
 import React from "react";
 
 const MyCard = () => {
@@ -24,12 +16,33 @@ const MyCard = () => {
     >
       <Box
         sx={{
+          position: "relative",
           width: 291,
           height: 220,
           bgcolor: "cardColor.main",
           borderRadius: 15,
         }}
-      ></Box>
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            display: "flex",
+            alignItems: "center",
+            pl: 2,
+            bottom: 25,
+            right: 25,
+            width: 123,
+            height: 29,
+            borderRadius: "15px",
+            backgroundColor: "priceBtn.main",
+            letterSpacing: -0.5,
+          }}
+        >
+          <Typography sx={{ color: "post.main", fontSize: "13px" }}>
+            Price <Box component="span" sx={{fontWeight:500}}> $100.00</Box>
+          </Typography>
+        </Box>
+      </Box>
 
       <Typography
         variant="title"

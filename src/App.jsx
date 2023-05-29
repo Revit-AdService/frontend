@@ -55,6 +55,7 @@ function App() {
         fontFamily: "'Montserrat', sans-serif",
         fontWeight: 600,
         fontSize: "27px",
+        letterSpacing: -1.08,
       },
 
       title: {
@@ -127,7 +128,8 @@ function App() {
       h1: {
         fontFamily: "'Montserrat', sans-serif",
         fontWeight: 600,
-        fontSize: { xs: "20px", sm: "27px" },
+        fontSize: "27px",
+        letterSpacing: -1.08,
       },
 
       title: {
