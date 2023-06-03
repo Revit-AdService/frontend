@@ -12,8 +12,8 @@ import {
   styled,
 } from "@mui/material";
 import React, { useState } from "react";
-import MenuDrawer from "../components/Menu";
-import logo from "../assets/images/Logo.png";
+import MenuDrawer from "../Menu";
+import logo from "../../assets/images/Logo.png";
 import {
   Category,
   Search,
@@ -21,6 +21,7 @@ import {
   DarkMode,
   LightMode,
 } from "@mui/icons-material";
+import BasicMenu from "../CategoryMenu";
 
 const SearchInput = styled("div")(({ theme }) => ({
   position: "relative",
@@ -119,11 +120,7 @@ const NavBar = ({ check, change }) => {
               </IconButton>
             </Tooltip>
 
-            <Tooltip title="Category">
-              <IconButton size="large" aria-label="category">
-                <Category color="primary" />
-              </IconButton>
-            </Tooltip>
+            <BasicMenu/>
           </Stack>
           <MenuDrawer />
         </Toolbar>

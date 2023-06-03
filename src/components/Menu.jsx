@@ -7,12 +7,22 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { Menu, Person, ShoppingCart } from "@mui/icons-material";
-import { Avatar, IconButton, Stack, Toolbar, Tooltip } from "@mui/material";
+import {
+  Avatar,
+  IconButton,
+  Stack,
+  Toolbar,
+  Tooltip,
+  styled,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 const MenuDrawer = () => {
+  const StyledItem = styled(ListItem)(({ theme }) => ({
+    width: "100%",
+  }));
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -47,25 +57,31 @@ const MenuDrawer = () => {
 
       <Toolbar>
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <Person />
-              </ListItemIcon>
-              <ListItemText primary="Profile" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="/">
+            <StyledItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Person />
+                </ListItemIcon>
+                <ListItemText primary="Profile" />
+              </ListItemButton>
+            </StyledItem>
+          </Link>
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ShoppingCart />
-              </ListItemIcon>
-              <ListItemText primary="Cart" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="/login">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ShoppingCart />
+                </ListItemIcon>
+                <ListItemText primary="Cart" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         </List>
       </Toolbar>
+
+      <Divider />
 
       {/* <ListItem key={text} disablePadding>
             <ListItemButton>

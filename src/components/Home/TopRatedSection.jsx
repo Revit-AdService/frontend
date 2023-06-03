@@ -9,7 +9,7 @@ const TopRatedSection = () => {
   const l = 4;
 
   return (
-    <Paper elevation={0}>
+    <Paper id="top-rated-services" elevation={0}>
       <Box
         m={2.5}
         sx={{
@@ -18,9 +18,9 @@ const TopRatedSection = () => {
           justifyContent: "center",
         }}
       >
-        <Typography variant="h1" sx={{color:'heading1.main'}}>
+        <Typography variant="h1" sx={{ color: "heading1.main" }}>
           TOP RATED
-          <Box component="span" sx={{color:'heading2.main'}}>
+          <Box component="span" sx={{ color: "heading2.main" }}>
             {" "}
             SERVICES
           </Box>
@@ -30,14 +30,17 @@ const TopRatedSection = () => {
             color: "heading1.main",
             fontSize: 27,
             ml: 0.5,
-            mt: 0.1
+            mt: 0.1,
           }}
         />
       </Box>
 
-      <Grid container sx={{
-        bgcolor: 'background'
-      }}>
+      <Grid
+        container
+        sx={{
+          bgcolor: "background",
+        }}
+      >
         <Grid item xs={s} sm={m} md={l}>
           <MyCard />
         </Grid>

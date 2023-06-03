@@ -4,7 +4,7 @@ import MyCard from "./MyCard";
 
 const MoreServicesSection = () => {
   return (
-    <Box>
+    <Box id="more-services">
       <Divider textAlign="left" variant="middle" sx={{ borderTopWidth: "4px" }}>
         <Box
           sx={{

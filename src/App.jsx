@@ -1,8 +1,10 @@
 import { CssBaseline, Paper, ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
-import NavBar from "./common/NavBar";
+import NavBar from "./components/Home/NavBar";
 import Home from "./pages/Home";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -159,8 +161,11 @@ function App() {
       <CssBaseline />
       <Paper elevation={0}>
         <div className="App">
-          <NavBar check={theme} change={() => setTheme(!theme)} />
-          <Home />
+          {/* <NavBar check={theme} change={() => setTheme(!theme)} /> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="login" element={<Login />} />
+          </Routes>
         </div>
       </Paper>
     </ThemeProvider>
