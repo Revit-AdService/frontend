@@ -4,13 +4,17 @@ import Slider from "../components/Home/Slider";
 import TopRatedSection from "../components/Home/TopRatedSection";
 import MoreServicesSection from "../components/Home/MoreServicesSection";
 import { Chat } from "@mui/icons-material";
-import SearchBar from "../components/Home/SearchBar";
 import NavBar from "../components/Home/NavBar";
 
-const Home = () => {
+const Home = ({ check, change }) => {
   return (
-    <Box>
-      <NavBar />
+    <Box
+      sx={{
+        position: "relative",
+        top: 60,
+      }}
+    >
+      <NavBar check={check} change={change} />
       <Slider />
       <TopRatedSection />
       <MoreServicesSection />

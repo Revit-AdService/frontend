@@ -1,83 +1,27 @@
 import {
   AppBar,
-  Badge,
+  Box,
   IconButton,
-  InputBase,
+  Input,
   Stack,
   Switch,
   Toolbar,
   Tooltip,
   Typography,
-  alpha,
-  styled,
 } from "@mui/material";
 import React, { useState } from "react";
 import MenuDrawer from "../Menu";
 import logo from "../../assets/images/Logo.png";
-import {
-  Category,
-  Search,
-  ShoppingCart,
-  DarkMode,
-  LightMode,
-} from "@mui/icons-material";
+import { Search, ShoppingCart, Close } from "@mui/icons-material";
 import BasicMenu from "../CategoryMenu";
 
-const SearchInput = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.primary.main, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.primary.main, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sd")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-}));
-
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px",
-  },
-}));
-
 const NavBar = ({ check, change }) => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <>
       <AppBar
-        sx={{ backgroundColor: "backColor.main", }}
+        sx={{ backgroundColor: "backColor.main" }}
         position="fixed"
         elevation={0}
       >
@@ -87,17 +31,6 @@ const NavBar = ({ check, change }) => {
           </IconButton>
 
           <Typography sx={{ flexGrow: 1 }} />
-
-          {/* <SearchInput>
-            <SearchIconWrapper>
-              <Search />
-            </SearchIconWrapper>
-
-            <StyledInputBase
-              placeholder="Search..."
-              inputProps={{ "aria-label": "search" }}
-            />
-          </SearchInput> */}
 
           <Stack direction="row" spacing={0.25}>
             <Tooltip title="DarkMode">
@@ -114,15 +47,59 @@ const NavBar = ({ check, change }) => {
 
             <Tooltip title="Cart">
               <IconButton size="large" aria-label="cart">
-                <StyledBadge badgeContent={1} color="secondary">
-                  <ShoppingCart color="primary" sx={{ fontSize: "17px" }} />
-                </StyledBadge>
+                <ShoppingCart color="primary" sx={{ fontSize: "22px" }} />
               </IconButton>
             </Tooltip>
 
-            <BasicMenu/>
+            <BasicMenu />
           </Stack>
-          <MenuDrawer />
+          <Box
+            className="search"
+            sx={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: "1.5em",
+              cursor: "pointer",
+              zIndex: "10",
+            }}
+          >
+            <Box component={"span"} className="icon">
+              {isActive ? (
+                <Close color="primary" onClick={() => setIsActive(false)} />
+              ) : (
+                <Search color="primary" onClick={() => setIsActive(true)} />
+              )}
+            </Box>
+          </Box>
+          <Box
+            className={`searchBox ${isActive ? "active" : ""}`}
+            sx={{
+              position: "absolute",
+              right: "-100%",
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              background: "#ffffffd0",
+              alignItems: "center",
+              padding: "0 30px",
+              transition: "1s ease-in-out",
+              "&.active": {
+                right: "0",
+              },
+            }}
+          >
+            <Input
+              placeholder="search here . . . "
+              sx={{
+                width: "95%",
+                height: 50,
+                color: "#333",
+              }}
+            />
+          </Box>
+          {isActive ? "" : <MenuDrawer />}
         </Toolbar>
       </AppBar>
     </>

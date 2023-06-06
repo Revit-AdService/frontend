@@ -1,4 +1,6 @@
-const light = {
+import { createTheme } from "@mui/material";
+
+const LightTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
@@ -69,7 +71,16 @@ const light = {
       fontStyle: "Italic",
       letterSpacing: -0.5,
     },
-  },
-};
 
-console.alert("heelo");
+    // SignUp
+    signUpLabel: {
+      color: "#857a96",
+      fontFamily: "'Montserrat', sans-serif",
+      fontSize: "12px",
+      letterSpacing: -0.36,
+      marginLeft: 10,
+    },
+  },
+});
+
+export { LightTheme };

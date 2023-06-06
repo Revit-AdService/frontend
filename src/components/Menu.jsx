@@ -11,7 +11,6 @@ import { Menu, Person, ShoppingCart } from "@mui/icons-material";
 import {
   Avatar,
   IconButton,
-  Stack,
   Toolbar,
   Tooltip,
   styled,
@@ -83,14 +82,7 @@ const MenuDrawer = () => {
 
       <Divider />
 
-      {/* <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem> */}
+  
     </Box>
   );
 
