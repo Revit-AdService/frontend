@@ -53,7 +53,7 @@ const LightTheme = createTheme({
 
     title: {
       fontFamily: "'Montserrat', sans-serif",
-      fontSize: "20px",
+      fontSize: "18px",
       fontWeight: 500,
       letterSpacing: -1,
     },

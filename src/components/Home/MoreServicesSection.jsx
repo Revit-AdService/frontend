@@ -18,7 +18,13 @@ const MoreServicesSection = () => {
             pl: 1,
           }}
         >
-          <Typography variant="h1" sx={{ color: "heading1.main" }}>
+          <Typography
+            variant="h1"
+            sx={{
+              color: "heading1.main",
+              "@media (max-width: 500px)": { fontSize: "24px" },
+            }}
+          >
             MORE
             <Box
               component="span"

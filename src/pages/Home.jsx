@@ -1,10 +1,10 @@
 import { Box, Fab } from "@mui/material";
 import React from "react";
-import Slider from "../components/Home/Slider";
 import TopRatedSection from "../components/Home/TopRatedSection";
 import MoreServicesSection from "../components/Home/MoreServicesSection";
 import { Chat } from "@mui/icons-material";
 import NavBar from "../components/Home/NavBar";
+import Banner from "../components/Home/Banner";
 
 const Home = ({ check, change }) => {
   return (
@@ -15,7 +15,7 @@ const Home = ({ check, change }) => {
       }}
     >
       <NavBar check={check} change={change} />
-      <Slider />
+      <Banner />
       <TopRatedSection />
       <MoreServicesSection />
       <Fab

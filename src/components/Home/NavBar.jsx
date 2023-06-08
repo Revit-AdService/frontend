@@ -10,10 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import MenuDrawer from "../Menu";
+import MenuDrawer from "../../common/Menu";
 import logo from "../../assets/images/Logo.png";
 import { Search, ShoppingCart, Close } from "@mui/icons-material";
-import BasicMenu from "../CategoryMenu";
+import BasicMenu from "../Home/CategoryMenu";
 
 const NavBar = ({ check, change }) => {
   const [isActive, setIsActive] = useState(false);
@@ -93,7 +93,7 @@ const NavBar = ({ check, change }) => {
             <Input
               placeholder="search here . . . "
               sx={{
-                width: "95%",
+                width: "100%",
                 height: 50,
                 color: "#333",
               }}

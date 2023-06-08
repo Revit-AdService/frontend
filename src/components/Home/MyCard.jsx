@@ -39,7 +39,11 @@ const MyCard = () => {
           }}
         >
           <Typography sx={{ color: "post.main", fontSize: "13px" }}>
-            Price <Box component="span" sx={{fontWeight:500}}> $100.00</Box>
+            Price{" "}
+            <Box component="span" sx={{ fontWeight: 500 }}>
+              {" "}
+              $100.00
+            </Box>
           </Typography>
         </Box>
       </Box>
@@ -47,7 +51,14 @@ const MyCard = () => {
       <Typography
         variant="title"
         align="center"
-        sx={{ m: 1, color: "post.main" }}
+        sx={{
+          m: 1,
+          color: "post.main",
+          "@media (max-width: 500px)": {
+            fontSize: 15,
+          },
+
+        }}
       >
         Graphics Design and Logo Design
       </Typography>
