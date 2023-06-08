@@ -53,8 +53,9 @@ const DarkTheme = createTheme({
 
     title: {
       fontFamily: "'Montserrat', sans-serif",
-      fontSize: "17px",
+      fontSize: "18px",
       fontWeight: 500,
+      letterSpacing: -1,
     },
 
     artistName: {

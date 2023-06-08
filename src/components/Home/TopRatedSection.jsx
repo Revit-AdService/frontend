@@ -18,7 +18,13 @@ const TopRatedSection = () => {
           justifyContent: "center",
         }}
       >
-        <Typography variant="h1" sx={{ color: "heading1.main" }}>
+        <Typography
+          variant="h1"
+          sx={{
+            color: "heading1.main",
+            "@media (max-width: 500px)": { fontSize: "20px" },
+          }}
+        >
           TOP RATED
           <Box component="span" sx={{ color: "heading2.main" }}>
             {" "}
@@ -31,6 +37,7 @@ const TopRatedSection = () => {
             fontSize: 27,
             ml: 0.5,
             mt: 0.1,
+            "@media (max-width: 500px)": { fontSize: "20px" },
           }}
         />
       </Box>

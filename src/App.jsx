@@ -1,6 +1,5 @@
 import { CssBaseline, Paper, ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
-import NavBar from "./components/Home/NavBar";
 import Home from "./pages/Home";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
@@ -17,7 +16,6 @@ function App() {
       <CssBaseline />
       <Paper elevation={0}>
         <div className="App">
-          {/* <NavBar check={theme} change={() => setTheme(!theme)} /> */}
           <Routes>
             <Route
               path="/"
