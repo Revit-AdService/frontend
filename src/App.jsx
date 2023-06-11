@@ -7,9 +7,14 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { LightTheme } from "./common/Theme/LightTheme";
 import { DarkTheme } from "./common/Theme/DarkTheme";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
+
+  const handleToggle = () => {
+    setTheme(!theme);
+  }
 
   return (
     <ThemeProvider theme={theme ? DarkTheme : LightTheme}>
@@ -19,10 +24,11 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home check={theme} change={() => setTheme(!theme)} />}
+              element={<Home check={theme} change={handleToggle} />}
             />
             <Route path="login" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
+            <Route path="resetpassword" element={<ResetPassword />} />
+            <Route path="signup" element={<SignUp check={theme}/>} />
           </Routes>
         </div>
       </Paper>

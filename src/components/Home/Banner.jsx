@@ -82,7 +82,7 @@ const Banner = () => {
         >
           Are you looking to get hired in the comfort of your own house. Or
           maybe you are looking for that one skilled personnel to get your
-          problems fixed. We got you covered
+          problems fixed. We got you covered.
         </Typography>
 
         <Button

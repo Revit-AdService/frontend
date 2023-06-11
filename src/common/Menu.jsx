@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Fragment, useState } from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
@@ -7,22 +7,39 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Menu, Person, ShoppingCart } from "@mui/icons-material";
+import {
+  Home,
+  Login,
+  Logout,
+  Menu,
+  Person,
+  ShoppingCart,
+} from "@mui/icons-material";
 import {
   Avatar,
+  Button,
   IconButton,
   Toolbar,
   Tooltip,
-  styled,
+  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const MenuDrawer = () => {
-  const StyledItem = styled(ListItem)(({ theme }) => ({
-    width: "100%",
-  }));
+const menuItems = [
+  {
+    to: "/",
+    icon: <Home />,
+    primary: "Home",
+  },
+  {
+    to: "/signup",
+    icon: <Login />,
+    primary: "Login",
+  },
+];
 
-  const [state, setState] = React.useState({
+const MenuDrawer = () => {
+  const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,
@@ -44,52 +61,68 @@ const MenuDrawer = () => {
   const list = (anchor) => (
     <Box
       sx={{
+        position: "relative",
+        height: "100%",
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
       }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <Toolbar>
+      <Box
+        sx={{
+          p: 2.5,
+        }}
+      >
         <Avatar />
-      </Toolbar>
+        <Typography
+          sx={{
+            fontSize: 12,
+            fontWeight: 600,
+            letterSpacing: -0.5,
+            mt:1
+          }}
+        >
+          Tauya Mtowodzwa
+        </Typography>
+      </Box>
 
-      <Toolbar>
-        <List>
-          <Link to="/">
-            <StyledItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Person />
-                </ListItemIcon>
-                <ListItemText primary="Profile" />
-              </ListItemButton>
-            </StyledItem>
-          </Link>
+      <Divider />
 
-          <Link to="/login">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <ShoppingCart />
-                </ListItemIcon>
-                <ListItemText primary="Cart" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+      <Toolbar sx={{ p: 0 }}>
+        <List sx={{ width: "100%" }}>
+          {menuItems.map((item, index) => (
+            <Link key={index} to={item.to} style={{ textDecoration: "none" }}>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.primary} sx={{ color: "#000" }} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          ))}
         </List>
       </Toolbar>
 
       <Divider />
 
-  
+      <Button
+        startIcon={<Logout />}
+        sx={{
+          position: "absolute",
+          bottom: 10,
+          width: "100%",
+        }}
+      >
+        Logout
+      </Button>
     </Box>
   );
 
   const anchor = "right";
   return (
     <div>
-      <React.Fragment key={anchor}>
+      <Fragment key={anchor}>
         <Tooltip title="Menu">
           <IconButton onClick={toggleDrawer(anchor, true)}>
             <Menu sx={{ color: "chatBtn.main" }} />
@@ -104,7 +137,7 @@ const MenuDrawer = () => {
         >
           {list(anchor)}
         </SwipeableDrawer>
-      </React.Fragment>
+      </Fragment>
     </div>
   );
 };

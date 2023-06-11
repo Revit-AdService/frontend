@@ -40,6 +40,35 @@ const DarkTheme = createTheme({
     chatBtn: {
       main: "#215898",
     },
+
+    // Signup & login
+    SUCardBg: {
+      main: "#242153dd",
+    },
+    signUpLabel: {
+      main: "#215898",
+    },
+    SUsign: {
+      main: "#225a98",
+    },
+    SUup: {
+      main: "#ccd1da",
+    },
+    SUInputTxt: {
+      main: "#ccd1da",
+    },
+    SUiconBg: {
+      main: "#ccd1da",
+    },
+    SignUpBtn: {
+      main: "#225a98",
+    },
+    SignUpBtnhover: {
+      main: "#225a98a0",
+    },
+    buttontxt: {
+      main: "#e8e8e8",
+    },
   },
   typography: {
     fontFamily: "'Montserrat', sans-serif",

@@ -1,130 +1,289 @@
-import { Box, Button, Grid, Input, Typography } from "@mui/material";
+import { AppBar, Box, Button, Input, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import icon from "../assets/images/Revit.svg";
 import styled from "@emotion/styled";
+import bgLight from "../assets/images/Login-SignUp/Login-side-image-Light.jpg";
+import bgDark from "../assets/images/Login-SignUp/Login-side-image-Dark.jpg";
+import Google from "../assets/images/Login-SignUp/Google-Logo.png";
+import { Link } from "react-router-dom";
+import MenuDrawer from "../common/Menu";
+import RevitLogo from "../assets/images/Logo.png";
 
 const StyledInput = styled(Input)(({ theme }) => ({
   border: `1px solid ${theme.typography.signUpLabel.color}`,
   borderRadius: 25,
-  paddingLeft: 5,
-  paddingRight: 5,
-  fontSize: 10,
-  color: `#fff`,
+  padding: "0 10px",
+  fontSize: 11,
+  color: "SUInputTxt.main",
   width: "100%",
+
+  "@media (min-width: 1366px)": {
+    fontSize: "14px",
+  },
 }));
 
-const SignUp = () => {
+const SignUp = (check) => {
   const InputFeilds = [
-    { label: "Name", width: "45%", float: "left" },
+    { label: "Name", width: "47%", float: "left" },
     { label: "LastName", width: "51%", float: "right" },
     { label: "DOB", width: "34%", float: "left" },
-    { label: "Email", width: "60%", float: "right" },
+    { label: "Email", width: "64%", float: "right" },
     { label: "Phone number", width: "45%", float: "left" },
-    { label: "National ID number", width: "52%", float: "right" },
-    { label: "Password", width: "45%", float: "left" },
-    { label: "Verify Password", width: "53%", float: "right" },
+    { label: "National ID number", width: "53%", float: "right" },
+    { label: "Password", width: "49%", float: "left" },
+    { label: "Verify Password", width: "49%", float: "right" },
   ];
 
   return (
     <Box
       sx={{
-        backgroundColor: "backColor.main",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        "@media (max-width: 500px)": {
+          background: `url(${check ? bgDark : bgDark})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-reapeat",
+          backgroundPosition: "50%",
+        },
       }}
     >
+      <AppBar
+        sx={{
+          bgcolor: "backColor.main",
+        }}
+        elevation={0}
+      >
+        <Toolbar>
+          <Link to={"/"}>
+            <img
+              src={RevitLogo}
+              style={{ width: "100%", cursor: "pointer" }}
+              alt="revit-logo"
+            />
+          </Link>
+          <Typography flexGrow={1} />
+          <MenuDrawer />
+        </Toolbar>
+      </AppBar>
       <Box
         sx={{
-          width: 788,
-          height: 494,
-          borderRadius: 25,
-          backgroundColor: "#242153",
+          minHeight: "100vh",
           display: "flex",
-          overflow: "hidden",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Box
-          sx={{ backgroundColor: "#FFFFFF51", hieght: "100%", width: 364 }}
-        />
-
-        <Box
           sx={{
+            width: 688,
+            height: 495,
+            borderRadius: 15,
+            backgroundColor: "SUCardBg.main",
             display: "flex",
-            width: "54%",
-            height: "100%",
-            flexDirection: "column",
-            alignItems: "center",
-            justufyContent: "center",
-            pt: 4.5,
+            overflow: "hidden",
+            mt: 5,
+            mb: 5,
+
+            "@media (max-width: 700px)": {
+              width: 500,
+            },
+            "@media (max-width: 500px)": {
+              width: 320,
+            },
+
+            "@media (min-width: 1366px)": {
+              width: 1107,
+              height: 695,
+            },
           }}
         >
-          <Box align="center">
-            <Box
-              sx={{
-                width: 50,
-                height: 50,
-                backgroundColor: "#ccd1da",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <img src={icon} alt="" />
-            </Box>
-            <Typography
-              sx={{
-                color: "#225a98",
-                fontSize: 24,
-                fontWeight: 500,
-                letterSpacing: -0.96,
-              }}
-            >
-              Sign <Box component={"span"}>up</Box>
-            </Typography>
-          </Box>
+          <Box
+            sx={{
+              background: `url(${check ? bgDark : bgLight})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-reapeat",
+              backgroundPosition: "55%",
+              hieght: "100%",
+              width: 364,
+              "@media (max-width: 700px)": {
+                width: "38%",
+              },
+              "@media (max-width: 500px)": {
+                width: 0,
+                backgroundPosition: "100%",
+              },
+              "@media (min-width: 1366px)": {
+                width: 513,
+              },
+            }}
+          />
 
-          <Box sx={{ width: 289 }}>
-            {InputFeilds.map(({ label, width, float }) => (
+          <Box
+            sx={{
+              display: "flex",
+              width: "54%",
+              height: 495,
+              flexDirection: "column",
+              alignItems: "center",
+              justufyContent: "center",
+              pt: 5,
+              "@media (max-width: 700px)": {
+                width: "62%",
+              },
+              "@media (max-width: 500px)": {
+                width: "100%",
+                backgroundPosition: "100%",
+              },
+
+              "@media (min-width: 1366px)": {
+                mt: 7,
+              },
+            }}
+          >
+            <Box align="center">
               <Box
                 sx={{
-                  width: `${width}`,
-                  float: `${float}`,
-                  mb: 1,
+                  width: 50,
+                  height: 50,
+                  background: `url(${icon}) no-repeat`,
+                  backgroundColor: "SUiconBg.main",
+                  backgroundPosition: "50%",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
-                component={"div"}
-              >
-                <Typography variant="signUpLabel">{label}</Typography>
-                <StyledInput disableUnderline={true} />
-              </Box>
-            ))}
+              ></Box>
+              <Typography
+                sx={{
+                  mt: -1,
+                  color: "SUsign.main",
+                  fontSize: 24,
+                  fontWeight: 500,
+                  letterSpacing: -0.96,
 
-            <Button
+                  "@media (min-width: 1366px)": {
+                    fontSize: 35,
+                  },
+                }}
+              >
+                Sign
+                <Box component={"span"} sx={{ color: "SUup.main" }}>
+                  Up
+                </Box>
+              </Typography>
+            </Box>
+
+            <Box
               sx={{
-                width: "100%",
-                height: 31,
-                bgcolor: "secondary.main",
-                borderRadius: 25,
-                fontSize: 12,
-                margin: "10px 0",
+                width: 289,
+                "@media (max-width: 500px)": {
+                  width: 300,
+                  backgroundPosition: "100%",
+                },
+                "@media (min-width: 1366px)": {
+                  pt: 2,
+                  width: 405,
+                },
               }}
             >
-              SignUp
-            </Button>
-            <Button
+              {InputFeilds.map(({ label, width, float }) => (
+                <Box
+                  sx={{
+                    width: `${width}`,
+                    float: `${float}`,
+                    mb: 0.75,
+                  }}
+                  component={"div"}
+                >
+                  <Typography
+                    variant="signUpLabel"
+                    sx={{
+                      letterSpacing: "-0.36px",
+                      fontWeight: 500,
+                      color: "signUpLabel.main",
+                      "@media (min-width: 1366px)": {
+                        fontSize: "14px",
+                      },
+                    }}
+                  >
+                    {label}
+                  </Typography>
+                  <StyledInput disableUnderline={true} />
+                </Box>
+              ))}
+
+              <Button
+                sx={{
+                  textTransform: "none",
+                  width: "100%",
+                  height: 25,
+                  bgcolor: "SignUpBtn.main",
+                  borderRadius: 25,
+                  fontWeight: 500,
+                  fontSize: 11,
+                  marginTop: "20px",
+                  color: "#e8e8e8",
+                  transition: "0.3s ease-in-out",
+                  letterSpacing: "-0.32px",
+                  "&:hover": {
+                    bgcolor: "SignUpBtnhover.main",
+                  },
+
+                  "@media (min-width: 1366px)": {
+                    fontSize: "13px",
+                    height: "31px",
+                  },
+                }}
+              >
+                SignUp
+              </Button>
+              <Button
+                startIcon={<img src={Google} style={{ height: "25px" }} />}
+                sx={{
+                  textTransform: "none",
+                  width: "100%",
+                  height: 25,
+                  fontSize: 11,
+                  fontWeight: 500,
+                  color: "buttontxt.main",
+                  border: "1px solid",
+                  borderColor: "signUpLabel.main",
+                  borderRadius: 25,
+                  margin: "5px 0",
+                  letterSpacing: "-0.32px",
+                  "& > :first-child": {
+                    mr: -0.25,
+                  },
+
+                  "@media (min-width: 1366px)": {
+                    height: "31px",
+                    fontSize: "13px",
+                  },
+                }}
+              >
+                Signup with Google
+              </Button>
+            </Box>
+
+            <Typography
               sx={{
-                width: "100%",
+                pt: 2,
+                color: "#857a96",
                 fontSize: 12,
-                color: "#fff",
-                border: "1px solid grey ",
-                borderRadius: 25,
-                margin: "5px 0",
+                fontWeight: 400,
+                letterSpacing: "-0.35px",
               }}
             >
-              Signup with Google
-            </Button>
+              Already a user?{" "}
+              <Link
+                to={"/login"}
+                style={{
+                  color: "#857a96",
+                  fontWeight: 600,
+                }}
+              >
+                Login
+              </Link>
+            </Typography>
           </Box>
         </Box>
       </Box>

@@ -23,7 +23,7 @@ const LightTheme = createTheme({
       main: "#E8E8E8",
     },
     heading1: {
-      main: "#215898",
+      main: "#242254",
     },
     heading2: {
       main: "#E2209E",
@@ -39,6 +39,35 @@ const LightTheme = createTheme({
     },
     chatBtn: {
       main: "#242254",
+    },
+
+    // Signup & login
+    SUCardBg: {
+      main: "#e8e8e8dd",
+    },
+    signUpLabel: {
+      main: "#857a96",
+    },
+    SUsign: {
+      main: "#dc1f8a",
+    },
+    SUup: {
+      main: "#200841",
+    },
+    SUInputTxt: {
+      main: "#200841",
+    },
+    SUiconBg: {
+      main: "#e8e8e8",
+    },
+    SignUpBtn: {
+      main: "#dc1f8a",
+    },
+    SignUpBtnhover: {
+      main: "#dc1f8aa0",
+    },
+    buttontxt: {
+      main: "#857a96",
     },
   },
   typography: {

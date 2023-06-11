@@ -14,6 +14,7 @@ import MenuDrawer from "../../common/Menu";
 import logo from "../../assets/images/Logo.png";
 import { Search, ShoppingCart, Close } from "@mui/icons-material";
 import BasicMenu from "../Home/CategoryMenu";
+import { Link } from "react-router-dom";
 
 const NavBar = ({ check, change }) => {
   const [isActive, setIsActive] = useState(false);
@@ -26,9 +27,9 @@ const NavBar = ({ check, change }) => {
         elevation={0}
       >
         <Toolbar>
-          <IconButton>
+          <Link to={'/'}>
             <img src={logo} alt="logo" />
-          </IconButton>
+          </Link>
 
           <Typography sx={{ flexGrow: 1 }} />
 
