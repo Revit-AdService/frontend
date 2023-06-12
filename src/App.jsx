@@ -8,6 +8,8 @@ import SignUp from "./pages/SignUp";
 import { LightTheme } from "./common/Theme/LightTheme";
 import { DarkTheme } from "./common/Theme/DarkTheme";
 import ResetPassword from "./pages/ResetPassword";
+import EmailSent from "./pages/EmailSent";
+import UserType from "./pages/UserType";
 
 function App() {
   const [theme, setTheme] = useState(true);
@@ -28,6 +30,8 @@ function App() {
             />
             <Route path="login" element={<Login />} />
             <Route path="resetpassword" element={<ResetPassword />} />
+            <Route path="emailsent" element={<EmailSent />} />
+            <Route path="usertype" element={<UserType />} />
             <Route path="signup" element={<SignUp check={theme}/>} />
           </Routes>
         </div>
