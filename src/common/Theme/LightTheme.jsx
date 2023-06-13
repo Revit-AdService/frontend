@@ -40,6 +40,9 @@ const LightTheme = createTheme({
     chatBtn: {
       main: "#242254",
     },
+    searchBg: {
+      main: "#24225455",
+    },
 
     // Signup & login
     SUCardBg: {
@@ -69,7 +72,24 @@ const LightTheme = createTheme({
     buttontxt: {
       main: "#857a96",
     },
+
+    // User Type
+    utTitle: {
+      main: "#0e112b",
+    },
+    utCardBg: {
+      main: "#e8e8e8",
+    },
+    utBtnBg: {
+      main: "#fff",
+    },
+
+    // Reset Password
+    rpTxtMsg: {
+      main: "#857a96",
+    },
   },
+
   typography: {
     fontFamily: "'Montserrat', sans-serif",
 

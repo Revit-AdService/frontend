@@ -1,9 +1,9 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import banner from "../../assets/images/Banner.png";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
-  
   return (
     <Box
       sx={{
@@ -15,9 +15,9 @@ const Banner = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "40%",
         p: 4,
-        '@media (max-width: 500px)': {
-          height: 210
-        }
+        "@media (max-width: 500px)": {
+          height: 210,
+        },
       }}
     >
       <Box
@@ -76,7 +76,7 @@ const Banner = () => {
             mb: 4,
             "@media (max-width: 500px)": {
               fontSize: 8,
-              mb: '10px'
+              mb: "10px",
             },
           }}
         >
@@ -85,26 +85,28 @@ const Banner = () => {
           problems fixed. We got you covered.
         </Typography>
 
-        <Button
-          variant="contained"
-          sx={{
-            hieght: 25,
-            width: 80,
-            bgcolor: "#242254",
-            borderRadius: 14,
-            fontSize: 10,
-            letterSpacing: -0.4,
-            border: "1px solid #f9f9f9",
-            "@media (max-width: 500px)": {
-              hieght: 17,
-              width: 55,
-              fontSize: 7,
-              padding: '3px'
-            },
-          }}
-        >
-          Login
-        </Button>
+        <Link to={'/login'}>
+          <Button
+            variant="contained"
+            sx={{
+              hieght: 25,
+              width: 80,
+              bgcolor: "#242254",
+              borderRadius: 14,
+              fontSize: 10,
+              letterSpacing: -0.4,
+              border: "1px solid #f9f9f9",
+              "@media (max-width: 500px)": {
+                hieght: 17,
+                width: 55,
+                fontSize: 7,
+                padding: "3px",
+              },
+            }}
+          >
+            Login
+          </Button>
+        </Link>
       </Box>
     </Box>
   );

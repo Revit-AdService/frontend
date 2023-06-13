@@ -9,7 +9,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MenuDrawer from "../../common/Menu";
 import logo from "../../assets/images/Logo.png";
 import { Search, ShoppingCart, Close } from "@mui/icons-material";
@@ -18,6 +18,19 @@ import { Link } from "react-router-dom";
 
 const NavBar = ({ check, change }) => {
   const [isActive, setIsActive] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -27,7 +40,7 @@ const NavBar = ({ check, change }) => {
         elevation={0}
       >
         <Toolbar>
-          <Link to={'/'}>
+          <Link to={"/"}>
             <img src={logo} alt="logo" />
           </Link>
 
@@ -54,53 +67,62 @@ const NavBar = ({ check, change }) => {
 
             <BasicMenu />
           </Stack>
-          <Box
-            className="search"
-            sx={{
-              position: "relative",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontSize: "1.5em",
-              cursor: "pointer",
-              zIndex: "10",
-            }}
-          >
-            <Box component={"span"} className="icon">
-              {isActive ? (
-                <Close color="primary" onClick={() => setIsActive(false)} />
-              ) : (
-                <Search color="primary" onClick={() => setIsActive(true)} />
-              )}
-            </Box>
-          </Box>
-          <Box
-            className={`searchBox ${isActive ? "active" : ""}`}
-            sx={{
-              position: "absolute",
-              right: "-100%",
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              background: "#ffffffd0",
-              alignItems: "center",
-              padding: "0 30px",
-              transition: "1s ease-in-out",
-              "&.active": {
-                right: "0",
-              },
-            }}
-          >
-            <Input
-              placeholder="search here . . . "
-              sx={{
-                width: "100%",
-                height: 50,
-                color: "#333",
-              }}
-            />
-          </Box>
-          {isActive ? "" : <MenuDrawer />}
+
+          {width < 600 ? (
+            <>
+              {" "}
+              <Box
+                className="search"
+                sx={{
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "1.5em",
+                  cursor: "pointer",
+                  zIndex: "10",
+                }}
+              >
+                <Box component={"span"} className="icon">
+                  {isActive ? (
+                    <Close color="primary" onClick={() => setIsActive(false)} />
+                  ) : (
+                    <Search color="primary" onClick={() => setIsActive(true)} />
+                  )}
+                </Box>
+              </Box>
+              <Box
+                className={`searchBox ${isActive ? "active" : ""}`}
+                sx={{
+                  position: "absolute",
+                  right: "-100%",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  background: "#ffffffd0",
+                  alignItems: "center",
+                  padding: "0 30px",
+                  transition: "1s ease-in-out",
+                  "&.active": {
+                    right: "0",
+                  },
+                }}
+              >
+                <Input
+                  placeholder="search here . . . "
+                  sx={{
+                    width: "100%",
+                    height: 50,
+                    color: "#333",
+                  }}
+                />
+              </Box>
+            </>
+          ) : (
+            ""
+          )}
+
+          {width >= 600 || (width < 600 && !isActive) ? <MenuDrawer /> : null}
         </Toolbar>
       </AppBar>
     </>

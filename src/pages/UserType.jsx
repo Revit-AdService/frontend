@@ -55,7 +55,7 @@ const UserType = () => {
 
       <Typography
         sx={{
-          color: "#e2209e",
+          color: "utTitle.main",
           fontSize: 27,
           fontWeight: 600,
           letterSpacing: -1.08,
@@ -75,7 +75,7 @@ const UserType = () => {
           gap: 10,
           width: 611,
           height: 317,
-          bgcolor: "#242254",
+          bgcolor: "utCardBg.main",
           borderRadius: "79px",
           mt: "32px",
 
@@ -105,7 +105,7 @@ const UserType = () => {
                 gap: 3,
                 width: 213,
                 height: 201,
-                bgcolor: "#7574a2",
+                bgcolor: "utBtnBg.main",
                 borderRadius: "45px",
 
                 "@media (max-width: 620px)": {

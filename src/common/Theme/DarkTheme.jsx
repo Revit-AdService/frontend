@@ -40,6 +40,9 @@ const DarkTheme = createTheme({
     chatBtn: {
       main: "#215898",
     },
+    searchBg: {
+      main: "#73CEE255",
+    },
 
     // Signup & login
     SUCardBg: {
@@ -69,7 +72,24 @@ const DarkTheme = createTheme({
     buttontxt: {
       main: "#e8e8e8",
     },
+
+    // User Type
+    utTitle: {
+      main: "#e2209e",
+    },
+    utCardBg: {
+      main: "#242254",
+    },
+    utBtnBg: {
+      main: "#7574a2",
+    },
+
+    // Reset Password
+    rpTxtMsg: {
+      main: "#225a98",
+    },
   },
+
   typography: {
     fontFamily: "'Montserrat', sans-serif",
 
