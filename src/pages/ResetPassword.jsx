@@ -7,13 +7,14 @@ import MenuDrawer from "../common/Menu";
 import RevitLogo from "../assets/images/Logo.png";
 import EmailSent from "../components/ResetPassword/EmailSent";
 import ChangePasswordInput from "../components/ResetPassword/ChangePasswordInput";
+import PasswordResetSuccessfully from "../components/ResetPassword/PasswordResetSuccessfully";
 
-const ResetPassword = (check) => {
+const ResetPassword = ({ check }) => {
   return (
     <Box
       sx={{
         "@media (max-width: 500px)": {
-          background: `url(${check ? bgDark : bgDark})`,
+          background: `url(${check ? bgDark : bgLight})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-reapeat",
           backgroundPosition: "50%",
@@ -30,7 +31,7 @@ const ResetPassword = (check) => {
           <Link to={"/"}>
             <img
               src={RevitLogo}
-              style={{ width: "100%", cursor: "pointer" }}
+              style={{ width: "95px", cursor: "pointer" }}
               alt="revit-logo"
             />
           </Link>
@@ -44,6 +45,8 @@ const ResetPassword = (check) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          pt: "70px",
+          pb: "25px",
         }}
       >
         <Box
@@ -54,8 +57,6 @@ const ResetPassword = (check) => {
             backgroundColor: "SUCardBg.main",
             display: "flex",
             overflow: "hidden",
-            mt: 5,
-            mb: 5,
 
             "@media (max-width: 700px)": {
               width: 500,
@@ -92,8 +93,8 @@ const ResetPassword = (check) => {
           />
 
           <ChangePasswordInput />
+          {/* <PasswordResetSuccessfully /> */}
           {/* <EmailSent /> */}
- 
         </Box>
       </Box>
     </Box>

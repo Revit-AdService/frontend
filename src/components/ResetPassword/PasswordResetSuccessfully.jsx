@@ -3,7 +3,7 @@ import { Box, Button, Typography } from "@mui/material";
 import icon from "../../assets/images/Revit.svg";
 import { Link } from "react-router-dom";
 
-const EmailSent = () => {
+const PasswordResetSuccessfully = () => {
   return (
     <Box
       sx={{
@@ -83,8 +83,8 @@ const EmailSent = () => {
             color: "rpTxtMsg.main",
           }}
         >
-          An email has been sent to your email with information on resetting
-          your password
+          Your password has been successfully reset. Return to login page and
+          enter new password
         </Typography>
 
         <Link to={"/login"}>
@@ -120,4 +120,4 @@ const EmailSent = () => {
   );
 };
 
-export default EmailSent;
+export default PasswordResetSuccessfully;

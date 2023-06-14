@@ -22,7 +22,7 @@ const StyledInput = styled(Input)(({ theme }) => ({
   },
 }));
 
-const SignUp = (check) => {
+const SignUpAsServiceProvider = ({ check }) => {
   const InputFeilds = [
     { label: "Name", width: "47%", float: "left" },
     { label: "LastName", width: "51%", float: "right" },
@@ -32,13 +32,14 @@ const SignUp = (check) => {
     { label: "National ID number", width: "53%", float: "right" },
     { label: "Password", width: "49%", float: "left" },
     { label: "Verify Password", width: "49%", float: "right" },
+    { label: "Service Provided", width: "100%", float: "right" },
   ];
 
   return (
     <Box
       sx={{
         "@media (max-width: 500px)": {
-          background: `url(${check ? bgDark : bgDark})`,
+          background: `url(${check ? bgDark : bgLight})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-reapeat",
           backgroundPosition: "50%",
@@ -55,7 +56,7 @@ const SignUp = (check) => {
           <Link to={"/"}>
             <img
               src={RevitLogo}
-              style={{ width: "100%", cursor: "pointer" }}
+              style={{ width: "95px", cursor: "pointer" }}
               alt="revit-logo"
             />
           </Link>
@@ -69,18 +70,18 @@ const SignUp = (check) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          pt: "70px",
+          pb: "25px",
         }}
       >
         <Box
           sx={{
             width: 688,
-            height: 495,
+            height: 595,
             borderRadius: 15,
             backgroundColor: "SUCardBg.main",
             display: "flex",
             overflow: "hidden",
-            mt: 5,
-            mb: 5,
 
             "@media (max-width: 700px)": {
               width: 500,
@@ -119,12 +120,12 @@ const SignUp = (check) => {
           <Box
             sx={{
               display: "flex",
-              width: "54%",
-              height: 495,
-              flexDirection: "column",
               alignItems: "center",
-              justufyContent: "center",
-              pt: 5,
+              justifyContent: "center",
+              width: "54%",
+              height: "100%",
+              flexDirection: "column",
+
               "@media (max-width: 700px)": {
                 width: "62%",
               },
@@ -133,9 +134,7 @@ const SignUp = (check) => {
                 backgroundPosition: "100%",
               },
 
-              "@media (min-width: 1366px)": {
-                mt: 7,
-              },
+              "@media (min-width: 1366px)": {},
             }}
           >
             <Box align="center">
@@ -291,4 +290,4 @@ const SignUp = (check) => {
   );
 };
 
-export default SignUp;
+export default SignUpAsServiceProvider;

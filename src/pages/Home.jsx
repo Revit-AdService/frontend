@@ -29,6 +29,7 @@ const Home = ({ check, change }) => {
       }}
     >
       <NavBar check={check} change={change} />
+
       <Banner />
 
       {width >= 600 ? (
@@ -82,9 +83,16 @@ const Home = ({ check, change }) => {
           float: "left",
           right: "0",
           bottom: "0",
-          color: "#FFFFFF",
+          color: "#FFFFFF90",
           backgroundColor: "chatBtn.main",
-          // "&:hover": { backgroundColor: "darkblue" },
+          transition: "0.3s ease-in-out",
+
+          "&:hover": {
+            backgroundColor: "chatBtn.main",
+            color: "#f9f9f9",
+            height: 70,
+            width: 70,
+          },
         }}
         aria-label="chat"
       >

@@ -2,6 +2,7 @@ import { Box, Button, Input, Typography } from "@mui/material";
 import React from "react";
 import icon from "../../assets/images/Revit.svg";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const StyledInput = styled(Input)(({ theme }) => ({
   border: `1px solid ${theme.typography.signUpLabel.color}`,
@@ -98,35 +99,41 @@ const ChangePasswordInput = () => {
             }}
             component={"div"}
           >
-            <StyledInput type="password" placeholder={placeholder} disableUnderline={true} />
+            <StyledInput
+              type="password"
+              placeholder={placeholder}
+              disableUnderline={true}
+            />
           </Box>
         ))}
 
-        <Button
-          sx={{
-            textTransform: "none",
-            width: "100%",
-            height: 25,
-            bgcolor: "SignUpBtn.main",
-            borderRadius: 25,
-            fontWeight: 500,
-            fontSize: 11,
-            marginTop: 5,
-            color: "#e8e8e8",
-            transition: "0.3s ease-in-out",
-            letterSpacing: "-0.32px",
-            "&:hover": {
-              bgcolor: "SignUpBtnhover.main",
-            },
+        <Link to={""}>
+          <Button
+            sx={{
+              textTransform: "none",
+              width: "100%",
+              height: 25,
+              bgcolor: "SignUpBtn.main",
+              borderRadius: 25,
+              fontWeight: 500,
+              fontSize: 11,
+              marginTop: 5,
+              color: "#e8e8e8",
+              transition: "0.3s ease-in-out",
+              letterSpacing: "-0.32px",
+              "&:hover": {
+                bgcolor: "SignUpBtnhover.main",
+              },
 
-            "@media (min-width: 1536px)": {
-              fontSize: "13px",
-              height: "31px",
-            },
-          }}
-        >
-          Set Password
-        </Button>
+              "@media (min-width: 1536px)": {
+                fontSize: "13px",
+                height: "31px",
+              },
+            }}
+          >
+            Set Password
+          </Button>
+        </Link>
       </Box>
     </Box>
   );

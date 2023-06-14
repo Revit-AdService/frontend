@@ -38,7 +38,9 @@ const MyCard = () => {
             letterSpacing: -0.5,
           }}
         >
-          <Typography sx={{ color: "post.main", fontSize: "13px" }}>
+          <Typography
+            sx={{ color: "post.main", fontSize: "13px", cursor: "default" }}
+          >
             Price{" "}
             <Box component="span" sx={{ fontWeight: 500 }}>
               {" "}
@@ -54,10 +56,11 @@ const MyCard = () => {
         sx={{
           m: 1,
           color: "post.main",
+          cursor: "default",
+
           "@media (max-width: 500px)": {
             fontSize: 15,
           },
-
         }}
       >
         Graphics Design and Logo Design
@@ -90,7 +93,10 @@ const MyCard = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="artistName" sx={{ color: "post.main" }}>
+            <Typography
+              variant="artistName"
+              sx={{ color: "post.main", cursor: "default" }}
+            >
               John Smith
             </Typography>
             <Verified
@@ -122,7 +128,10 @@ const MyCard = () => {
               flexDirection: "row",
             }}
           >
-            <Typography variant="smallText" sx={{ color: "post.main", mr: 2 }}>
+            <Typography
+              variant="smallText"
+              sx={{ color: "post.main", mr: 2, cursor: "default" }}
+            >
               <Box
                 component={"span"}
                 color={"#e1209e"}
@@ -133,7 +142,10 @@ const MyCard = () => {
               sales
             </Typography>
 
-            <Typography variant="smallText" sx={{ color: "post.main" }}>
+            <Typography
+              variant="smallText"
+              sx={{ color: "post.main", cursor: "default" }}
+            >
               <Box
                 component={"span"}
                 color={"#e1209e"}

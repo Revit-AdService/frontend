@@ -4,14 +4,15 @@ import Home from "./pages/Home";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import SignUpAsClient from "./pages/SignUpAsClient";
 import { LightTheme } from "./common/Theme/LightTheme";
 import { DarkTheme } from "./common/Theme/DarkTheme";
 import ResetPassword from "./pages/ResetPassword";
 import UserType from "./pages/UserType";
+import SignUpAsServiceProvider from "./pages/SignUpAsServiceProvider";
 
 function App() {
-  const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(false);
 
   const handleToggle = () => {
     setTheme(!theme);
@@ -27,10 +28,11 @@ function App() {
               path="/"
               element={<Home check={theme} change={handleToggle} />}
             />
-            <Route path="login" element={<Login />} />
-            <Route path="resetpassword" element={<ResetPassword />} />
-            <Route path="usertype" element={<UserType />} />
-            <Route path="signup" element={<SignUp check={theme} />} />
+            <Route path="login" element={<Login check={theme}/>} />
+            <Route path="resetpassword" element={<ResetPassword check={theme}/>} />
+            <Route path="signup-as" element={<UserType />} />
+            <Route path="signup-as-client" element={<SignUpAsClient check={theme} />} />
+            <Route path="signup-as-service-provider" element={<SignUpAsServiceProvider check={theme}/>} />
           </Routes>
         </div>
       </Paper>

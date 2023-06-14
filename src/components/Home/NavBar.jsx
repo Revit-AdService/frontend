@@ -41,7 +41,7 @@ const NavBar = ({ check, change }) => {
       >
         <Toolbar>
           <Link to={"/"}>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" style={{ width: "95px" }} />
           </Link>
 
           <Typography sx={{ flexGrow: 1 }} />

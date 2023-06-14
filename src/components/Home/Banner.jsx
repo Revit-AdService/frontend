@@ -7,8 +7,6 @@ const Banner = () => {
   return (
     <Box
       sx={{
-        // display: "flex",
-        // position: "relative",
         height: 330,
         backgroundImage: `url(${banner})`,
         backgroundSize: "cover",
@@ -45,6 +43,8 @@ const Banner = () => {
             fontSize: 39,
             fontWeight: 600,
             letterSpacing: "-1.56px",
+            cursor: "default",
+
             "@media (max-width: 500px)": {
               fontSize: 22,
             },
@@ -57,6 +57,7 @@ const Banner = () => {
               fontSize: 30,
               fontWeight: 400,
               letterSpacing: "-0.88px",
+
               "@media (max-width: 500px)": {
                 fontSize: 18,
               },
@@ -74,6 +75,8 @@ const Banner = () => {
             fontWeight: 400,
             letterSpacing: "-0.64px",
             mb: 4,
+            cursor: "default",
+
             "@media (max-width: 500px)": {
               fontSize: 8,
               mb: "10px",
@@ -85,7 +88,7 @@ const Banner = () => {
           problems fixed. We got you covered.
         </Typography>
 
-        <Link to={'/login'}>
+        <Link to={"/login"}>
           <Button
             variant="contained"
             sx={{

@@ -22,6 +22,8 @@ const MoreServicesSection = () => {
             variant="h1"
             sx={{
               color: "heading1.main",
+              cursor: "default",
+
               "@media (max-width: 500px)": { fontSize: "24px" },
             }}
           >

@@ -17,15 +17,21 @@ const StyledInput = styled(Input)(({ theme }) => ({
   color: "SUInputTxt.main",
   width: "100%",
 
-  "@media (min-width: 1536px)": {
+  "@media (min-width: 1366px)": {
     fontSize: "14px",
   },
 }));
 
-const Login = ({ check }) => {
+const SignUp = ({ check }) => {
   const InputFeilds = [
-    { label: "Email", width: "100%", float: "right" },
-    { label: "Password", width: "100%", float: "left" },
+    { label: "Name", width: "47%", float: "left" },
+    { label: "LastName", width: "51%", float: "right" },
+    { label: "DOB", width: "34%", float: "left" },
+    { label: "Email", width: "64%", float: "right" },
+    { label: "Phone number", width: "45%", float: "left" },
+    { label: "National ID number", width: "53%", float: "right" },
+    { label: "Password", width: "49%", float: "left" },
+    { label: "Verify Password", width: "49%", float: "right" },
   ];
 
   return (
@@ -57,15 +63,14 @@ const Login = ({ check }) => {
           <MenuDrawer />
         </Toolbar>
       </AppBar>
-
       <Box
         sx={{
           minHeight: "100vh",
+          pt: "70px",
+          pb: "25px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          pt: "70px",
-          pb: "25px",
         }}
       >
         <Box
@@ -84,7 +89,7 @@ const Login = ({ check }) => {
               width: 320,
             },
 
-            "@media (min-width: 1536px)": {
+            "@media (min-width: 1366px)": {
               width: 1107,
               height: 695,
             },
@@ -105,7 +110,7 @@ const Login = ({ check }) => {
                 width: 0,
                 backgroundPosition: "100%",
               },
-              "@media (min-width: 1536px)": {
+              "@media (min-width: 1366px)": {
                 width: 513,
               },
             }}
@@ -123,7 +128,6 @@ const Login = ({ check }) => {
               "@media (max-width: 700px)": {
                 width: "62%",
               },
-              
               "@media (max-width: 500px)": {
                 width: "100%",
                 backgroundPosition: "100%",
@@ -146,20 +150,20 @@ const Login = ({ check }) => {
               ></Box>
               <Typography
                 sx={{
-                  mt: 0,
+                  mt: -1,
                   color: "SUsign.main",
                   fontSize: 24,
                   fontWeight: 500,
                   letterSpacing: -0.96,
 
-                  "@media (min-width: 1536px)": {
+                  "@media (min-width: 1366px)": {
                     fontSize: 35,
                   },
                 }}
               >
-                Log
+                Sign
                 <Box component={"span"} sx={{ color: "SUup.main" }}>
-                  In
+                  Up
                 </Box>
               </Typography>
             </Box>
@@ -171,7 +175,7 @@ const Login = ({ check }) => {
                   width: 300,
                   backgroundPosition: "100%",
                 },
-                "@media (min-width: 1536px)": {
+                "@media (min-width: 1366px)": {
                   pt: 2,
                   width: 405,
                 },
@@ -192,7 +196,7 @@ const Login = ({ check }) => {
                       letterSpacing: "-0.36px",
                       fontWeight: 500,
                       color: "signUpLabel.main",
-                      "@media (min-width: 1536px)": {
+                      "@media (min-width: 1366px)": {
                         fontSize: "14px",
                       },
                     }}
@@ -202,25 +206,7 @@ const Login = ({ check }) => {
                   <StyledInput disableUnderline={true} />
                 </Box>
               ))}
-              <Typography
-                sx={{
-                  pt: 2,
-                  fontSize: 11,
-                  fontWeight: 400,
-                  letterSpacing: "-0.35px",
-                }}
-              >
-                <Link
-                  to={"/resetpassword"}
-                  style={{
-                    color: "SUup.main",
-                    textDecoration: "none",
-                    fontWeight: 600,
-                  }}
-                >
-                  Forgot Password?
-                </Link>
-              </Typography>
+
               <Button
                 sx={{
                   textTransform: "none",
@@ -238,13 +224,39 @@ const Login = ({ check }) => {
                     bgcolor: "SignUpBtnhover.main",
                   },
 
-                  "@media (min-width: 1536px)": {
+                  "@media (min-width: 1366px)": {
                     fontSize: "13px",
                     height: "31px",
                   },
                 }}
               >
-                Login
+                SignUp
+              </Button>
+              <Button
+                startIcon={<img src={Google} style={{ height: "25px" }} />}
+                sx={{
+                  textTransform: "none",
+                  width: "100%",
+                  height: 25,
+                  fontSize: 11,
+                  fontWeight: 500,
+                  color: "buttontxt.main",
+                  border: "1px solid",
+                  borderColor: "signUpLabel.main",
+                  borderRadius: 25,
+                  margin: "5px 0",
+                  letterSpacing: "-0.32px",
+                  "& > :first-child": {
+                    mr: -0.25,
+                  },
+
+                  "@media (min-width: 1366px)": {
+                    height: "31px",
+                    fontSize: "13px",
+                  },
+                }}
+              >
+                Signup with Google
               </Button>
             </Box>
 
@@ -257,15 +269,15 @@ const Login = ({ check }) => {
                 letterSpacing: "-0.35px",
               }}
             >
-              Need an Account?{" "}
+              Already a user?{" "}
               <Link
-                to={"/signup-as"}
+                to={"/login"}
                 style={{
-                  color: "SUup.main",
+                  color: "#857a96",
                   fontWeight: 600,
                 }}
               >
-                SignUp
+                Login
               </Link>
             </Typography>
           </Box>
@@ -275,4 +287,4 @@ const Login = ({ check }) => {
   );
 };
 
-export default Login;
+export default SignUp;

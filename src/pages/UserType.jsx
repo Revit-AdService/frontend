@@ -7,7 +7,6 @@ import ServiceProviderIcn from "../assets/images/Login-SignUp/Service-Provider.p
 import ClientIcn from "../assets/images/Login-SignUp/Client.png";
 import RevitIcon from "../assets/images/Revit.svg";
 
-
 const UserType = () => {
   return (
     <Box
@@ -29,7 +28,7 @@ const UserType = () => {
           <Link to={"/"}>
             <img
               src={RevitLogo}
-              style={{ width: "100%", cursor: "pointer" }}
+              style={{ width: "95px", cursor: "pointer" }}
               alt="revit-logo"
             />
           </Link>
@@ -44,7 +43,7 @@ const UserType = () => {
           height: 50,
           width: 50,
           background: `url(${RevitIcon})`,
-          backgroundSize: 'cover',
+          backgroundSize: "cover",
 
           "@media (max-width: 620px)": {
             height: 25,
@@ -89,11 +88,15 @@ const UserType = () => {
       >
         {[
           {
+            title: "Client",
+            imgSrc: ClientIcn,
+            link: "/signup-as-client",
+          },
+          {
             title: "Service Provider",
             imgSrc: ServiceProviderIcn,
-            link: "",
+            link: "/signup-as-service-provider",
           },
-          { title: "Client", imgSrc: ClientIcn, link: "" },
         ].map((item, index) => (
           <Link key={index} to={item.link} style={{ textDecoration: "none" }}>
             <Box
@@ -133,7 +136,7 @@ const UserType = () => {
 
                   "@media (max-width: 620px)": {
                     fontSize: 10,
-                    letterSpacing: '-0.28px'
+                    letterSpacing: "-0.28px",
                   },
                 }}
               >
