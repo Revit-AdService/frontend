@@ -10,6 +10,7 @@ import { DarkTheme } from "./common/Theme/DarkTheme";
 import ResetPassword from "./pages/ResetPassword";
 import UserType from "./pages/UserType";
 import SignUpAsServiceProvider from "./pages/SignUpAsServiceProvider";
+import ServiceProviderProfile from "./pages/ServiceProviderProfile";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -28,11 +29,21 @@ function App() {
               path="/"
               element={<Home check={theme} change={handleToggle} />}
             />
-            <Route path="login" element={<Login check={theme}/>} />
-            <Route path="resetpassword" element={<ResetPassword check={theme}/>} />
+            <Route path="login" element={<Login check={theme} />} />
+            <Route
+              path="resetpassword"
+              element={<ResetPassword check={theme} />}
+            />
             <Route path="signup-as" element={<UserType />} />
-            <Route path="signup-as-client" element={<SignUpAsClient check={theme} />} />
-            <Route path="signup-as-service-provider" element={<SignUpAsServiceProvider check={theme}/>} />
+            <Route
+              path="signup-as-client"
+              element={<SignUpAsClient check={theme} />}
+            />
+            <Route
+              path="signup-as-service-provider"
+              element={<SignUpAsServiceProvider check={theme} />}
+            />
+            <Route path="profile" element={<ServiceProviderProfile />} />
           </Routes>
         </div>
       </Paper>

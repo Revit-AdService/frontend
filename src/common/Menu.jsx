@@ -75,16 +75,18 @@ const MenuDrawer = () => {
         }}
       >
         <Avatar />
-        <Typography
-          sx={{
-            fontSize: 12,
-            fontWeight: 600,
-            letterSpacing: -0.5,
-            mt:1
-          }}
-        >
-          Tauya Mtowodzwa
-        </Typography>
+        <Link to={"profile"}>
+          <Typography
+            sx={{
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: -0.5,
+              mt: 1,
+            }}
+          >
+            Tauya Mtowodzwa
+          </Typography>
+        </Link>
       </Box>
 
       <Divider />
