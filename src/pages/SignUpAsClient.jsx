@@ -26,10 +26,8 @@ const SignUp = ({ check }) => {
   const InputFeilds = [
     { label: "Name", width: "47%", float: "left" },
     { label: "LastName", width: "51%", float: "right" },
-    { label: "DOB", width: "34%", float: "left" },
-    { label: "Email", width: "64%", float: "right" },
-    { label: "Phone number", width: "45%", float: "left" },
-    { label: "National ID number", width: "53%", float: "right" },
+    { label: "Phone number", width: "44%", float: "left" },
+    { label: "Email", width: "54%", float: "right" },
     { label: "Password", width: "49%", float: "left" },
     { label: "Verify Password", width: "49%", float: "right" },
   ];

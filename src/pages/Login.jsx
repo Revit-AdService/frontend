@@ -123,7 +123,7 @@ const Login = ({ check }) => {
               "@media (max-width: 700px)": {
                 width: "62%",
               },
-              
+
               "@media (max-width: 500px)": {
                 width: "100%",
                 backgroundPosition: "100%",
@@ -203,6 +203,7 @@ const Login = ({ check }) => {
                 </Box>
               ))}
               <Typography
+                align="center"
                 sx={{
                   pt: 2,
                   fontSize: 11,
