@@ -11,6 +11,7 @@ import logo from "../assets/images/Logo.png";
 import banner from "../assets/images/Banner.png";
 import { Edit, Verified } from "@mui/icons-material";
 import Landing from "../components/ServiceProviderProfile/Landing";
+import Catalog from "../components/ServiceProviderProfile/Catalog";
 
 function ServiceProviderProfile() {
   return (
@@ -141,7 +142,8 @@ function ServiceProviderProfile() {
         ))}
       </AppBar>
 
-      <Landing />
+      {/* <Landing /> */}
+      <Catalog />
     </Box>
   );
 }

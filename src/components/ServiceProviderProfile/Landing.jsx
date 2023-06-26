@@ -17,7 +17,7 @@ const Landing = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        pb:3
+        pb: 3,
       }}
     >
       {/* Bio Section */}
@@ -318,6 +318,7 @@ const Landing = () => {
           </Box>
         </Box>
       </Box>
+
       {/* Add Post */}
       <Box
         sx={{
