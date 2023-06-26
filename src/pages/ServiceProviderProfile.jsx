@@ -13,6 +13,7 @@ import { Edit, Verified } from "@mui/icons-material";
 import Landing from "../components/ServiceProviderProfile/Landing";
 import Catalog from "../components/ServiceProviderProfile/Catalog";
 import CreateCatalog from "../components/ServiceProviderProfile/CreateCatalog";
+import CreatePost from "../components/ServiceProviderProfile/CreatePost";
 
 function ServiceProviderProfile() {
   return (
@@ -145,7 +146,8 @@ function ServiceProviderProfile() {
 
       {/* <Landing /> */}
       {/* <Catalog /> */}
-      <CreateCatalog />
+      {/* <CreateCatalog /> */}
+      <CreatePost />
     </Box>
   );
 }
