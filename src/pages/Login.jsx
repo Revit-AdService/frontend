@@ -212,7 +212,7 @@ const Login = ({ check }) => {
                 }}
               >
                 <Link
-                  to={"/resetpassword"}
+                  to={"/reset-password"}
                   style={{
                     color: "SUup.main",
                     textDecoration: "none",

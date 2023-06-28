@@ -2,7 +2,7 @@ import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import bgLight from "../assets/images/Login-SignUp/Login-side-image-Light.jpg";
 import bgDark from "../assets/images/Login-SignUp/Login-side-image-Dark.jpg";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, Outlet } from "react-router-dom";
 import MenuDrawer from "../common/Menu";
 import RevitLogo from "../assets/images/Logo.png";
 import EmailSent from "../components/ResetPassword/EmailSent";
@@ -92,9 +92,10 @@ const ResetPassword = ({ check }) => {
             }}
           />
 
-          <ChangePasswordInput />
+          {/* <ChangePasswordInput /> */}
           {/* <PasswordResetSuccessfully /> */}
           {/* <EmailSent /> */}
+          <Outlet />
         </Box>
       </Box>
     </Box>

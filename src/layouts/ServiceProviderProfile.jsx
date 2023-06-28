@@ -6,7 +6,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/images/Logo.png";
 import banner from "../assets/images/Banner.png";
 import { Edit, Verified } from "@mui/icons-material";
@@ -14,6 +14,7 @@ import Landing from "../components/ServiceProviderProfile/Landing";
 import Catalog from "../components/ServiceProviderProfile/Catalog";
 import CreateCatalog from "../components/ServiceProviderProfile/CreateCatalog";
 import CreatePost from "../components/ServiceProviderProfile/CreatePost";
+import OrderDeals from "../components/ServiceProviderProfile/OrderDeals";
 
 function ServiceProviderProfile() {
   return (
@@ -123,31 +124,35 @@ function ServiceProviderProfile() {
         }}
       >
         {[
-          { title: "Catalog" },
-          { title: "Post" },
-          { title: "Order Deals" },
-        ].map(({ title, key }) => (
-          <Button
-            variant={"contained"}
-            key={key}
-            sx={{
-              color: "#242254",
-              fontSize: "0.4375rem",
-              fontWeight: 600,
-              borderRadius: "1.4375rem",
-              bgcolor: "#e6e6e5",
-              height: "1.375rem",
-            }}
-          >
-            {title}
-          </Button>
+          { title: "Catalog", link: "/profile/catalog" },
+          { title: "Post", link: "" },
+          { title: "Order Deals", link: "/profile/order-deals" },
+        ].map(({ title, link, key }) => (
+          <NavLink to={link}>
+            <Button
+              variant={"contained"}
+              key={key}
+              sx={{
+                color: "#242254",
+                fontSize: "0.4375rem",
+                fontWeight: 600,
+                borderRadius: "1.4375rem",
+                bgcolor: "#e6e6e5",
+                height: "1.375rem",
+              }}
+            >
+              {title}
+            </Button>
+          </NavLink>
         ))}
       </AppBar>
 
       {/* <Landing /> */}
       {/* <Catalog /> */}
       {/* <CreateCatalog /> */}
-      <CreatePost />
+      {/* <CreatePost /> */}
+      {/* <OrderDeals /> */}
+      <Outlet />
     </Box>
   );
 }
