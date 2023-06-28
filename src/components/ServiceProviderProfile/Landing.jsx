@@ -56,6 +56,7 @@ const Landing = () => {
           excepturi nostrum quos dolorem laudantium maiores!
         </Typography>
       </Box>
+
       {/* Qualifications Section */}
       <Box
         sx={{
@@ -224,6 +225,7 @@ const Landing = () => {
           </Box>
         </Box>
       </Box>
+      
       {/* Review Section */}
       <Box sx={{ bgcolor: "#e6e6e5", mt: "1.375rem", pb: ".7rem" }}>
         <Toolbar sx={{ minHeight: "2rem" }}>

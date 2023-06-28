@@ -78,20 +78,26 @@ function ServiceProviderProfile() {
             </Box>
 
             <Box sx={{ pb: 1 }}>
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  color: "#e8e8e8",
-                  fontSize: "0.875rem",
-                  fontWeight: 600,
-                  letterSpacing: "-0.035rem",
-                }}
+              <Link
+                to={"/profile/personal-info"}
+                style={{ textDecoration: "none" }}
               >
-                John Smith
-                <Verified
-                  sx={{ color: "gold", fontSize: ".9rem", ml: "0.4375rem" }}
-                />
-              </Typography>
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    color: "#e8e8e8",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    letterSpacing: "-0.035rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  John Smith
+                  <Verified
+                    sx={{ color: "gold", fontSize: ".9rem", ml: "0.4375rem" }}
+                  />
+                </Typography>
+              </Link>
 
               <Typography
                 sx={{

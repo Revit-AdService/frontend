@@ -21,6 +21,7 @@ import Catalog from "./components/ServiceProviderProfile/Catalog";
 import CreateCatalog from "./components/ServiceProviderProfile/CreateCatalog";
 import CreatePost from "./components/ServiceProviderProfile/CreatePost";
 import OrderDeals from "./components/ServiceProviderProfile/OrderDeals";
+import PersonalInfo from "./components/ServiceProviderProfile/PersonalInfo";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -74,6 +75,8 @@ function App() {
               <Route path="/profile/create-post" element={<CreatePost />} />
 
               <Route path="/profile/order-deals" element={<OrderDeals />} />
+
+              <Route path="/profile/personal-info" element={<PersonalInfo />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
