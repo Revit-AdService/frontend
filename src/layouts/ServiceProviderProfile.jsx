@@ -10,11 +10,6 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/images/Logo.png";
 import banner from "../assets/images/Banner.png";
 import { Edit, Verified } from "@mui/icons-material";
-import Landing from "../components/ServiceProviderProfile/Landing";
-import Catalog from "../components/ServiceProviderProfile/Catalog";
-import CreateCatalog from "../components/ServiceProviderProfile/CreateCatalog";
-import CreatePost from "../components/ServiceProviderProfile/CreatePost";
-import OrderDeals from "../components/ServiceProviderProfile/OrderDeals";
 
 function ServiceProviderProfile() {
   return (
@@ -37,6 +32,10 @@ function ServiceProviderProfile() {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "40%",
           position: "relative",
+
+          "@media (min-width: 700px)": {
+            height: 363,
+          },
         }}
       >
         <Box
@@ -49,6 +48,10 @@ function ServiceProviderProfile() {
             height: 155,
             bottom: 0,
             p: 2,
+
+            "@media (min-width: 700px)": {
+              height: 318,
+            },
           }}
         >
           <Box
@@ -59,7 +62,17 @@ function ServiceProviderProfile() {
               gap: 2,
             }}
           >
-            <Avatar sx={{ width: 70, height: 70 }} />
+            <Avatar
+              sx={{
+                width: 70,
+                height: 70,
+
+                "@media (min-width: 700px)": {
+                  width: 144,
+                  height: 144,
+                },
+              }}
+            />
 
             <Box
               sx={{
@@ -72,9 +85,24 @@ function ServiceProviderProfile() {
                 borderRadius: "50%",
                 width: "1rem",
                 height: "1rem",
+
+                "@media (min-width: 700px)": {
+                  width: "2rem",
+                  height: "2rem",
+                  left: 135,
+                },
               }}
             >
-              <Edit sx={{ color: "#000", fontSize: "0.75rem" }} />
+              <Edit
+                sx={{
+                  color: "#000",
+                  fontSize: ".75rem",
+
+                  "@media (min-width: 700px)": {
+                    fontSize: "1.25rem",
+                  },
+                }}
+              />
             </Box>
 
             <Box sx={{ pb: 1 }}>
@@ -90,6 +118,10 @@ function ServiceProviderProfile() {
                     fontWeight: 600,
                     letterSpacing: "-0.035rem",
                     textDecoration: "none",
+
+                    "@media (min-width: 700px)": {
+                      fontSize: "1.6875rem",
+                    },
                   }}
                 >
                   John Smith
@@ -106,6 +138,10 @@ function ServiceProviderProfile() {
                   fontWeight: 400,
                   letterSpacing: "0.02rem",
                   mt: -0.1,
+
+                  "@media (min-width: 700px)": {
+                    fontSize: "0.9375rem",
+                  },
                 }}
               >
                 Graphics Designer
@@ -117,16 +153,23 @@ function ServiceProviderProfile() {
 
       {/* Navbar Start */}
       <AppBar
+        elevation={0}
         sx={{
           position: "relative",
-          bgcolor: "#f9f9f9",
+          bgcolor: "backColor.main",
+          boxShadow: "0 1rem 1rem #24235090",
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
           flexDirection: "row",
           alignItems: "center",
+          gap: 2,
           height: "2.3125rem",
           pl: 5,
           pr: 5,
+
+          "@media (min-width: 700px)": {
+            height: "4.75rem",
+          },
         }}
       >
         {[
@@ -139,12 +182,18 @@ function ServiceProviderProfile() {
               variant={"contained"}
               key={key}
               sx={{
-                color: "#242254",
+                color: "spHeading1.main",
                 fontSize: "0.4375rem",
                 fontWeight: 600,
                 borderRadius: "1.4375rem",
-                bgcolor: "#e6e6e5",
+                bgcolor: "spNavBtnBg.main",
                 height: "1.375rem",
+
+                "@media (min-width: 700px)": {
+                fontSize: "0.8125rem",
+                height: "2.75rem",
+                padding: "0 3rem"
+                },
               }}
             >
               {title}
@@ -153,11 +202,6 @@ function ServiceProviderProfile() {
         ))}
       </AppBar>
 
-      {/* <Landing /> */}
-      {/* <Catalog /> */}
-      {/* <CreateCatalog /> */}
-      {/* <CreatePost /> */}
-      {/* <OrderDeals /> */}
       <Outlet />
     </Box>
   );

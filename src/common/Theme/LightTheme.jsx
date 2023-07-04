@@ -88,6 +88,39 @@ const LightTheme = createTheme({
     rpTxtMsg: {
       main: "#857a96",
     },
+
+    // Service Provider
+    spNavBtnBg: {
+      main: "#e6e6e5",
+    },
+    spHeading1: {
+      main: "#242254",
+    },
+    spCardBg: {
+      main: "#e6e6e5",
+    },
+    spText: {
+      main: "#434254",
+    },
+    spQualificationsCardBg: {
+      main: "#f9f9f9",
+    },
+    spDeleteBtn: {
+      main: "#e2209e",
+    },
+    spProfilePicBorder: {
+      main: "#e2209e",
+    },
+    spIconsColor: {
+      main: "#dc1f8a",
+    },
+    spAddPostBtn: {
+      bg: "#dc1f8a",
+      color: "#e6e6e5",
+    },
+    spPostCardBg: {
+      main: "#e2209e",
+    },
   },
 
   typography: {

@@ -88,6 +88,39 @@ const DarkTheme = createTheme({
     rpTxtMsg: {
       main: "#225a98",
     },
+
+    // Service Provider
+    spNavBtnBg: {
+      main: "#242254",
+    },
+    spHeading1: {
+      main: "#7574a2",
+    },
+    spCardBg: {
+      main: "#242254",
+    },
+    spText: {
+      main: "#7574a2",
+    },
+    spQualificationsCardBg: {
+      main: "#312c72",
+    },
+    spDeleteBtn: {
+      main: "#215898",
+    },
+    spProfilePicBorder: {
+      main: "#215898",
+    },
+    spIconsColor: {
+      main: "#215898",
+    },
+    spAddPostBtn: {
+      bg: "#215898",
+      color: "#f9f9f9",
+    },
+    spPostCardBg: {
+      main: "#215898",
+    },
   },
 
   typography: {

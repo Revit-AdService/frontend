@@ -21,33 +21,59 @@ const Landing = () => {
       }}
     >
       {/* Bio Section */}
-      <Box sx={{ height: "9rem", bgcolor: "#e6e6e5", mt: "1.375rem" }}>
+      <Box
+        sx={{
+          height: "9rem",
+          bgcolor: "spCardBg.main",
+          mt: "1.375rem",
+
+          "@media (min-width: 700px)": {
+            mt: "2.875rem",
+            height: "18.75rem",
+          },
+        }}
+      >
         <Toolbar sx={{ minHeight: "2rem" }}>
           <Typography
             flexGrow={1}
             sx={{
-              color: "#242254",
+              color: "spHeading1.main",
               fontWeight: 500,
               letterSpacing: "0.0325rem",
               fontSize: "0.8125rem",
               fontStyle: "italic",
+
+              "@media (min-width: 700px)": {
+                fontSize: "1.5rem",
+              },
             }}
           >
             Bio
           </Typography>
 
-          <Edit sx={{ color: "#dc1f8a", width: "1rem" }} />
+          <Edit
+            sx={{
+              color: "spIconsColor.main",
+              width: "1rem",
+
+              "@media (min-width: 700px)": {
+                width: "1.5rem",
+              },
+            }}
+          />
         </Toolbar>
 
         <Typography
           sx={{
-            color: "#434257",
+            color: "spText.main",
             fontSize: "0.5625rem",
-            letterSpacing: "0.02375rem",
             fontStyle: "Italic",
             textAlign: "Justify",
-            lineHeight: "0.8475rem",
             p: "1.125rem",
+
+            "@media (min-width: 700px)": {
+              fontSize: "1rem",
+            },
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iste,
@@ -62,25 +88,44 @@ const Landing = () => {
         sx={{
           height: "9rem",
           width: "100%",
-          bgcolor: "#e6e6e5",
+          bgcolor: "spCardBg.main",
           mt: "1.375rem",
+
+          "@media (min-width: 700px)": {
+            mt: "2.875rem",
+            height: "13.5rem",
+          },
         }}
       >
         <Toolbar sx={{ minHeight: "2rem" }}>
           <Typography
             flexGrow={1}
             sx={{
-              color: "#242254",
+              color: "spHeading1.main",
               fontWeight: 500,
               letterSpacing: "0.0325rem",
               fontSize: "0.8125rem",
               fontStyle: "italic",
+
+              "@media (min-width: 700px)": {
+                fontSize: "1.5rem",
+              },
             }}
           >
             Qualifications
           </Typography>
 
-          <Add variant={"filled"} sx={{ color: "#dc1f8a", width: "1rem" }} />
+          <Add
+            variant={"filled"}
+            sx={{
+              color: "spIconsColor.main",
+              width: "1rem",
+
+              "@media (min-width: 700px)": {
+                width: "1.5rem",
+              },
+            }}
+          />
         </Toolbar>
 
         <Box
@@ -95,19 +140,23 @@ const Landing = () => {
             elevation={1}
             sx={{
               position: "relative",
-              // display: "inline-flex",
               minWidth: "17.5rem",
               flexDirection: "column",
               borderRadius: "0.625rem",
               padding: "0.8125rem 1.375rem",
-              bgcolor: "#f9f9f9",
+              bgcolor: "spQualificationsCardBg.main",
               ml: "0.5rem",
               mr: "0.5rem",
+
+              "@media (min-width: 700px)": {
+                ml: "1.5rem",
+                mr: "1.5rem",
+              },
             }}
           >
             <Typography
               sx={{
-                color: "#434254",
+                color: "spText.main",
                 fontSize: "0.875rem",
                 fontWeight: 500,
                 letterSpacing: "-0.035rem",
@@ -118,7 +167,7 @@ const Landing = () => {
 
             <Typography
               sx={{
-                color: "#434254",
+                color: "spText.main",
                 fontSize: "0.5625rem",
                 letterSpacing: "-0.0225rem",
                 fontStyle: "italic",
@@ -129,7 +178,7 @@ const Landing = () => {
 
             <Typography
               sx={{
-                color: "#434254",
+                color: "spText.main",
                 fontSize: "0.5625rem",
                 letterSpacing: "-0.0225rem",
                 fontStyle: "italic",
@@ -141,7 +190,7 @@ const Landing = () => {
             <Button
               startIcon={<Delete sx={{ width: "1rem", mr: -1 }} />}
               sx={{
-                color: "#e2209e",
+                color: "spDeleteBtn.main",
                 fontSize: "0.75rem",
                 fontWeight: 500,
                 letterSpacing: "0.03rem",
@@ -166,14 +215,19 @@ const Landing = () => {
               flexDirection: "column",
               borderRadius: "0.625rem",
               padding: "0.8125rem 1.375rem",
-              bgcolor: "#f9f9f9",
+              bgcolor: "spQualificationsCardBg.main",
               ml: "0.5rem",
               mr: "0.5rem",
+
+              "@media (min-width: 700px)": {
+                ml: "1.5rem",
+                mr: "1.5rem",
+              },
             }}
           >
             <Typography
               sx={{
-                color: "#434254",
+                color: "spText.main",
                 fontSize: "0.875rem",
                 fontWeight: 500,
                 letterSpacing: "-0.035rem",
@@ -184,7 +238,7 @@ const Landing = () => {
 
             <Typography
               sx={{
-                color: "#434254",
+                color: "spText.main",
                 fontSize: "0.5625rem",
                 letterSpacing: "-0.0225rem",
                 fontStyle: "italic",
@@ -195,7 +249,7 @@ const Landing = () => {
 
             <Typography
               sx={{
-                color: "#434254",
+                color: "spText.main",
                 fontSize: "0.5625rem",
                 letterSpacing: "-0.0225rem",
                 fontStyle: "italic",
@@ -207,7 +261,78 @@ const Landing = () => {
             <Button
               startIcon={<Delete sx={{ width: "1rem", mr: -1 }} />}
               sx={{
-                color: "#e2209e",
+                color: "spDeleteBtn.main",
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                letterSpacing: "0.03rem",
+                fontStyle: "italic",
+                textTransform: "capitalize",
+                position: "absolute",
+                right: ".7rem",
+                bottom: ".7rem",
+                width: "4.2rem",
+                height: "1.25rem",
+              }}
+            >
+              Delete
+            </Button>
+          </Box>
+
+          <Box
+            sx={{
+              position: "relative",
+              // display: "inline-flex",
+              minWidth: "17.5rem",
+              flexDirection: "column",
+              borderRadius: "0.625rem",
+              padding: "0.8125rem 1.375rem",
+              bgcolor: "spQualificationsCardBg.main",
+              ml: "0.5rem",
+              mr: "0.5rem",
+
+              "@media (min-width: 700px)": {
+                ml: "1.5rem",
+                mr: "1.5rem",
+              },
+            }}
+          >
+            <Typography
+              sx={{
+                color: "spText.main",
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                letterSpacing: "-0.035rem",
+              }}
+            >
+              Bachelors of Software Engineering
+            </Typography>
+
+            <Typography
+              sx={{
+                color: "spText.main",
+                fontSize: "0.5625rem",
+                letterSpacing: "-0.0225rem",
+                fontStyle: "italic",
+              }}
+            >
+              University of Zimbabwe
+            </Typography>
+
+            <Typography
+              sx={{
+                color: "spText.main",
+                fontSize: "0.5625rem",
+                letterSpacing: "-0.0225rem",
+                fontStyle: "italic",
+              }}
+            >
+              2022
+            </Typography>
+
+            <Button
+              startIcon={<Delete sx={{ width: "1rem", mr: -1 }} />}
+              sx={{
+                color: "spDeleteBtn.main",
                 fontSize: "0.75rem",
                 fontWeight: 500,
                 letterSpacing: "0.03rem",
@@ -225,18 +350,33 @@ const Landing = () => {
           </Box>
         </Box>
       </Box>
-      
+
       {/* Review Section */}
-      <Box sx={{ bgcolor: "#e6e6e5", mt: "1.375rem", pb: ".7rem" }}>
+      <Box
+        sx={{
+          bgcolor: "spCardBg.main",
+          mt: "1.375rem",
+          pb: ".7rem",
+
+          "@media (min-width: 700px)": {
+            mt: "2.875rem",
+            height: "14.375rem",
+          },
+        }}
+      >
         <Toolbar sx={{ minHeight: "2rem" }}>
           <Typography
             flexGrow={1}
             sx={{
-              color: "#242254",
+              color: "spHeading1.main",
               fontWeight: 500,
               letterSpacing: "0.0325rem",
               fontSize: "0.8125rem",
               fontStyle: "italic",
+
+              "@media (min-width: 700px)": {
+                fontSize: "1.5rem",
+              },
             }}
           >
             Review
@@ -257,9 +397,16 @@ const Landing = () => {
                 height: "3.1875rem",
                 maxWidth: "3.1875rem",
                 minWidth: "3.1875rem",
-                border: "0.125rem solid #e2209e",
+                border: "0.125rem solid",
+                borderColor: "spProfilePicBorder.main",
                 borderRadius: "50%",
-                bgcolor: "#f9f9f9",
+                bgcolor: "spQualificationsCardBg.main",
+
+                "@media (min-width: 700px)": {
+                  height: "6.5625rem",
+                  maxWidth: "6.5625rem",
+                  minWidth: "6.5625rem",
+                },
               }}
             />
 
@@ -273,10 +420,14 @@ const Landing = () => {
               >
                 <Typography
                   sx={{
-                    color: "#434254",
+                    color: "spText.main",
                     fontSize: "0.6875rem",
                     fontWeight: 500,
                     letterSpacing: "0.0275rem",
+
+                    "@media (min-width: 700px)": {
+                      fontSize: "1.3125rem",
+                    },
                   }}
                 >
                   John Mufambi
@@ -284,10 +435,14 @@ const Landing = () => {
 
                 <Typography
                   sx={{
-                    color: "#434254",
+                    color: "spText.main",
                     fontSize: "0.4375rem",
                     letterSpacing: "0.0175rem",
                     fontStyle: "italic",
+
+                    "@media (min-width: 700px)": {
+                      fontSize: "0.8125rem",
+                    },
                   }}
                 >
                   <Box component={"span"}>19:13 </Box>
@@ -297,12 +452,18 @@ const Landing = () => {
 
               <Typography
                 sx={{
-                  color: "#434254",
+                  color: "spText.main",
                   fontSize: "0.5625rem",
                   letterSpacing: "0.0225rem",
                   fontStyle: "italic",
                   textAlign: "justify",
                   lineHeight: "0.6875rem",
+
+                  "@media (min-width: 700px)": {
+                    fontSize: "1.0625rem",
+                    letterSpacing: "-0.0425rem",
+                    lineHeight: "1.3125rem",
+                  },
                 }}
               >
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
@@ -314,7 +475,14 @@ const Landing = () => {
                 defaultValue={4.5}
                 precision={0.5}
                 readOnly
-                sx={{ fontSize: ".85rem", color: "#e2209e" }}
+                sx={{
+                  fontSize: ".85rem",
+                  color: "spIconsColor.main",
+
+                  "@media (min-width: 700px)": {
+                    fontSize: "1.7rem",
+                  },
+                }}
               />
             </Box>
           </Box>
@@ -331,16 +499,26 @@ const Landing = () => {
           width: "21.5625rem",
           height: "5.4375rem",
           borderRadius: "2rem",
-          bgcolor: "#e6e6e5",
+          bgcolor: "spCardBg.main",
           mt: "1.375rem",
+
+          "@media (min-width: 700px)": {
+            width: "41.5625rem",
+            height: "10.4375rem",
+          },
         }}
       >
         <Box
           sx={{
             height: "2.6875rem",
             width: "2.6875rem",
-            bgcolor: "#f9f9f9",
+            bgcolor: "spQualificationsCardBg.main",
             borderRadius: "50%",
+
+            "@media (min-width: 700px)": {
+              width: "5.875rem",
+              height: "5.875rem",
+            },
           }}
         ></Box>
 
@@ -350,22 +528,35 @@ const Landing = () => {
             placeContent: "center",
             height: "2.6875rem",
             width: "14.75rem",
-            bgcolor: "#f9f9f9",
+            bgcolor: "spQualificationsCardBg.main",
             borderRadius: "2.375rem",
+
+            "@media (min-width: 700px)": {
+              width: "28.5625rem",
+              borderRadius: "4.75rem",
+              height: "5.875rem",
+            },
           }}
         >
           <Button
             variant="contained"
             sx={{
-              bgcolor: "#dc1f8a",
+              bgcolor: "spAddPostBtn.bg",
               width: "5.9375rem",
               height: "1.0625rem",
               borderRadius: "0.75rem",
-              color: "#e6e6e5",
+              color: "spAddPostBtn.color",
               fontSize: "0.5rem",
               fontWeight: "500",
               letterSpacing: "-0.02rem",
               textTransform: "capitalize",
+
+              "@media (min-width: 700px)": {
+                width: "12.125rem",
+                height: "2.125rem",
+                borderRadius: "1.75rem",
+                fontSize: "0.9375rem",
+              },
             }}
           >
             Add Post
@@ -380,7 +571,7 @@ const Landing = () => {
         sx={{
           height: "20.1875rem",
           width: "21.5625rem",
-          bgcolor: "#e2209e",
+          bgcolor: "spPostCardBg.main",
           overflow: "hidden",
           borderRadius: "4rem",
         }}
