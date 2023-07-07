@@ -26,16 +26,16 @@ function ServiceProviderProfile() {
       <Box
         sx={{
           mt: 7,
-          height: 176,
+          height: {
+            mobile: 176,
+            tablet: 363,
+            laptop: 258,
+          },
           background: `url(${banner}) `,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "40%",
           position: "relative",
-
-          "@media (min-width: 700px)": {
-            height: 363,
-          },
         }}
       >
         <Box
@@ -45,13 +45,12 @@ function ServiceProviderProfile() {
             background: "linear-gradient(to bottom, transparent, #000000)",
             position: "absolute",
             width: "100%",
-            height: 155,
+            height: {
+              mobile: 155,
+              tablet: 318,
+            },
             bottom: 0,
             p: 2,
-
-            "@media (min-width: 700px)": {
-              height: 318,
-            },
           }}
         >
           <Box
@@ -64,12 +63,13 @@ function ServiceProviderProfile() {
           >
             <Avatar
               sx={{
-                width: 70,
-                height: 70,
-
-                "@media (min-width: 700px)": {
-                  width: 144,
-                  height: 144,
+                width: {
+                  mobile: 70,
+                  tablet: 144,
+                },
+                height: {
+                  mobile: 70,
+                  tablet: 144,
                 },
               }}
             />
@@ -79,27 +79,29 @@ function ServiceProviderProfile() {
                 display: "grid",
                 placeContent: "center",
                 position: "absolute",
-                left: 65,
                 bottom: 3,
                 bgcolor: "#e8e8e8",
                 borderRadius: "50%",
-                width: "1rem",
-                height: "1rem",
-
-                "@media (min-width: 700px)": {
-                  width: "2rem",
-                  height: "2rem",
-                  left: 135,
+                width: {
+                  mobile: "1rem",
+                  tablet: "2rem",
+                },
+                height: {
+                  mobile: "1rem",
+                  tablet: "2rem",
+                },
+                left: {
+                  mobile: 65,
+                  tablet: 135,
                 },
               }}
             >
               <Edit
                 sx={{
                   color: "#000",
-                  fontSize: ".75rem",
-
-                  "@media (min-width: 700px)": {
-                    fontSize: "1.25rem",
+                  fontSize: {
+                    mobile: ".75rem",
+                    tablet: "1.25rem",
                   },
                 }}
               />
@@ -114,13 +116,12 @@ function ServiceProviderProfile() {
                   sx={{
                     textAlign: "center",
                     color: "#e8e8e8",
-                    fontSize: "0.875rem",
                     fontWeight: 600,
                     letterSpacing: "-0.035rem",
                     textDecoration: "none",
-
-                    "@media (min-width: 700px)": {
-                      fontSize: "1.6875rem",
+                    fontSize: {
+                      mobile: "0.875rem",
+                      tablet: "1.6875rem",
                     },
                   }}
                 >
@@ -134,13 +135,12 @@ function ServiceProviderProfile() {
               <Typography
                 sx={{
                   color: "#e8e8e8",
-                  fontSize: "0.5rem",
                   fontWeight: 400,
                   letterSpacing: "0.02rem",
                   mt: -0.1,
-
-                  "@media (min-width: 700px)": {
-                    fontSize: "0.9375rem",
+                  fontSize: {
+                    mobile: "0.5rem",
+                    tablet: "0.9375rem",
                   },
                 }}
               >
@@ -163,12 +163,11 @@ function ServiceProviderProfile() {
           flexDirection: "row",
           alignItems: "center",
           gap: 2,
-          height: "2.3125rem",
           pl: 5,
           pr: 5,
-
-          "@media (min-width: 700px)": {
-            height: "4.75rem",
+          height: {
+            mobile: "2.3125rem",
+            tablet: "4.75rem",
           },
         }}
       >
@@ -183,16 +182,17 @@ function ServiceProviderProfile() {
               key={key}
               sx={{
                 color: "spHeading1.main",
-                fontSize: "0.4375rem",
                 fontWeight: 600,
                 borderRadius: "1.4375rem",
                 bgcolor: "spNavBtnBg.main",
-                height: "1.375rem",
-
-                "@media (min-width: 700px)": {
-                fontSize: "0.8125rem",
-                height: "2.75rem",
-                padding: "0 3rem"
+                padding: { tablet: "0 3rem" },
+                height: {
+                  mobile: "1.375rem",
+                  tablet: "2.75rem",
+                },
+                fontSize: {
+                  mobile: "0.4375rem",
+                  tablet: "0.8125rem",
                 },
               }}
             >

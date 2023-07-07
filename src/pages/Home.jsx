@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import TopRatedSection from "../components/Home/TopRatedSection";
 import MoreServicesSection from "../components/Home/MoreServicesSection";
 import { Chat, Search } from "@mui/icons-material";
-import NavBar from "../components/Home/NavBar";
+import NavBar from "../common/NavBar";
 import Banner from "../components/Home/Banner";
 
 const Home = ({ check, change }) => {
@@ -25,10 +25,10 @@ const Home = ({ check, change }) => {
     <Box
       sx={{
         position: "relative",
-        top: 60,
+        // top: 60,
       }}
     >
-      <NavBar check={check} change={change} />
+      {/* <NavBar check={check} change={change} /> */}
 
       <Banner />
 

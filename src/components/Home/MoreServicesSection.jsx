@@ -41,25 +41,22 @@ const MoreServicesSection = () => {
       </Divider>
 
       <Grid container>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item mobile={12} tablet={6} laptop={4}>
           <MyCard />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item mobile={12} tablet={6} laptop={4}>
           <MyCard />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item mobile={12} tablet={6} laptop={4}>
           <MyCard />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item mobile={12} tablet={6} laptop={4}>
           <MyCard />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item mobile={12} tablet={6} laptop={4}>
           <MyCard />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <MyCard />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item mobile={12} tablet={6} laptop={4}>
           <MyCard />
         </Grid>
       </Grid>

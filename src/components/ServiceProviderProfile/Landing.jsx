@@ -6,6 +6,7 @@ import {
   Button,
   Rating,
   Divider,
+  Container,
 } from "@mui/material";
 import postbg from "../../assets/images/ServiceProviderProfile/post.png";
 
@@ -23,13 +24,14 @@ const Landing = () => {
       {/* Bio Section */}
       <Box
         sx={{
-          height: "9rem",
+          height: {
+            mobile: "9rem",
+            tablet: "18.75rem",
+          },
           bgcolor: "spCardBg.main",
-          mt: "1.375rem",
-
-          "@media (min-width: 700px)": {
-            mt: "2.875rem",
-            height: "18.75rem",
+          mt: {
+            mobile: "1.375rem",
+            tablet: "2.875rem",
           },
         }}
       >
@@ -40,12 +42,11 @@ const Landing = () => {
               color: "spHeading1.main",
               fontWeight: 500,
               letterSpacing: "0.0325rem",
-              fontSize: "0.8125rem",
-              fontStyle: "italic",
-
-              "@media (min-width: 700px)": {
-                fontSize: "1.5rem",
+              fontSize: {
+                mobile: "0.8125rem",
+                tablet: "1.5rem",
               },
+              fontStyle: "italic",
             }}
           >
             Bio
@@ -54,10 +55,9 @@ const Landing = () => {
           <Edit
             sx={{
               color: "spIconsColor.main",
-              width: "1rem",
-
-              "@media (min-width: 700px)": {
-                width: "1.5rem",
+              width: {
+                mobile: "1rem",
+                tablet: "1.5rem",
               },
             }}
           />
@@ -66,14 +66,13 @@ const Landing = () => {
         <Typography
           sx={{
             color: "spText.main",
-            fontSize: "0.5625rem",
+            fontSize: {
+              mobile: "0.5625rem",
+              tablet: "1rem",
+            },
             fontStyle: "Italic",
             textAlign: "Justify",
             p: "1.125rem",
-
-            "@media (min-width: 700px)": {
-              fontSize: "1rem",
-            },
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iste,
@@ -86,14 +85,15 @@ const Landing = () => {
       {/* Qualifications Section */}
       <Box
         sx={{
-          height: "9rem",
+          height: {
+            mobile: "9rem",
+            tablet: "13.5rem",
+          },
           width: "100%",
           bgcolor: "spCardBg.main",
-          mt: "1.375rem",
-
-          "@media (min-width: 700px)": {
-            mt: "2.875rem",
-            height: "13.5rem",
+          mt: {
+            mobile: "1.375rem",
+            tablet: "2.875rem",
           },
         }}
       >
@@ -104,12 +104,14 @@ const Landing = () => {
               color: "spHeading1.main",
               fontWeight: 500,
               letterSpacing: "0.0325rem",
-              fontSize: "0.8125rem",
-              fontStyle: "italic",
-
-              "@media (min-width: 700px)": {
-                fontSize: "1.5rem",
+              fontSize: {
+                "@media (min-width: 700px)": {
+                  fontSize: "1.5rem",
+                },
+                mobile: "0.8125rem",
+                tablet: "1.5rem",
               },
+              fontStyle: "italic",
             }}
           >
             Qualifications
@@ -119,10 +121,9 @@ const Landing = () => {
             variant={"filled"}
             sx={{
               color: "spIconsColor.main",
-              width: "1rem",
-
-              "@media (min-width: 700px)": {
-                width: "1.5rem",
+              width: {
+                mobile: "1rem",
+                tablet: "1.5rem",
               },
             }}
           />
@@ -145,12 +146,13 @@ const Landing = () => {
               borderRadius: "0.625rem",
               padding: "0.8125rem 1.375rem",
               bgcolor: "spQualificationsCardBg.main",
-              ml: "0.5rem",
-              mr: "0.5rem",
-
-              "@media (min-width: 700px)": {
-                ml: "1.5rem",
-                mr: "1.5rem",
+              ml: {
+                mobile: "0.5rem",
+                tablet: "1.5rem",
+              },
+              mr: {
+                mobile: "0.5rem",
+                tablet: "1.5rem",
               },
             }}
           >
@@ -216,12 +218,13 @@ const Landing = () => {
               borderRadius: "0.625rem",
               padding: "0.8125rem 1.375rem",
               bgcolor: "spQualificationsCardBg.main",
-              ml: "0.5rem",
-              mr: "0.5rem",
-
-              "@media (min-width: 700px)": {
-                ml: "1.5rem",
-                mr: "1.5rem",
+              ml: {
+                mobile: "0.5rem",
+                tablet: "1.5rem",
+              },
+              mr: {
+                mobile: "0.5rem",
+                tablet: "1.5rem",
               },
             }}
           >
@@ -287,12 +290,13 @@ const Landing = () => {
               borderRadius: "0.625rem",
               padding: "0.8125rem 1.375rem",
               bgcolor: "spQualificationsCardBg.main",
-              ml: "0.5rem",
-              mr: "0.5rem",
-
-              "@media (min-width: 700px)": {
-                ml: "1.5rem",
-                mr: "1.5rem",
+              ml: {
+                mobile: "0.5rem",
+                tablet: "1.5rem",
+              },
+              mr: {
+                mobile: "0.5rem",
+                tablet: "1.5rem",
               },
             }}
           >
@@ -355,13 +359,12 @@ const Landing = () => {
       <Box
         sx={{
           bgcolor: "spCardBg.main",
-          mt: "1.375rem",
-          pb: ".7rem",
-
-          "@media (min-width: 700px)": {
-            mt: "2.875rem",
-            height: "14.375rem",
+          mt: {
+            mobile: "1.375rem",
+            tablet: "2.875rem",
           },
+          pb: ".7rem",
+          height: { tablet: "14.375rem" },
         }}
       >
         <Toolbar sx={{ minHeight: "2rem" }}>
@@ -371,12 +374,11 @@ const Landing = () => {
               color: "spHeading1.main",
               fontWeight: 500,
               letterSpacing: "0.0325rem",
-              fontSize: "0.8125rem",
-              fontStyle: "italic",
-
-              "@media (min-width: 700px)": {
-                fontSize: "1.5rem",
+              fontSize: {
+                mobile: "0.8125rem",
+                tablet: "1.5rem",
               },
+              fontStyle: "italic",
             }}
           >
             Review

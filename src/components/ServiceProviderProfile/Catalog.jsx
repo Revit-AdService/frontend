@@ -21,16 +21,26 @@ const Catalog = () => {
           width: "21.5625rem",
           height: "5.4375rem",
           borderRadius: "2rem",
-          bgcolor: "#e6e6e5",
+          bgcolor: "spCardBg.main",
           mt: "1.375rem",
+
+          "@media (min-width: 700px)": {
+            width: "41.5625rem",
+            height: "10.4375rem",
+          },
         }}
       >
         <Box
           sx={{
             height: "2.6875rem",
             width: "2.6875rem",
-            bgcolor: "#f9f9f9",
+            bgcolor: "spQualificationsCardBg.main",
             borderRadius: "50%",
+
+            "@media (min-width: 700px)": {
+              width: "5.875rem",
+              height: "5.875rem",
+            },
           }}
         ></Box>
 
@@ -40,22 +50,35 @@ const Catalog = () => {
             placeContent: "center",
             height: "2.6875rem",
             width: "14.75rem",
-            bgcolor: "#f9f9f9",
+            bgcolor: "spQualificationsCardBg.main",
             borderRadius: "2.375rem",
+
+            "@media (min-width: 700px)": {
+              width: "28.5625rem",
+              borderRadius: "4.75rem",
+              height: "5.875rem",
+            },
           }}
         >
           <Button
             variant="contained"
             sx={{
-              bgcolor: "#dc1f8a",
+              bgcolor: "spAddPostBtn.bg",
               width: "5.9375rem",
               height: "1.0625rem",
               borderRadius: "0.75rem",
-              color: "#e6e6e5",
+              color: "spAddPostBtn.color",
               fontSize: "0.5rem",
               fontWeight: "500",
               letterSpacing: "-0.02rem",
               textTransform: "capitalize",
+
+              "@media (min-width: 700px)": {
+                width: "12.125rem",
+                height: "2.125rem",
+                borderRadius: "1.75rem",
+                fontSize: "0.9375rem",
+              },
             }}
           >
             Add Catalog
@@ -71,7 +94,7 @@ const Catalog = () => {
         sx={{
           height: "20.1875rem",
           width: "21.5625rem",
-          bgcolor: "#e2209e",
+          bgcolor: "spPostCardBg.main",
           overflow: "hidden",
           borderRadius: "4rem",
         }}

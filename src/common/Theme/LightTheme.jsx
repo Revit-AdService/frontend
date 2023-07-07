@@ -1,6 +1,16 @@
 import { createTheme } from "@mui/material";
 
 const LightTheme = createTheme({
+  breakpoints: {
+    values: {
+      mobile: 0,
+      tablet: 640,
+      laptop: 1024,
+      desktop: 1200,
+      largeDesktop: 1536,
+    },
+  },
+
   palette: {
     mode: "light",
     primary: {

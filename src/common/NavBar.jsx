@@ -10,10 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import MenuDrawer from "../../common/Menu";
-import logo from "../../assets/images/Logo.png";
+import MenuDrawer from "./Menu";
+import logo from "../assets/images/Logo.png";
 import { Search, ShoppingCart, Close } from "@mui/icons-material";
-import BasicMenu from "../Home/CategoryMenu";
+import BasicMenu from "../components/Home/CategoryMenu";
 import { Link } from "react-router-dom";
 
 const NavBar = ({ check, change }) => {
@@ -35,8 +35,7 @@ const NavBar = ({ check, change }) => {
   return (
     <>
       <AppBar
-        sx={{ backgroundColor: "backColor.main" }}
-        position="fixed"
+        sx={{ backgroundColor: "backColor.main", position: "sticky", top: 0 }}
         elevation={0}
       >
         <Toolbar>

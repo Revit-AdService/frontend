@@ -43,7 +43,7 @@ const SignUp = ({ check }) => {
         },
       }}
     >
-      <AppBar
+      {/* <AppBar
         sx={{
           bgcolor: "backColor.main",
         }}
@@ -60,11 +60,11 @@ const SignUp = ({ check }) => {
           <Typography flexGrow={1} />
           <MenuDrawer />
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <Box
         sx={{
           minHeight: "100vh",
-          pt: "70px",
+          pt: "25px",
           pb: "25px",
           display: "flex",
           alignItems: "center",

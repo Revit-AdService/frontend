@@ -18,7 +18,7 @@ const UserType = () => {
         minHeight: "100vh",
       }}
     >
-      <AppBar
+      {/* <AppBar
         sx={{
           bgcolor: "backColor.main",
         }}
@@ -36,7 +36,7 @@ const UserType = () => {
           <Typography flexGrow={1} />
           <MenuDrawer />
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
 
       <Box
         sx={{

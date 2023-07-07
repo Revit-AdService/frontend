@@ -39,7 +39,7 @@ const Login = ({ check }) => {
         },
       }}
     >
-      <AppBar
+      {/* <AppBar
         sx={{
           bgcolor: "backColor.main",
         }}
@@ -56,7 +56,7 @@ const Login = ({ check }) => {
           <Typography flexGrow={1} />
           <MenuDrawer />
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
 
       <Box
         sx={{
@@ -64,8 +64,8 @@ const Login = ({ check }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          pt: "70px",
-          pb: "25px",
+          pt: "50px",
+          // pb: "25px",
         }}
       >
         <Box
