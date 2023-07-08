@@ -1,10 +1,10 @@
 import { CssBaseline, Paper, ThemeProvider } from "@mui/material";
 import "./App.css";
 import { useState } from "react";
-import { LightTheme } from "./common/Theme/LightTheme";
-import { DarkTheme } from "./common/Theme/DarkTheme";
+import { LightTheme } from "./theme/LightTheme";
+import { DarkTheme } from "./theme/DarkTheme";
 import AppRoutes from "./routes/AppRoutes";
-import NavBar from "./common/NavBar";
+import NavbarRoutes from "./routes/NavbarRoutes";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -18,7 +18,7 @@ function App() {
       <CssBaseline />
       <Paper elevation={0}>
         <div className="App">
-          <NavBar check={theme} change={handleToggle} />
+          <NavbarRoutes check={theme} change={handleToggle} />
           <AppRoutes theme={theme} />
         </div>
       </Paper>

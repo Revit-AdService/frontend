@@ -90,8 +90,9 @@ const ChangePasswordInput = () => {
         {[
           { placeholder: "New Password", width: "100%", float: "right" },
           { placeholder: "Confirm Password", width: "100%", float: "left" },
-        ].map(({ placeholder, width, float }) => (
+        ].map(({ key, placeholder, width, float }) => (
           <Box
+            key={key}
             sx={{
               width: `${width}`,
               float: `${float}`,

@@ -4,33 +4,32 @@ import {
   IconButton,
   Input,
   Stack,
-  Switch,
   Toolbar,
   Tooltip,
   Typography,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import MenuDrawer from "./Menu";
+import MenuDrawer from "./MenuDrawer";
 import logo from "../assets/images/Logo.png";
 import { Search, ShoppingCart, Close } from "@mui/icons-material";
 import BasicMenu from "../components/Home/CategoryMenu";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const NavBar = ({ check, change }) => {
-  const [isActive, setIsActive] = useState(false);
-  const [width, setWidth] = useState(window.innerWidth);
+  // const [isActive, setIsActive] = useState(false);
+  // const [width, setWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWidth(window.innerWidth);
+  //   };
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -38,26 +37,16 @@ const NavBar = ({ check, change }) => {
         sx={{ backgroundColor: "backColor.main", position: "sticky", top: 0 }}
         elevation={0}
       >
-        <Toolbar>
+        <Toolbar sx={{ overflow: "hidden" }}>
           <Link to={"/"}>
             <img src={logo} alt="logo" style={{ width: "95px" }} />
           </Link>
 
           <Typography sx={{ flexGrow: 1 }} />
 
-          <Stack direction="row" spacing={0.25}>
-            <Tooltip title="DarkMode">
-              <IconButton>
-                <Switch
-                  size="small"
-                  defaultChecked
-                  inputProps={{ "aria-label": "checkbox" }}
-                  onChange={change}
-                  checked={check}
-                />
-              </IconButton>
-            </Tooltip>
+          <Outlet />
 
+          {/* <Stack direction="row" spacing={0.25}>
             <Tooltip title="Cart">
               <IconButton size="large" aria-label="cart">
                 <ShoppingCart color="primary" sx={{ fontSize: "22px" }} />
@@ -65,9 +54,9 @@ const NavBar = ({ check, change }) => {
             </Tooltip>
 
             <BasicMenu />
-          </Stack>
+          </Stack> */}
 
-          {width < 600 ? (
+          {/* {width < 600 ? (
             <>
               {" "}
               <Box
@@ -119,9 +108,11 @@ const NavBar = ({ check, change }) => {
             </>
           ) : (
             ""
-          )}
+          )} */}
 
-          {width >= 600 || (width < 600 && !isActive) ? <MenuDrawer /> : null}
+          {/* {width >= 600 || (width < 600 && !isActive) ? ( */}
+            <MenuDrawer check={check} change={change} />
+          {/* ) : null} */}
         </Toolbar>
       </AppBar>
     </>

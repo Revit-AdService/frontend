@@ -3,7 +3,7 @@ import React from "react";
 import bgLight from "../assets/images/Login-SignUp/Login-side-image-Light.jpg";
 import bgDark from "../assets/images/Login-SignUp/Login-side-image-Dark.jpg";
 import { Link, Routes, Route, Outlet } from "react-router-dom";
-import MenuDrawer from "../common/Menu";
+import MenuDrawer from "../common/MenuDrawer";
 import RevitLogo from "../assets/images/Logo.png";
 import EmailSent from "../components/ResetPassword/EmailSent";
 import ChangePasswordInput from "../components/ResetPassword/ChangePasswordInput";

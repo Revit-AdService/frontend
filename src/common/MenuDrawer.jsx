@@ -22,6 +22,7 @@ import {
   Toolbar,
   Tooltip,
   Typography,
+  Switch,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -38,7 +39,7 @@ const menuItems = [
   },
 ];
 
-const MenuDrawer = () => {
+const MenuDrawer = ({ check, change }) => {
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -74,7 +75,28 @@ const MenuDrawer = () => {
           p: 2.5,
         }}
       >
-        <Avatar />
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Avatar />
+
+          <Tooltip title={check ? "Disable DarkTheme" : "Enable DarkTheme"}>
+            <IconButton>
+              <Switch
+                size="small"
+                defaultChecked
+                inputProps={{ "aria-label": "checkbox" }}
+                onChange={change}
+                checked={check}
+              />
+            </IconButton>
+          </Tooltip>
+        </Box>
+
         <Link to={"profile"}>
           <Typography
             sx={{

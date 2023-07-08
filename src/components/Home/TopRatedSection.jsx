@@ -50,16 +50,22 @@ const TopRatedSection = () => {
           bgcolor: "background",
         }}
       >
-        <Grid item xs={s} sm={m} md={l}>
+        <Grid item mobile={s} tablet={m} laptop={l}>
           <MyCard />
         </Grid>
-        <Grid item xs={s} sm={m} md={l}>
+        <Grid item mobile={s} tablet={m} laptop={l}>
           <MyCard />
         </Grid>
-        <Grid item xs={s} sm={m} md={l}>
+        <Grid item mobile={s} tablet={m} laptop={l}>
           <MyCard />
         </Grid>
-        <Grid item xs={s} sm={m} md={l}>
+        <Grid item mobile={s} tablet={m} laptop={l}>
+          <MyCard />
+        </Grid>
+        <Grid item mobile={s} tablet={m} laptop={l}>
+          <MyCard />
+        </Grid>
+        <Grid item mobile={s} tablet={m} laptop={l}>
           <MyCard />
         </Grid>
       </Grid>
