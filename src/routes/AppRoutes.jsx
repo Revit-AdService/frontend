@@ -23,7 +23,7 @@ function AppRoutes({ theme }) {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login check={theme} />} />
 
-      <Route path="/reset-password" element={<ResetPassword />}>
+      <Route path="/reset-password" element={<ResetPassword check={theme} />}>
         <Route index element={<ChangePasswordInput />} />
         <Route
           path="/reset-password/success"

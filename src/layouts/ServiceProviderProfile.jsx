@@ -14,18 +14,10 @@ import { Edit, Verified } from "@mui/icons-material";
 function ServiceProviderProfile() {
   return (
     <Box>
-      <AppBar sx={{ bgcolor: "backColor.main" }} elevation={0}>
-        <Toolbar>
-          <Link to={"/"}>
-            <img src={logo} alt="logo" style={{ width: "95px" }} />
-          </Link>
-        </Toolbar>
-      </AppBar>
-
       {/* Banner Start */}
       <Box
         sx={{
-          mt: 7,
+          // mt: 7,
           height: {
             mobile: 176,
             tablet: 363,
@@ -66,10 +58,12 @@ function ServiceProviderProfile() {
                 width: {
                   mobile: 70,
                   tablet: 144,
+                  laptop: 90,
                 },
                 height: {
                   mobile: 70,
                   tablet: 144,
+                  laptop: 90,
                 },
               }}
             />
@@ -85,14 +79,17 @@ function ServiceProviderProfile() {
                 width: {
                   mobile: "1rem",
                   tablet: "2rem",
+                  laptop: "1.5rem",
                 },
                 height: {
                   mobile: "1rem",
                   tablet: "2rem",
+                  laptop: "1.5rem",
                 },
                 left: {
                   mobile: 65,
                   tablet: 135,
+                  laptop: 85,
                 },
               }}
             >
@@ -102,6 +99,7 @@ function ServiceProviderProfile() {
                   fontSize: {
                     mobile: ".75rem",
                     tablet: "1.25rem",
+                    laptop: "1rem",
                   },
                 }}
               />
@@ -122,6 +120,7 @@ function ServiceProviderProfile() {
                     fontSize: {
                       mobile: "0.875rem",
                       tablet: "1.6875rem",
+                      laptop: "1.3125rem",
                     },
                   }}
                 >
@@ -141,6 +140,7 @@ function ServiceProviderProfile() {
                   fontSize: {
                     mobile: "0.5rem",
                     tablet: "0.9375rem",
+                    laptop: "1.0625",
                   },
                 }}
               >
@@ -155,6 +155,7 @@ function ServiceProviderProfile() {
       <AppBar
         elevation={0}
         sx={{
+          zIndex: 0,
           position: "relative",
           bgcolor: "backColor.main",
           boxShadow: "0 1rem 1rem #24235090",
@@ -162,12 +163,13 @@ function ServiceProviderProfile() {
           justifyContent: "center",
           flexDirection: "row",
           alignItems: "center",
-          gap: 2,
+          gap: { mobile: 2, tablet: "2.5rem", laptop: "4.75rem" },
           pl: 5,
           pr: 5,
           height: {
             mobile: "2.3125rem",
             tablet: "4.75rem",
+            laptop: "3.8125rem",
           },
         }}
       >
@@ -185,10 +187,12 @@ function ServiceProviderProfile() {
                 fontWeight: 600,
                 borderRadius: "1.4375rem",
                 bgcolor: "spNavBtnBg.main",
+                boxShadow: "none",
                 padding: { tablet: "0 3rem" },
                 height: {
                   mobile: "1.375rem",
                   tablet: "2.75rem",
+                  laptop: "2.5rem",
                 },
                 fontSize: {
                   mobile: "0.4375rem",

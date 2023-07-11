@@ -21,24 +21,6 @@ const ResetPassword = ({ check }) => {
         },
       }}
     >
-      <AppBar
-        sx={{
-          bgcolor: "backColor.main",
-        }}
-        elevation={0}
-      >
-        <Toolbar>
-          <Link to={"/"}>
-            <img
-              src={RevitLogo}
-              style={{ width: "95px", cursor: "pointer" }}
-              alt="revit-logo"
-            />
-          </Link>
-          <Typography flexGrow={1} />
-          <MenuDrawer />
-        </Toolbar>
-      </AppBar>
       <Box
         sx={{
           minHeight: "100vh",
