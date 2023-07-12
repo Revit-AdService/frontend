@@ -16,6 +16,7 @@ import PersonalInfo from "../components/ServiceProviderProfile/PersonalInfo";
 import NotFound from "../error_pages/NotFound";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
+import Post from "../components/ServiceProviderProfile/Post";
 
 function AppRoutes({ theme }) {
   return (
@@ -45,8 +46,11 @@ function AppRoutes({ theme }) {
 
       <Route path="/profile" element={<ServiceProviderProfile />}>
         <Route index element={<Landing />} />
+
         <Route path="/profile/catalog" element={<Catalog />} />
         <Route path="/profile/create-catalog" element={<CreateCatalog />} />
+
+        <Route path="/profile/post" element={<Post />} />
         <Route path="/profile/create-post" element={<CreatePost />} />
 
         <Route path="/profile/order-deals" element={<OrderDeals />} />

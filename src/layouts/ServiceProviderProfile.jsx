@@ -175,7 +175,7 @@ function ServiceProviderProfile() {
       >
         {[
           { title: "Catalog", link: "/profile/catalog" },
-          { title: "Post", link: "" },
+          { title: "Post", link: "/profile/post" },
           { title: "Order Deals", link: "/profile/order-deals" },
         ].map(({ title, link, key }) => (
           <NavLink to={link}>

@@ -9,6 +9,7 @@ import {
   Container,
 } from "@mui/material";
 import postbg from "../../assets/images/ServiceProviderProfile/post.png";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -553,22 +554,24 @@ const Landing = () => {
               },
             }}
           >
-            <Button
-              variant="contained"
-              sx={{
-                bgcolor: "spAddPostBtn.bg",
-                color: "spAddPostBtn.color",
-                fontWeight: "500",
-                letterSpacing: "-0.02rem",
-                textTransform: "capitalize",
-                borderRadius: { mobile: "0.75rem", tablet: "1.75rem" },
-                fontSize: { mobile: "0.5rem", tablet: "0.9375rem" },
-                width: { mobile: "5.9375rem", tablet: "12.125rem" },
-                height: { mobile: "1.0625rem", tablet: "2.125rem" },
-              }}
-            >
-              Add Post
-            </Button>
+            <Link to={"/profile/create-post"}>
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "spAddPostBtn.bg",
+                  color: "spAddPostBtn.color",
+                  fontWeight: "500",
+                  letterSpacing: "-0.02rem",
+                  textTransform: "capitalize",
+                  borderRadius: { mobile: "0.75rem", tablet: "1.75rem" },
+                  fontSize: { mobile: "0.5rem", tablet: "0.9375rem" },
+                  width: { mobile: "5.9375rem", tablet: "12.125rem" },
+                  height: { mobile: "1.0625rem", tablet: "2.125rem" },
+                }}
+              >
+                Add Post
+              </Button>
+            </Link>
           </Box>
         </Box>
 
