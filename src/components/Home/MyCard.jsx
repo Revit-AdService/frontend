@@ -1,6 +1,7 @@
 import { Verified } from "@mui/icons-material";
 import { Avatar, Box, Button, Paper, Tooltip, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyCard = () => {
   return (
@@ -93,12 +94,14 @@ const MyCard = () => {
               alignItems: "center",
             }}
           >
-            <Typography
-              variant="artistName"
-              sx={{ color: "post.main", cursor: "default" }}
-            >
-              John Smith
-            </Typography>
+            <Link to={"/profile"} style={{ textDecoration: "none" }}>
+              <Typography
+                variant="artistName"
+                sx={{ color: "post.main", cursor: "pointer" }}
+              >
+                John Smith
+              </Typography>
+            </Link>
             <Verified
               sx={{ fontSize: "17px", color: "gold", margin: "0 5px" }}
             />

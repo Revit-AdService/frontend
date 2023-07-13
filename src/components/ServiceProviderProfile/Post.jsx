@@ -18,7 +18,7 @@ function Post() {
             fontSize: { mobile: "1rem" },
           }}
         >
-          All Catalogs
+          All Posts
         </Typography>
       </Box>
 
