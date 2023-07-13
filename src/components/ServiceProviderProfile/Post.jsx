@@ -1,5 +1,6 @@
-import { ArrowBackIosNew } from "@mui/icons-material";
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Add, ArrowBackIosNew } from "@mui/icons-material";
+import { Box, Fab, Grid, IconButton, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Post() {
   return (
@@ -8,14 +9,20 @@ function Post() {
         sx={{ display: "inline-flex", alignItems: "center", padding: "0 1rem" }}
       >
         <IconButton>
-          <ArrowBackIosNew sx={{ color: "spIconsColor.main" }} />
+          <ArrowBackIosNew
+            sx={{ color: "spIconsColor.main", fontSize: { tablet: "3rem" } }}
+          />
         </IconButton>
         <Typography
           sx={{
             color: "#777683",
             fontWeight: 500,
-            letterSpacing: { mobile: "−0.030625rem" },
-            fontSize: { mobile: "1rem" },
+            letterSpacing: { mobile: "−0.030625rem", tablet: "−0.04625rem" },
+            fontSize: {
+              mobile: "1rem",
+              tablet: "1.125rem",
+              largeDesktop: "1.375rem",
+            },
           }}
         >
           All Posts
@@ -793,6 +800,31 @@ function Post() {
           </Box>
         </Grid>
       </Grid>
+
+      <Link to={"/profile/create-post"}>
+        <Fab
+          sx={{
+            m: 3,
+            position: "fixed",
+            float: "left",
+            right: "0",
+            bottom: "0",
+            color: "#FFFFFF90",
+            backgroundColor: "spDeleteBtn.main",
+            transition: "0.3s ease-in-out",
+
+            "&:hover": {
+              backgroundColor: "spDeleteBtn.main",
+              color: "#f9f9f9",
+              height: 70,
+              width: 70,
+            },
+          }}
+          aria-label="Add New Post"
+        >
+          <Add />
+        </Fab>
+      </Link>
     </Box>
   );
 }
