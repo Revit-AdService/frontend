@@ -17,6 +17,7 @@ import NotFound from "../error_pages/NotFound";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Post from "../components/ServiceProviderProfile/Post";
+import ProfileDetails from "../components/ServiceProviderProfile/ProfileDetails";
 
 function AppRoutes({ theme }) {
   return (
@@ -56,6 +57,10 @@ function AppRoutes({ theme }) {
         <Route path="/profile/order-deals" element={<OrderDeals />} />
 
         <Route path="/profile/personal-info" element={<PersonalInfo />} />
+        <Route
+          path="/profile/edit-profile-details"
+          element={<ProfileDetails />}
+        />
       </Route>
 
       <Route path="*" element={<NotFound />} />

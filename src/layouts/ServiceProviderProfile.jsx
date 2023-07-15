@@ -93,16 +93,18 @@ function ServiceProviderProfile() {
                 },
               }}
             >
-              <Edit
-                sx={{
-                  color: "#000",
-                  fontSize: {
-                    mobile: ".75rem",
-                    tablet: "1.25rem",
-                    laptop: "1rem",
-                  },
-                }}
-              />
+              <Link to={"/profile/edit-profile-details"}>
+                <Edit
+                  sx={{
+                    color: "#000",
+                    fontSize: {
+                      mobile: ".75rem",
+                      tablet: "1.25rem",
+                      laptop: "1rem",
+                    },
+                  }}
+                />
+              </Link>
             </Box>
 
             <Box sx={{ pb: 1 }}>
