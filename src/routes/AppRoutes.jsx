@@ -18,6 +18,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import Post from "../components/ServiceProviderProfile/Post";
 import ProfileDetails from "../components/ServiceProviderProfile/ProfileDetails";
+import Notifications from "../pages/Notifications";
 
 function AppRoutes({ theme }) {
   return (
@@ -62,6 +63,8 @@ function AppRoutes({ theme }) {
           element={<ProfileDetails />}
         />
       </Route>
+
+      <Route path="notifications" element={<Notifications />} />
 
       <Route path="*" element={<NotFound />} />
     </Routes>
