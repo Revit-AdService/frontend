@@ -24,33 +24,55 @@ const PersonalInfo = () => {
       }}
     >
       {/* Bio Section Start */}
-      <Box sx={{ height: "13.3125rem", bgcolor: "#e6e6e5", mt: "1.375rem" }}>
+      <Box
+        sx={{
+          bgcolor: "spCardBg.main",
+          mt: "1.375rem",
+          px: { tablet: 2.5 },
+          py: { tablet: 2.5 },
+          width: { largeDesktop: "1629px" },
+          height: {
+            mobile: "13.3125rem",
+            tablet: "253px",
+            largeDesktop: "311px",
+          },
+        }}
+      >
         <Toolbar sx={{ minHeight: "2rem" }}>
           <Typography
             flexGrow={1}
             sx={{
-              color: "#242254",
+              color: "spHeading1.main",
               fontWeight: 500,
-              letterSpacing: "0.0325rem",
-              fontSize: "0.8125rem",
               fontStyle: "italic",
+              letterSpacing: { mobile: "0.0325rem", tablet: "-0.96px" },
+              fontSize: {
+                mobile: "0.8125rem",
+                tablet: "24px",
+                largeDesktop: "25px",
+              },
             }}
           >
             Bio
           </Typography>
 
-          <Edit sx={{ color: "#dc1f8a", width: "1rem" }} />
+          <Edit
+            sx={{
+              color: "spDeleteBtn.main",
+              width: { mobile: "1rem", tablet: "25px", largeDesktop: "31px" },
+            }}
+          />
         </Toolbar>
 
         <Typography
           sx={{
-            color: "#434257",
-            fontSize: "0.5625rem",
-            letterSpacing: "0.02375rem",
+            color: "spText.main",
             fontStyle: "Italic",
             textAlign: "Justify",
-            lineHeight: "0.8475rem",
             p: "1.125rem",
+            lineHeight: { mobile: "0.8475rem", tablet: "21.56px" },
+            fontSize: { mobile: "0.5625rem", tablet: "15px" },
+            letterSpacing: { mobile: "0.02375rem", tablet: "-0.62px" },
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iste,
@@ -65,27 +87,40 @@ const PersonalInfo = () => {
       <Box
         sx={{
           width: "100%",
-          minHeight: "27.3125rem",
-          bgcolor: "#e6e6e5",
+          bgcolor: "spCardBg.main",
           mt: "1.375rem",
           pb: "2rem",
+          width: { largeDesktop: "1630px" },
+          minHeight: {
+            mobile: "27.3125rem",
+            tablet: "895px",
+            largeDesktop: "1099px",
+          },
         }}
       >
-        <Toolbar sx={{ minHeight: "2rem" }}>
+        <Toolbar
+          sx={{ minHeight: "2rem", px: { tablet: 4 }, py: { tablet: 2.5 } }}
+        >
           <Typography
             flexGrow={1}
             sx={{
-              color: "#242254",
+              color: "spHeading1.main",
               fontWeight: 500,
-              letterSpacing: "0.0325rem",
-              fontSize: "0.8125rem",
               fontStyle: "italic",
+              letterSpacing: { mobile: "0.0325rem", tablet: "-1px" },
+              fontSize: { mobile: "0.8125rem", tablet: "25px" },
             }}
           >
             Qualifications
           </Typography>
 
-          <Add variant={"filled"} sx={{ color: "#dc1f8a", width: "1rem" }} />
+          <Add
+            variant={"filled"}
+            sx={{
+              color: "spDeleteBtn.main",
+              width: { mobile: "1rem", tablet: "25px", largeDesktop: "40px" },
+            }}
+          />
         </Toolbar>
 
         <Box
@@ -97,9 +132,9 @@ const PersonalInfo = () => {
             gap: "1rem",
             mt: "1rem",
             width: "100%",
-            height: "11rem",
-            bgcolor: "#f9f9f9",
+            bgcolor: "spQualificationsCardBg.main",
             p: "0.875rem",
+            height: { mobile: "11rem", tablet: "360px" },
           }}
         >
           <Box
@@ -121,20 +156,20 @@ const PersonalInfo = () => {
             sx={{
               display: "grid",
               placeContent: "center",
-              width: "9.1875rem",
-              height: "6.9375rem",
               borderRadius: "0.75rem",
               bgcolor: "#ffffff",
               cursor: "pointer",
+              height: { mobile: "6.9375rem", tablet: "224px" },
+              width: { mobile: "9.1875rem", tablet: "297px" },
             }}
           >
             <Typography
               sx={{
-                color: "#888995",
-                fontSize: "0.5625rem",
+                color: "spDeleteBtn.main",
                 fontWeight: 500,
                 fontStyle: "italic",
                 letterSpacing: "−0.0225rem",
+                fontSize: { mobile: "0.5625rem", tablet: "18px" },
               }}
             >
               Upload Certificate
@@ -145,22 +180,24 @@ const PersonalInfo = () => {
         <Box
           sx={{
             position: "relative",
-            width: "22.625rem",
             flexDirection: "column",
             borderRadius: "0.625rem",
             padding: "0.8125rem 1.375rem",
-            bgcolor: "#f9f9f9",
+            bgcolor: "spQualificationsCardBg.main",
             // ml: "0.5rem",
             // mr: "0.5rem",
             margin: "2rem auto",
+            width: { mobile: "22.625rem", tablet: "739px" },
+            px: { tablet: 5 },
+            py: { tablet: 5 },
           }}
         >
           <Typography
             sx={{
-              color: "#434254",
-              fontSize: "0.875rem",
+              color: "spText.main",
               fontWeight: 500,
-              letterSpacing: "-0.035rem",
+              letterSpacing: { mobile: "-0.035rem", tablet: "-1.08px" },
+              fontSize: { mobile: "0.875rem", tablet: "27px" },
             }}
           >
             Bachelors of Software Engineering
@@ -168,10 +205,9 @@ const PersonalInfo = () => {
 
           <Typography
             sx={{
-              color: "#434254",
-              fontSize: "0.5625rem",
-              letterSpacing: "-0.0225rem",
+              color: "spText.main",
               fontStyle: "italic",
+              fontSize: { mobile: "0.5625rem", tablet: "17px" },
             }}
           >
             University of Zimbabwe
@@ -179,29 +215,34 @@ const PersonalInfo = () => {
 
           <Typography
             sx={{
-              color: "#434254",
-              fontSize: "0.5625rem",
-              letterSpacing: "-0.0225rem",
+              color: "spText.main",
               fontStyle: "italic",
+              fontSize: { mobile: "0.5625rem", tablet: "17px" },
             }}
           >
             2022
           </Typography>
 
           <Button
-            startIcon={<Delete sx={{ width: "1rem", mr: -1 }} />}
+            startIcon={
+              <Delete
+                sx={{
+                  width: { mobile: "1rem", tablet: "20px" },
+                  mr: { mobile: -1, tablet: 0 },
+                }}
+              />
+            }
             sx={{
-              color: "#e2209e",
-              fontSize: "0.75rem",
+              color: "spDeleteBtn.main",
               fontWeight: 500,
-              letterSpacing: "0.03rem",
               fontStyle: "italic",
               textTransform: "capitalize",
               position: "absolute",
-              right: ".7rem",
-              bottom: ".7rem",
+              right: { mobile: ".7rem", tablet: 50 },
+              bottom: { mobile: ".7rem", tablet: 30 },
               width: "4.2rem",
               height: "1.25rem",
+              fontSize: { mobile: "0.75rem", tablet: "22px" },
             }}
           >
             Delete
