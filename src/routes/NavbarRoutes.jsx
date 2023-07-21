@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import NavBar from "../common/NavBar";
+import NavBar from "../utils/NavBar";
 import HomeNavbar from "../components/Navbar/HomeNavbar";
 
 function NavbarRoutes({ check, change }) {

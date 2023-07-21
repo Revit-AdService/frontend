@@ -2,10 +2,23 @@ import { Close, Search, ShoppingCart } from "@mui/icons-material";
 import { Box, IconButton, Input, Stack, Tooltip } from "@mui/material";
 import BasicMenu from "../Home/CategoryMenu";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function HomeNavbar() {
   const [isActive, setIsActive] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (searchTerm) {
+      navigate(`/search/${searchTerm}`);
+      setSearchTerm("");
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,7 +33,12 @@ function HomeNavbar() {
   }, []);
 
   return (
-    <Stack direction="row" spacing={0.25}>
+    <Stack
+      component={"form"}
+      onSubmit={handleSubmit}
+      direction="row"
+      spacing={0.25}
+    >
       <Tooltip title="Cart">
         <IconButton size="large" aria-label="cart">
           <ShoppingCart color="primary" sx={{ fontSize: "22px" }} />
@@ -69,8 +87,13 @@ function HomeNavbar() {
             }}
           >
             <Input
+              disableUnderline
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="search here . . . "
               sx={{
+                fontSize: "12px",
                 width: "100%",
                 height: 50,
                 color: "#333",

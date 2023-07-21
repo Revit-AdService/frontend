@@ -3,11 +3,22 @@ import React, { useEffect, useState } from "react";
 import TopRatedSection from "../components/Home/TopRatedSection";
 import MoreServicesSection from "../components/Home/MoreServicesSection";
 import { Chat, Search } from "@mui/icons-material";
-import NavBar from "../common/NavBar";
+import NavBar from "../utils/NavBar";
 import Banner from "../components/Home/Banner";
+import { fetchFromAPI } from "../utils/fetchFromAPI";
+import Posts from "../components/Posts";
+import SearchBar from "../components/Home/SearchBar";
 
-const Home = ({ check, change }) => {
+const Home = () => {
   const [width, setWidth] = useState(window.innerWidth);
+  const [posts, setPosts] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    fetchFromAPI("posts").then((res) => setPosts(res));
+  }, []);
+
+  console.log(posts);
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,41 +52,13 @@ const Home = ({ check, change }) => {
             pt: 3,
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 1,
-              width: "475px",
-              height: "100%",
-              bgcolor: "searchBg.main",
-              padding: "0px 20px",
-              borderRadius: "50px",
-              transition: "1s ease-in-out",
-            }}
-          >
-            <IconButton sx={{ left: "0%" }}>
-              <Search color="secondary" />
-            </IconButton>
-
-            <Input
-              placeholder="search here . . . "
-              sx={{
-                width: "100%",
-                height: 30,
-                fontSize: 13,
-                color: "#f9f9f9",
-              }}
-            />
-          </Box>
+          <SearchBar />
         </Box>
       ) : (
         ""
       )}
 
-      <TopRatedSection />
-      <MoreServicesSection />
+      <Posts posts={posts} />
       <Fab
         sx={{
           m: 3,

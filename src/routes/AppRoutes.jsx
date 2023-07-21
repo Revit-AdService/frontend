@@ -19,11 +19,17 @@ import Home from "../pages/Home";
 import Post from "../components/ServiceProviderProfile/Post";
 import ProfileDetails from "../components/ServiceProviderProfile/ProfileDetails";
 import Notifications from "../pages/Notifications";
+import Wallet from "../pages/Wallet";
+import Withdraw from "../pages/Withdraw";
+import SearchFeed from "../pages/SearchFeed";
 
 function AppRoutes({ theme }) {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+
+      <Route path="/search/:searchTerm" element={<SearchFeed />} />
+
       <Route path="/login" element={<Login check={theme} />} />
 
       <Route path="/reset-password" element={<ResetPassword check={theme} />}>
@@ -65,6 +71,10 @@ function AppRoutes({ theme }) {
       </Route>
 
       <Route path="notifications" element={<Notifications />} />
+
+      <Route path="wallet" element={<Wallet />} />
+
+      <Route path="withdraw" element={<Withdraw />} />
 
       <Route path="*" element={<NotFound />} />
     </Routes>
