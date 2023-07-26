@@ -1,24 +1,15 @@
-import { Box, Fab, IconButton, Input } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import TopRatedSection from "../components/Home/TopRatedSection";
-import MoreServicesSection from "../components/Home/MoreServicesSection";
-import { Chat, Search } from "@mui/icons-material";
-import NavBar from "../utils/NavBar";
+import { Box, Fab } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import { Chat } from "@mui/icons-material";
 import Banner from "../components/Home/Banner";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Posts from "../components/Posts";
 import SearchBar from "../components/Home/SearchBar";
+import MainContext from "../context/mainContext";
 
 const Home = () => {
   const [width, setWidth] = useState(window.innerWidth);
-  const [posts, setPosts] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    fetchFromAPI("posts").then((res) => setPosts(res));
-  }, []);
-
-  console.log(posts);
+  const { posts } = useContext(MainContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,13 +27,9 @@ const Home = () => {
     <Box
       sx={{
         position: "relative",
-        // top: 60,
       }}
     >
-      {/* <NavBar check={check} change={change} /> */}
-
       <Banner />
-
       {width >= 600 ? (
         <Box
           sx={{
@@ -58,7 +45,7 @@ const Home = () => {
         ""
       )}
 
-      <Posts posts={posts} />
+      <Posts posts={posts.posts} />
       <Fab
         sx={{
           m: 3,

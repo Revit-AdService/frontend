@@ -6,12 +6,16 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import logo from "../assets/images/Logo.png";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import banner from "../assets/images/Banner.png";
 import { Edit, Verified } from "@mui/icons-material";
+import { useContext, useEffect, useState } from "react";
+import MainContext from "../context/mainContext";
 
 function ServiceProviderProfile() {
+  const { userData } = useContext(MainContext);
+  if (!userData) return "loading...";
+
   return (
     <Box>
       {/* Banner Start */}
@@ -23,7 +27,7 @@ function ServiceProviderProfile() {
             tablet: 363,
             laptop: 258,
           },
-          background: `url(${banner}) `,
+          background: `url(${userData[0].banner.url}) `,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "40%",
@@ -54,6 +58,8 @@ function ServiceProviderProfile() {
             }}
           >
             <Avatar
+              src={userData[0].avatar}
+              alt={`${userData[0].firstname} ${userData[0].lastname}`}
               sx={{
                 width: {
                   mobile: 70,
@@ -126,7 +132,7 @@ function ServiceProviderProfile() {
                     },
                   }}
                 >
-                  John Smith
+                  {`${userData[0].firstname} ${userData[0].lastname}`}
                   <Verified
                     sx={{ color: "gold", fontSize: ".9rem", ml: "0.4375rem" }}
                   />
@@ -146,7 +152,7 @@ function ServiceProviderProfile() {
                   },
                 }}
               >
-                Graphics Designer
+                {userData[0].service_type}
               </Typography>
             </Box>
           </Box>
@@ -176,9 +182,9 @@ function ServiceProviderProfile() {
         }}
       >
         {[
-          { title: "Catalog", link: "/profile/catalog" },
-          { title: "Post", link: "/profile/post" },
-          { title: "Order Deals", link: "/profile/order-deals" },
+          { title: "Catalog", link: "/profile/:user_id/catalog" },
+          { title: "Post", link: "/profile/:user_id/posts" },
+          { title: "Order Deals", link: "/profile/:user_id/order-deals" },
         ].map(({ title, link, key }) => (
           <NavLink to={link}>
             <Button

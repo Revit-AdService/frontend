@@ -1,25 +1,21 @@
 import { Add, Delete, Edit } from "@mui/icons-material";
-import {
-  Box,
-  Toolbar,
-  Typography,
-  Button,
-  Rating,
-  Divider,
-  Container,
-} from "@mui/material";
+import { Box, Toolbar, Typography, Button, Rating, Stack } from "@mui/material";
 import postbg from "../../assets/images/ServiceProviderProfile/post.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import MainContext from "../../context/mainContext";
+import PostCard from "./PostCard";
 
 const Landing = () => {
+  const { userData, userPosts } = useContext(MainContext);
+  if (!userData || !userPosts) return "Loading...";
+
   return (
     <Box
       sx={{
         display: "flex",
         width: "100%",
         flexDirection: { mobile: "column", laptop: "row" },
-        // justifyContent: "center",
-        // alignItems: "center",
         pb: 3,
       }}
     >
@@ -39,7 +35,7 @@ const Landing = () => {
             overflow: "hidden",
             borderRadius: { laptop: "4.375rem" },
             width: { laptop: "33.125rem" },
-            height: {
+            minHeight: {
               mobile: "9rem",
               tablet: "18.75rem",
               laptop: "22.1875rem",
@@ -90,6 +86,7 @@ const Landing = () => {
               fontStyle: "Italic",
               textAlign: "Justify",
               padding: { mobile: "1.125rem", laptop: "0.75rem 3.75rem" },
+              pb: { laptop: "3rem" },
               letterSpacing: { laptop: "−0.04625rem" },
               lineHeight: { laptop: "1.91rem" },
               fontSize: {
@@ -99,11 +96,7 @@ const Landing = () => {
               },
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iste,
-            illum, obcaecati neque eius fugiat voluptatum modi alias labore
-            debitis veritatis. Optio omnis, pariatur libero aspernatur odio
-            excepturi nostrum quos dolorem laudantium maiores!Lorem ipsum dolor
-            sit amet consectetur adipisicing elit.
+            {userData[0].bio}
           </Typography>
         </Box>
 
@@ -490,6 +483,7 @@ const Landing = () => {
           overflow: { laptop: "auto" },
           // height: { laptop: 1270 },
           width: { laptop: "50%" },
+          height: { laptop: "1300px" },
           pt: { laptop: "2rem" },
         }}
       >
@@ -506,12 +500,12 @@ const Landing = () => {
             width: {
               mobile: "21.5625rem",
               tablet: "41.5625rem",
-              laptop: "35rem",
+              laptop: "35rem !important",
             },
             height: {
-              mobile: "5.4375rem",
-              tablet: "10.4375rem",
-              laptop: "7.5rem",
+              mobile: "5.4375rem !important",
+              tablet: "10.4375rem !important",
+              laptop: "7.5rem !important",
             },
           }}
         >
@@ -575,87 +569,14 @@ const Landing = () => {
           </Box>
         </Box>
 
-        {/* Posts */}
-        <Divider sx={{ color: "#000", m: 2 }} />
-
         {/* These are the posts */}
-        <Box>
-          <Box
-            sx={{
-              height: "20.1875rem",
-              bgcolor: "spPostCardBg.main",
-              overflow: "hidden",
-              borderRadius: "4rem",
-              width: { mobile: "21.5625rem", laptop: "35rem" },
-              height: { mobile: "20.1875rem", laptop: "35rem" },
-            }}
-          >
-            <Box
-              sx={{
-                position: "relative",
-                borderRadius: "0rem",
-                width: "100%",
-                background: `#00000050 url(${postbg})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-                height: { mobile: "16.25rem", laptop: "25rem" },
-              }}
-            >
-              <Box
-                sx={{
-                  position: "absolute",
-                  display: "grid",
-                  placeContent: "center",
-                  bottom: 20,
-                  right: 20,
-                  width: "7.1875rem",
-                  height: "1.6875rem",
-                  borderRadius: "1.5625rem",
-                  color: "#0e112b",
-                  fontSize: "0.625rem",
-                  fontWeight: 500,
-                  letterSpacing: "-0.025rem",
-                  background:
-                    "linear-gradient(to bottom, #ffffff90, #e2209e90)",
-                }}
-              >
-                $100.00
-              </Box>
+        <Stack mt={5} gap={3}>
+          {userPosts.map((item, id) => (
+            <Box key={id}>
+              <PostCard post={item} />
             </Box>
-
-            <Typography
-              align="center"
-              sx={{
-                color: "#f9f9f9",
-                fontWeight: 500,
-                fontStyle: "italic",
-                margin: { laptop: "0.3rem 0" },
-                letterSpacing: { mobile: "-0.03rem", laptop: "−0.0475rem" },
-                fontSize: { mobile: "0.75rem", laptop: "1.1875rem" },
-              }}
-            >
-              Graphic Design and Logo Design
-            </Typography>
-
-            <Typography
-              align="center"
-              sx={{
-                color: "rgba(249, 249, 249, 0.79)",
-                fontStyle: "italic",
-                lineHeight: "0.875rem",
-                pl: 3,
-                pr: 3,
-                fontSize: { mobile: "0.625rem" },
-                letterSpacing: { mobile: "0.025625rem" },
-                lineHeight: { mobile: "0.875rem", laptop: "0.8125rem" },
-              }}
-            >
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda praesentium quaerat minus? Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Assumenda praesentium quaerat minus?
-            </Typography>
-          </Box>
-        </Box>
+          ))}
+        </Stack>
       </Box>
       {/* Right End */}
     </Box>

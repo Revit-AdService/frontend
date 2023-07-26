@@ -16,7 +16,7 @@ import PersonalInfo from "../components/ServiceProviderProfile/PersonalInfo";
 import NotFound from "../error_pages/NotFound";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
-import Post from "../components/ServiceProviderProfile/Post";
+import Posts from "../components/ServiceProviderProfile/Posts";
 import ProfileDetails from "../components/ServiceProviderProfile/ProfileDetails";
 import Notifications from "../pages/Notifications";
 import Wallet from "../pages/Wallet";
@@ -52,20 +52,26 @@ function AppRoutes({ theme }) {
         element={<SignUpAsServiceProvider check={theme} />}
       />
 
-      <Route path="/profile" element={<ServiceProviderProfile />}>
+      <Route path="/profile/:user_id" element={<ServiceProviderProfile />}>
         <Route index element={<Landing />} />
 
-        <Route path="/profile/catalog" element={<Catalog />} />
-        <Route path="/profile/create-catalog" element={<CreateCatalog />} />
-
-        <Route path="/profile/post" element={<Post />} />
-        <Route path="/profile/create-post" element={<CreatePost />} />
-
-        <Route path="/profile/order-deals" element={<OrderDeals />} />
-
-        <Route path="/profile/personal-info" element={<PersonalInfo />} />
+        <Route path="/profile/:user_id/catalog" element={<Catalog />} />
         <Route
-          path="/profile/edit-profile-details"
+          path="/profile/:user_id/create-catalog"
+          element={<CreateCatalog />}
+        />
+
+        <Route path="/profile/:user_id/posts" element={<Posts />} />
+        <Route path="/profile/:user_id/create-post" element={<CreatePost />} />
+
+        <Route path="/profile/:user_id/order-deals" element={<OrderDeals />} />
+
+        <Route
+          path="/profile/:user_id/personal-info"
+          element={<PersonalInfo />}
+        />
+        <Route
+          path="/profile/:user_id/edit-profile-details"
           element={<ProfileDetails />}
         />
       </Route>

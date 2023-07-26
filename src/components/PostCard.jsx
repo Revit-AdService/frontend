@@ -8,11 +8,14 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import MainContext from "../context/mainContext";
+import { useContext } from "react";
 
 const PostCard = ({
-  post: { author, sales, recommendations, thumbnailurl, title, description },
+  post: { sales, recommendations, thumbnailurl, title, description },
 }) => {
-  //   console.log(post);
+  const { authors } = useContext(MainContext);
+
   return (
     <Stack direction="column" gap={2}>
       <Stack
@@ -31,7 +34,9 @@ const PostCard = ({
                 fontWeight: 500,
                 fontStyle: "italic",
               }}
-            >{`${author.firstname} ${author.lastname}`}</Typography>
+            >
+              fname lname
+            </Typography>
             <Stack direction="row" gap={0.3}>
               <Typography
                 sx={{

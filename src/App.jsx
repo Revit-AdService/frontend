@@ -5,6 +5,7 @@ import { LightTheme } from "./theme/LightTheme";
 import { DarkTheme } from "./theme/DarkTheme";
 import AppRoutes from "./routes/AppRoutes";
 import NavbarRoutes from "./routes/NavbarRoutes";
+import { MainProvider } from "./context/mainContext";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -17,10 +18,12 @@ function App() {
     <ThemeProvider theme={theme ? DarkTheme : LightTheme}>
       <CssBaseline />
       <Paper elevation={0}>
-        <div className="App">
-          <NavbarRoutes check={theme} change={handleToggle} />
-          <AppRoutes theme={theme} />
-        </div>
+        <MainProvider>
+          <div className="App">
+            <NavbarRoutes check={theme} change={handleToggle} />
+            <AppRoutes theme={theme} />
+          </div>
+        </MainProvider>
       </Paper>
     </ThemeProvider>
   );

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
@@ -7,14 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import {
-  Home,
-  Login,
-  Logout,
-  Menu,
-  Person,
-  ShoppingCart,
-} from "@mui/icons-material";
+import { Home, Login, Logout, Menu } from "@mui/icons-material";
 import {
   Avatar,
   Button,
@@ -24,7 +17,8 @@ import {
   Typography,
   Switch,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import MainContext from "../context/mainContext";
 
 const menuItems = [
   {
@@ -40,12 +34,20 @@ const menuItems = [
 ];
 
 const MenuDrawer = ({ check, change }) => {
+  const navigate = useNavigate();
+
   const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
+  const { user, userData } = useContext(MainContext);
+  if (!userData) return "Loading...";
+
+  const handleClick = () => {
+    navigate(`/profile/${user}`);
+  };
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -82,7 +84,10 @@ const MenuDrawer = ({ check, change }) => {
             justifyContent: "space-between",
           }}
         >
-          <Avatar />
+          <Avatar
+            alt={`${userData[0]?.firstname} ${userData[0]?.lastname}`}
+            src={userData[0]?.avatar}
+          />
 
           <Tooltip title={check ? "Disable DarkTheme" : "Enable DarkTheme"}>
             <IconButton>
@@ -97,18 +102,18 @@ const MenuDrawer = ({ check, change }) => {
           </Tooltip>
         </Box>
 
-        <Link to={"profile"}>
-          <Typography
-            sx={{
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: -0.5,
-              mt: 1,
-            }}
-          >
-            Tauya Mtowodzwa
-          </Typography>
-        </Link>
+        <Typography
+          onClick={handleClick}
+          sx={{
+            fontSize: 12,
+            fontWeight: 600,
+            letterSpacing: -0.5,
+            mt: 1,
+            cursor: "pointer",
+          }}
+        >
+          {`${userData[0]?.firstname} ${userData[0]?.lastname}`}
+        </Typography>
       </Box>
 
       <Divider />
@@ -144,6 +149,7 @@ const MenuDrawer = ({ check, change }) => {
   );
 
   const anchor = "right";
+
   return (
     <div>
       <Fragment key={anchor}>

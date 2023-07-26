@@ -1,13 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Skeleton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import PostCard from "./PostCard";
 import PostSkeleton from "./PostSkeleton";
 
