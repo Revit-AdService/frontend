@@ -10,6 +10,7 @@ export const MainProvider = ({ children }) => {
   const [authors, setAuthors] = useState(null);
   const [userData, setUserData] = useState(null);
   const [user, setUser] = useState("a1");
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     fetchFromAPI("posts").then((response) => setPosts(response));
@@ -18,19 +19,20 @@ export const MainProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    fetchFromAPI(`authors?id=${user}`).then((response) =>
-      setUserData(response)
-    );
+    fetchFromAPI(`authors/${user}`).then((response) => setUserData(response));
 
     fetchFromAPI(`posts?author_id=${user}`).then((response) =>
       setUserPosts(response)
     );
-  }, [user]);
-  // console.log(userPosts);
 
+    fetchFromAPI(`catalogs/${user}`).then((response) =>
+      setProducts(response.products)
+    );
+  }, [user]);
   return (
     <MainContext.Provider
       value={{
+        products,
         user,
         userData,
         userPosts,

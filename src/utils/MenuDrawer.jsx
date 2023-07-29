@@ -85,8 +85,8 @@ const MenuDrawer = ({ check, change }) => {
           }}
         >
           <Avatar
-            alt={`${userData[0]?.firstname} ${userData[0]?.lastname}`}
-            src={userData[0]?.avatar}
+            alt={`${userData?.firstname} ${userData?.lastname}`}
+            src={userData?.avatar}
           />
 
           <Tooltip title={check ? "Disable DarkTheme" : "Enable DarkTheme"}>
@@ -112,7 +112,7 @@ const MenuDrawer = ({ check, change }) => {
             cursor: "pointer",
           }}
         >
-          {`${userData[0]?.firstname} ${userData[0]?.lastname}`}
+          {`${userData?.firstname} ${userData?.lastname}`}
         </Typography>
       </Box>
 

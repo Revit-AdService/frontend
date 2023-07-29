@@ -10,10 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import MainContext from "../../context/mainContext";
 
 function Post() {
+  const { user_id } = useParams();
+  const navigate = useNavigate();
+
   const { userPosts } = useContext(MainContext);
   if (!userPosts) return "Loading";
 
@@ -22,7 +25,7 @@ function Post() {
       <Box
         sx={{ display: "inline-flex", alignItems: "center", padding: "0 1rem" }}
       >
-        <IconButton>
+        <IconButton onClick={() => navigate(`/profile/${user_id}`)}>
           <ArrowBackIosNew
             sx={{ color: "spIconsColor.main", fontSize: { tablet: "3rem" } }}
           />

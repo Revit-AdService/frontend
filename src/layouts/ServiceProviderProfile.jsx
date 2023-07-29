@@ -13,6 +13,7 @@ import { useContext, useEffect, useState } from "react";
 import MainContext from "../context/mainContext";
 
 function ServiceProviderProfile() {
+  const { user_id } = useParams();
   const { userData } = useContext(MainContext);
   if (!userData) return "loading...";
 
@@ -27,7 +28,7 @@ function ServiceProviderProfile() {
             tablet: 363,
             laptop: 258,
           },
-          background: `url(${userData[0].banner.url}) `,
+          background: `url(${userData.banner.url}) `,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "40%",
@@ -58,8 +59,8 @@ function ServiceProviderProfile() {
             }}
           >
             <Avatar
-              src={userData[0].avatar}
-              alt={`${userData[0].firstname} ${userData[0].lastname}`}
+              src={userData?.avatar}
+              alt={`${userData?.firstname} ${userData?.lastname}`}
               sx={{
                 width: {
                   mobile: 70,
@@ -99,7 +100,7 @@ function ServiceProviderProfile() {
                 },
               }}
             >
-              <Link to={"/profile/edit-profile-details"}>
+              <Link to={`/profile/${user_id}/edit-profile-details`}>
                 <Edit
                   sx={{
                     color: "#000",
@@ -115,7 +116,7 @@ function ServiceProviderProfile() {
 
             <Box sx={{ pb: 1 }}>
               <Link
-                to={"/profile/personal-info"}
+                to={`/profile/${user_id}/personal-info`}
                 style={{ textDecoration: "none" }}
               >
                 <Typography
@@ -132,7 +133,7 @@ function ServiceProviderProfile() {
                     },
                   }}
                 >
-                  {`${userData[0].firstname} ${userData[0].lastname}`}
+                  {`${userData?.firstname} ${userData?.lastname}`}
                   <Verified
                     sx={{ color: "gold", fontSize: ".9rem", ml: "0.4375rem" }}
                   />
@@ -152,7 +153,7 @@ function ServiceProviderProfile() {
                   },
                 }}
               >
-                {userData[0].service_type}
+                {userData?.service_type}
               </Typography>
             </Box>
           </Box>
@@ -182,14 +183,13 @@ function ServiceProviderProfile() {
         }}
       >
         {[
-          { title: "Catalog", link: "/profile/:user_id/catalog" },
-          { title: "Post", link: "/profile/:user_id/posts" },
-          { title: "Order Deals", link: "/profile/:user_id/order-deals" },
-        ].map(({ title, link, key }) => (
-          <NavLink to={link}>
+          { title: "Catalog", link: `/profile/${user_id}/catalog` },
+          { title: "Post", link: `/profile/${user_id}/posts` },
+          { title: "Order Deals", link: `/profile/${user_id}/order-deals` },
+        ].map(({ title, link }, id) => (
+          <NavLink key={id} to={link}>
             <Button
               variant={"contained"}
-              key={key}
               sx={{
                 color: "spHeading1.main",
                 fontWeight: 600,

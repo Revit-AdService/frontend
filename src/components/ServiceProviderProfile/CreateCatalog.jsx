@@ -1,13 +1,41 @@
 import { ArrowBackIosNew, Image, VideoCameraBack } from "@mui/icons-material";
 import { Box, Button, IconButton, Input, Typography } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
+import { postToAPI } from "../../utils/postToAPI";
+import { useState } from "react";
 
 const CreateCatalog = () => {
+  const { user_id } = useParams();
+  const navigate = useNavigate();
+
+  const [productPrice, setProductPrice] = useState("");
+  const [productName, setProductName] = useState("name");
+  const [productDescription, setProductDescription] = useState("description");
+  const [productImageUrl, setProductImageUrl] = useState("");
+  const [productCategory, setProductCategory] = useState("");
+
+  const data = {
+    name: productName,
+    description: productDescription,
+    imageUrl: productImageUrl,
+    price: productPrice,
+    category: productCategory,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    postToAPI(`catalogs/${user_id}/products`, data);
+
+    console.log(`catalogs/${user_id}/products`);
+  };
+
   return (
     <Box sx={{ padding: "1rem 0" }}>
       <Box
         sx={{ display: "inline-flex", alignItems: "center", padding: "0 1rem" }}
       >
-        <IconButton>
+        <IconButton onClick={() => navigate(`/profile/${user_id}/catalog`)}>
           <ArrowBackIosNew
             sx={{ color: "spIconsColor.main", fontSize: { tablet: "3rem" } }}
           />
@@ -24,11 +52,13 @@ const CreateCatalog = () => {
             },
           }}
         >
-          Add Catalog
+          Add New Product
         </Typography>
       </Box>
 
       <Box
+        onSubmit={handleSubmit}
+        component={"form"}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -83,6 +113,10 @@ const CreateCatalog = () => {
             }}
           />
           <Input
+            value={productPrice}
+            onChange={(e) => setProductPrice(e.target.value)}
+            type="text"
+            name="product price"
             disableUnderline
             placeholder="Enter price"
             sx={{
@@ -128,9 +162,13 @@ const CreateCatalog = () => {
               },
             }}
           >
-            Catalog Name
+            Product Name
           </Typography>
           <Input
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
+            type="text"
+            name="product name"
             disableUnderline
             sx={{
               pl: "0.625rem",
@@ -169,9 +207,13 @@ const CreateCatalog = () => {
               },
             }}
           >
-            Catalog Description
+            Product Description
           </Typography>
           <Input
+            value={productDescription}
+            onChange={(e) => setProductDescription(e.target.value)}
+            type="text"
+            name="product description"
             disableUnderline
             sx={{
               pl: "0.625rem",
@@ -197,6 +239,7 @@ const CreateCatalog = () => {
         {/* post description end */}
 
         <Button
+          type="submit"
           sx={{
             bgcolor: "spDeleteBtn.main",
             color: "spAddPostBtn.color",
@@ -222,7 +265,7 @@ const CreateCatalog = () => {
             },
           }}
         >
-          Add Catalog
+          Add Product
         </Button>
       </Box>
     </Box>

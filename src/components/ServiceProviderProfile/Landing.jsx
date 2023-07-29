@@ -1,12 +1,14 @@
 import { Add, Delete, Edit } from "@mui/icons-material";
 import { Box, Toolbar, Typography, Button, Rating, Stack } from "@mui/material";
 import postbg from "../../assets/images/ServiceProviderProfile/post.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import MainContext from "../../context/mainContext";
 import PostCard from "./PostCard";
 
 const Landing = () => {
+  const { user_id } = useParams();
+  const navigate = useNavigate();
   const { userData, userPosts } = useContext(MainContext);
   if (!userData || !userPosts) return "Loading...";
 
@@ -66,6 +68,7 @@ const Landing = () => {
             </Typography>
 
             <Edit
+              onClick={() => navigate(`/profile/${user_id}/personal-info`)}
               sx={{
                 color: "spIconsColor.main",
                 cursor: "pointer",
@@ -96,7 +99,7 @@ const Landing = () => {
               },
             }}
           >
-            {userData[0].bio}
+            {userData.bio}
           </Typography>
         </Box>
 
@@ -137,7 +140,7 @@ const Landing = () => {
             </Typography>
 
             <Add
-              variant={"filled"}
+              onClick={() => navigate(`/profile/${user_id}/personal-info`)}
               sx={{
                 color: "spIconsColor.main",
                 cursor: "pointer",
@@ -548,7 +551,7 @@ const Landing = () => {
               },
             }}
           >
-            <Link to={"/profile/create-post"}>
+            <Link to={`/profile/${user_id}/create-post`}>
               <Button
                 variant="contained"
                 sx={{

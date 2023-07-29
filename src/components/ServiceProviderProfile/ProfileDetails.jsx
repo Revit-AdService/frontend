@@ -7,14 +7,29 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { updateData } from "../../utils/updateData";
 
 const ProfileDetails = () => {
+  const { user_id } = useParams();
+  const navigate = useNavigate();
+
+  const [serviceType, setServiceType] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    updateData(`authors/${user_id}`, { service_type: serviceType });
+
+    setServiceType("");
+  };
   return (
     <Box my={3}>
       <Box
         sx={{ display: "inline-flex", alignItems: "center", padding: "0 1rem" }}
       >
-        <IconButton>
+        <IconButton onClick={() => navigate(`/profile/${user_id}`)}>
           <ArrowBackIosNew
             sx={{ color: "spIconsColor.main", fontSize: { tablet: "3rem" } }}
           />
@@ -35,7 +50,14 @@ const ProfileDetails = () => {
         </Typography>
       </Box>
 
-      <Stack direction={"column"} gap={2} mt={5} alignItems={"center"}>
+      <Stack
+        onSubmit={handleSubmit}
+        component={"form"}
+        direction={"column"}
+        gap={2}
+        mt={5}
+        alignItems={"center"}
+      >
         <Box
           sx={{
             display: "grid",
@@ -69,6 +91,9 @@ const ProfileDetails = () => {
             Enter Service Type
           </Typography>
           <Input
+            type="input"
+            value={serviceType}
+            onChange={(e) => setServiceType(e.target.value)}
             disableUnderline
             sx={{
               px: "10px",
@@ -82,6 +107,7 @@ const ProfileDetails = () => {
         </Box>
 
         <Button
+          type="submit"
           sx={{
             fontWeight: 500,
             bgcolor: "spAddPostBtn.bg",
@@ -91,6 +117,11 @@ const ProfileDetails = () => {
             fontSize: { mobile: "10px", tablet: "22px" },
             width: { mobile: "131px", tablet: "287px" },
             height: { mobile: "23px", tablet: "50px" },
+            transition: "ease-in-out 0.3ms",
+
+            ":hover": {
+              bgcolor: "spAddPostBtn.bg",
+            },
           }}
         >
           Save

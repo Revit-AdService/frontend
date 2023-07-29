@@ -1,13 +1,47 @@
 import { ArrowBackIosNew, Image, VideoCameraBack } from "@mui/icons-material";
 import { Box, Button, IconButton, Input, Typography } from "@mui/material";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { postToAPI } from "../../utils/postToAPI";
 
 const CreatePost = () => {
+  const { user_id } = useParams();
+  const navigate = useNavigate();
+  const [postTitle, setPostTitle] = useState("");
+  const [postDescription, setPostDescription] = useState("");
+  const [postPrice, setPostPrice] = useState("");
+
+  const data = {
+    title: postTitle,
+    description: postDescription,
+    rating: "",
+    sales: "250",
+    date_created: "28-07-2023",
+    recommendations: "125",
+    price: "19.99",
+    author_id: user_id,
+    thumbnailurl: {
+      url: "https://source.unsplash.com/400x300",
+      alt: `Logo design thumbnail for ${postTitle}`,
+    },
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    postToAPI(`posts`, data);
+
+    setPostTitle("");
+    setPostPrice("");
+    setPostDescription("");
+  };
+
   return (
     <Box sx={{ padding: "1rem 0" }}>
       <Box
         sx={{ display: "inline-flex", alignItems: "center", padding: "0 1rem" }}
       >
-        <IconButton>
+        <IconButton onClick={() => navigate(`/profile/${user_id}`)}>
           <ArrowBackIosNew
             sx={{ color: "spIconsColor.main", fontSize: { tablet: "3rem" } }}
           />
@@ -28,8 +62,9 @@ const CreatePost = () => {
         </Typography>
       </Box>
 
-      <Box
-        sx={{
+      <form
+        onSubmit={handleSubmit}
+        style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -85,6 +120,10 @@ const CreatePost = () => {
           <Input
             disableUnderline
             placeholder="Enter price"
+            value={postPrice}
+            onChange={(e) => {
+              setPostPrice(e.target.value);
+            }}
             sx={{
               position: "absolute",
               right: 20,
@@ -132,6 +171,8 @@ const CreatePost = () => {
           </Typography>
           <Input
             disableUnderline
+            value={postTitle}
+            onChange={(e) => setPostTitle(e.target.value)}
             sx={{
               pl: "0.625rem",
               border: "0.0625rem solid",
@@ -171,14 +212,11 @@ const CreatePost = () => {
           >
             Post Description
           </Typography>
-          <Input
-            disableUnderline
+          <Box
             sx={{
-              pl: "0.625rem",
               border: "0.0625rem solid",
               borderColor: "#777683",
               borderRadius: { mobile: "1rem" },
-              fontSize: { mobile: "0.75rem", tablet: "1rem" },
               width: {
                 mobile: "15.375rem",
                 tablet: "29.1875rem",
@@ -192,11 +230,30 @@ const CreatePost = () => {
                 largeDesktop: "7.625rem",
               },
             }}
-          />
+          >
+            <textarea
+              value={postDescription}
+              onChange={(e) => {
+                setPostDescription(e.target.value);
+              }}
+              name="Description"
+              style={{
+                outline: "none",
+                border: 0,
+                width: "100%",
+                height: "100%",
+                backgroundColor: "transparent",
+                padding: "7px",
+                fontFamily: "'Montserrat', sans-serif",
+                fontSize: "12px",
+              }}
+            />
+          </Box>
         </Box>
         {/* post description end */}
 
         <Button
+          type="submit"
           sx={{
             bgcolor: "spDeleteBtn.main",
             color: "spAddPostBtn.color",
@@ -224,7 +281,7 @@ const CreatePost = () => {
         >
           Post
         </Button>
-      </Box>
+      </form>
     </Box>
   );
 };

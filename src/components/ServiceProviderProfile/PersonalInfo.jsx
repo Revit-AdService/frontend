@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 import { Add, Delete, Edit } from "@mui/icons-material";
-import { Box, Button, Input, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Input, Modal, Toolbar, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import MainContext from "../../context/mainContext";
+import { updateData } from "../../utils/updateData";
+import { useParams } from "react-router-dom";
 
 const StyledInput = styled(Input)(({ theme }) => ({
   fontSize: "0.625rem",
@@ -13,6 +17,23 @@ const StyledInput = styled(Input)(({ theme }) => ({
 }));
 
 const PersonalInfo = () => {
+  const { user_id } = useParams();
+  const { userData } = useContext(MainContext);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(userData.bio);
+
+  useEffect(() => {
+    updateData(`authors/${user_id}`, { bio: value }).then((res) =>
+      setValue(res.bio)
+    );
+  }, [user_id]);
+
+  const handleClick = () => {
+    updateData(`authors/${user_id}`, { bio: value }).then((res) =>
+      setValue(res.bio)
+    );
+    setOpen(false);
+  };
   return (
     <Box
       sx={{
@@ -56,12 +77,68 @@ const PersonalInfo = () => {
             Bio
           </Typography>
 
-          <Edit
+          <Button
+            onClick={() => setOpen(true)}
+            endIcon={
+              <Edit
+                sx={{
+                  color: "spDeleteBtn.main",
+                  width: {
+                    mobile: "1rem",
+                    tablet: "25px",
+                    largeDesktop: "31px",
+                  },
+                }}
+              />
+            }
             sx={{
-              color: "spDeleteBtn.main",
-              width: { mobile: "1rem", tablet: "25px", largeDesktop: "31px" },
+              textTransform: "lowercase",
+              fontSize: "11px",
             }}
-          />
+          >
+            edit bio
+          </Button>
+          <Modal
+            open={open}
+            onClose={() => setOpen(false)}
+            sx={{
+              display: "flex",
+              minHeight: "100vh",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: { mobile: 320, tablet: 520 },
+                height: 400,
+                bgcolor: "background.paper",
+                // border: "2px solid",
+                // boxShadow: 24,
+                borderRadius: "15px",
+              }}
+            >
+              <textarea
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                name=""
+                id=""
+                style={{
+                  outline: "none",
+                  backgroundColor: "transparent",
+                  border: 0,
+                  width: "100%",
+                  height: "100%",
+                  padding: "15px",
+                  fontFamily: '"Montserrat", sans-serif',
+                  fontSize: "12px",
+                }}
+              />
+              <Button onClick={handleClick}>Save Changes</Button>
+            </Box>
+          </Modal>
         </Toolbar>
 
         <Typography
@@ -75,10 +152,7 @@ const PersonalInfo = () => {
             letterSpacing: { mobile: "0.02375rem", tablet: "-0.62px" },
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta iste,
-          illum, obcaecati neque eius fugiat voluptatum modi alias labore
-          debitis veritatis. Optio omnis, pariatur libero aspernatur odio
-          excepturi nostrum quos dolorem laudantium maiores!
+          {value}
         </Typography>
       </Box>
       {/* Bio Section End */}
