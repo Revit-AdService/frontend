@@ -9,7 +9,7 @@ export const MainProvider = ({ children }) => {
   const [userPosts, setUserPosts] = useState(null);
   const [authors, setAuthors] = useState(null);
   const [userData, setUserData] = useState(null);
-  const [user, setUser] = useState("a1");
+  const [user, setUser] = useState("a2");
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
