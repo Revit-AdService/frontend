@@ -1,8 +1,12 @@
 import { Box, Stack } from "@mui/material";
 import PostCard from "./PostCard";
 import PostSkeleton from "./PostSkeleton";
+import { useContext } from "react";
+import MainContext from "../context/mainContext";
 
-const Posts = ({ posts }) => {
+const Posts = () => {
+  const { posts } = useContext(MainContext);
+
   return !posts?.length ? (
     <PostSkeleton />
   ) : (

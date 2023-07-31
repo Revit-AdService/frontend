@@ -1,5 +1,11 @@
-import { IconButton, Input, Paper } from "@mui/material";
-import { Search } from "@mui/icons-material";
+import { IconButton, Input, Paper, Stack } from "@mui/material";
+import {
+  Filter,
+  Filter1,
+  Filter2,
+  FilterAlt,
+  Search,
+} from "@mui/icons-material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -19,29 +25,33 @@ const SearchBar = () => {
   };
 
   return (
-    <Paper
-      mx={"auto"}
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{
-        // bgcolor:'green',
-        border: "2px solid #e3e3e3",
-        pl: 2,
-        boxShadow: "none",
-        width: "320px",
-      }}
-    >
-      <Input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        disableUnderline
-        sx={{ width: "255px", fontSize: "12px", fontWeight: 500 }}
-      />
-      <IconButton type="submit" sx={{ p: "10px", color: "#e2209e" }}>
-        <Search />
-      </IconButton>
-    </Paper>
+    <Stack mx={"auto"} direction="row" alignItems="center" gap={1}>
+      <Paper
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{
+          bgcolor: "#e8e8e8",
+          pl: 2,
+          boxShadow: "none",
+          borderRadius: { tablet: "18px", largeDesktop: "31px" },
+          width: { tablet: "435px", laptop: "503px", largeDesktop: "639px" },
+          height: { tablet: "43px", laptop: "51px", largeDesktop: "639px" },
+        }}
+      >
+        <IconButton type="submit" sx={{ p: "10px", color: "#999" }}>
+          <Search />
+        </IconButton>
+        <Input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          disableUnderline
+          sx={{ width: { tablet: "365px" }, fontSize: "12px", fontWeight: 500 }}
+        />
+      </Paper>
+
+      <FilterAlt sx={{ color: "#e2209e" }} />
+    </Stack>
   );
 };
 

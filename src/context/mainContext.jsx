@@ -36,7 +36,7 @@ export const MainProvider = ({ children }) => {
         user,
         userData,
         userPosts,
-        posts: { posts },
+        posts,
         authors: { authors },
       }}
     >

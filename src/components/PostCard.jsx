@@ -1,3 +1,4 @@
+import { Verified } from "@mui/icons-material";
 import {
   Avatar,
   Box,
@@ -8,14 +9,19 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import MainContext from "../context/mainContext";
 import { useContext } from "react";
 
 const PostCard = ({
-  post: { sales, recommendations, thumbnailurl, title, description },
+  post: {
+    sales,
+    author,
+    recommendations,
+    thumbnail,
+    title,
+    description,
+    price,
+  },
 }) => {
-  const { authors } = useContext(MainContext);
-
   return (
     <Stack direction="column" gap={2}>
       <Stack
@@ -25,7 +31,22 @@ const PostCard = ({
         width="275px"
       >
         <Stack direction="row" alignItems="center" gap={0.3}>
-          <Avatar sx={{ width: "43px", height: "43px" }} />
+          <Box position={"relative"}>
+            <Avatar
+              src={author.avatar}
+              alt={author?.name}
+              sx={{ width: "43px", height: "43px" }}
+            />
+            <Verified
+              sx={{
+                position: "absolute",
+                right: 1,
+                bottom: -3,
+                color: "gold",
+                width: { mobile: "15px" },
+              }}
+            />
+          </Box>
           <Box>
             <Typography
               sx={{
@@ -35,7 +56,7 @@ const PostCard = ({
                 fontStyle: "italic",
               }}
             >
-              fname lname
+              {author?.name}
             </Typography>
             <Stack direction="row" gap={0.3}>
               <Typography
@@ -97,14 +118,41 @@ const PostCard = ({
           width: "290px",
           height: "265px",
           bgcolor: "#e2209e",
-          borderRadius: "25px",
+          borderRadius: "65px",
         }}
       >
         <CardMedia
-          image={thumbnailurl.url}
-          alt={thumbnailurl.alt}
-          sx={{ width: "100%", height: "220px", bgcolor: "#00000060" }}
-        />
+          image={thumbnail.url}
+          alt={thumbnail.alt}
+          sx={{
+            position: "relative",
+            width: "100%",
+            height: "220px",
+            bgcolor: "#00000060",
+            borderRadius: "65px",
+          }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              bottom: 21,
+              right: 24,
+              width: "96px",
+              height: "23px",
+              borderRadius: "15px",
+              bgcolor: "#ffffff90",
+            }}
+          >
+            <Typography
+              sx={{ fontWeight: 500, fontSize: "9px", color: "utTitle.main" }}
+            >
+              ${price}
+            </Typography>
+          </Box>
+        </CardMedia>
 
         <CardContent
           sx={{

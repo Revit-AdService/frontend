@@ -7,63 +7,47 @@ const Banner = () => {
   return (
     <Box
       sx={{
-        height: 330,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: { mobile: 210, tablet: 330 },
         backgroundImage: `url(${banner})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "40%",
-        p: 4,
-        "@media (max-width: 500px)": {
-          height: 210,
-        },
       }}
     >
       <Box
         sx={{
           display: "flex",
-          float: "right",
           flexDirection: "column",
-          width: 497,
-          height: 271,
-          borderRadius: 10,
-          background: "#00000099",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 1,
+          width: { mobile: 281 },
+          height: { mobile: 152 },
+          borderRadius: "43px",
+          background: "#aaaaaa99",
           // backdropFilter: "blur(10%) saturate(150%)",
           // WebkitBackdropFilter: "blur(10%) saturate(150%)",
-          padding: "54px",
-          "@media (max-width: 500px)": {
-            width: 281,
-            height: 152,
-            padding: "35px",
-          },
         }}
       >
         <Typography
           sx={{
             color: "#f9f9f9",
-            fontSize: 39,
+            fontSize: { mobile: "18px" },
             fontWeight: 600,
-            letterSpacing: "-1.56px",
             cursor: "default",
-
-            "@media (max-width: 500px)": {
-              fontSize: 22,
-            },
           }}
         >
-          Package
+          Rev
           <Box
             component={"span"}
             sx={{
-              fontSize: 30,
               fontWeight: 400,
-              letterSpacing: "-0.88px",
-
-              "@media (max-width: 500px)": {
-                fontSize: 18,
-              },
             }}
           >
-            Design
+            it Ad Service
           </Box>
         </Typography>
 
@@ -71,16 +55,12 @@ const Banner = () => {
           variant="paragraph"
           sx={{
             color: "#e8e8e8",
-            fontSize: 13,
-            fontWeight: 400,
-            letterSpacing: "-0.64px",
-            mb: 4,
+            width: { mobile: "202px" },
+            fontSize: { mobile: "8px" },
+            fontWeight: 500,
+            textAlign: "center",
+            fontStyle: "italic",
             cursor: "default",
-
-            "@media (max-width: 500px)": {
-              fontSize: 8,
-              mb: "10px",
-            },
           }}
         >
           Are you looking to get hired in the comfort of your own house. Or
@@ -88,28 +68,19 @@ const Banner = () => {
           problems fixed. We got you covered.
         </Typography>
 
-        <Link to={"/login"}>
-          <Button
-            variant="contained"
-            sx={{
-              hieght: 25,
-              width: 80,
-              bgcolor: "#242254",
-              borderRadius: 14,
-              fontSize: 10,
-              letterSpacing: -0.4,
-              border: "1px solid #f9f9f9",
-              "@media (max-width: 500px)": {
-                hieght: 17,
-                width: 55,
-                fontSize: 7,
-                padding: "3px",
-              },
-            }}
-          >
-            Login
-          </Button>
-        </Link>
+        <Button
+          sx={{
+            width: { mobile: "55px" },
+            hieght: { mobile: "17px" },
+            bgcolor: "#e2209e",
+            borderRadius: { mobile: "14px" },
+            fontSize: { mobile: "7px" },
+            color: "#ececec",
+            fontWeight: 500,
+          }}
+        >
+          Login
+        </Button>
       </Box>
     </Box>
   );

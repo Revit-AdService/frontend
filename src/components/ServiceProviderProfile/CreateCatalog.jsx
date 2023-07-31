@@ -1,5 +1,16 @@
 import { ArrowBackIosNew, Image, VideoCameraBack } from "@mui/icons-material";
-import { Box, Button, IconButton, Input, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  FilledInput,
+  FormControl,
+  IconButton,
+  Input,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  Typography,
+} from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { postToAPI } from "../../utils/postToAPI";
 import { useState } from "react";
@@ -146,6 +157,17 @@ const CreateCatalog = () => {
               },
             }}
           />
+          <FormControl fullWidth sx={{ m: 1 }} variant="filled">
+            <InputLabel htmlFor="filled-adornment-amount">Price</InputLabel>
+            <FilledInput
+              disableUnderline
+              placeholder="Enter price"
+              id="filled-adornment-amount"
+              startAdornment={
+                <InputAdornment position="start">$</InputAdornment>
+              }
+            />
+          </FormControl>
         </Box>
 
         {/* post name start */}
