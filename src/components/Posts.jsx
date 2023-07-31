@@ -16,6 +16,7 @@ const Posts = () => {
       justifyContent="center"
       gap={10}
       my={5}
+      px={{ desktop: 10, largeDesktop: 20 }}
     >
       {posts.map((item, id) => (
         <Box key={id}>

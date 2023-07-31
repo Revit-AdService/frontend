@@ -115,7 +115,7 @@ const Home = () => {
       </Box>
 
       <Posts />
-      <Fab
+      {/* <Fab
         sx={{
           m: 3,
           position: "fixed",
@@ -136,7 +136,7 @@ const Home = () => {
         aria-label="chat"
       >
         <Chat />
-      </Fab>
+      </Fab> */}
     </Box>
   );
 };

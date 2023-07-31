@@ -34,8 +34,8 @@ const SearchBar = () => {
           pl: 2,
           boxShadow: "none",
           borderRadius: { tablet: "18px", largeDesktop: "31px" },
-          width: { tablet: "435px", laptop: "503px", largeDesktop: "639px" },
-          height: { tablet: "43px", laptop: "51px", largeDesktop: "639px" },
+          width: { tablet: "435px", laptop: "503px" },
+          height: { tablet: "43px", laptop: "51px" },
         }}
       >
         <IconButton type="submit" sx={{ p: "10px", color: "#999" }}>

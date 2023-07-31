@@ -10,7 +10,7 @@ const Banner = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: { mobile: 210, tablet: 330 },
+        height: { mobile: 210, tablet: 332, laptop: 315, largeDesktop: 330 },
         backgroundImage: `url(${banner})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -24,8 +24,8 @@ const Banner = () => {
           alignItems: "center",
           justifyContent: "center",
           gap: 1,
-          width: { mobile: 281 },
-          height: { mobile: 152 },
+          width: { mobile: 281, tablet: 517, laptop: 638, largeDesktop: 708 },
+          height: { mobile: 152, tablet: 278, laptop: 249, largeDesktop: 276 },
           borderRadius: "43px",
           background: "#aaaaaa99",
           // backdropFilter: "blur(10%) saturate(150%)",
@@ -35,7 +35,12 @@ const Banner = () => {
         <Typography
           sx={{
             color: "#f9f9f9",
-            fontSize: { mobile: "18px" },
+            fontSize: {
+              mobile: "18px",
+              tablet: "29px",
+              laptop: "35px",
+              largeDesktop: "38px",
+            },
             fontWeight: 600,
             cursor: "default",
           }}
@@ -55,8 +60,13 @@ const Banner = () => {
           variant="paragraph"
           sx={{
             color: "#e8e8e8",
-            width: { mobile: "202px" },
-            fontSize: { mobile: "8px" },
+            width: {
+              mobile: "202px",
+              tablet: "370px",
+              laptop: "456px",
+              largeDesktop: 506,
+            },
+            fontSize: { mobile: "8px", tablet: "13px" },
             fontWeight: 500,
             textAlign: "center",
             fontStyle: "italic",
@@ -70,13 +80,30 @@ const Banner = () => {
 
         <Button
           sx={{
-            width: { mobile: "55px" },
-            hieght: { mobile: "17px" },
+            mt: "10px",
+            width: {
+              mobile: "55px",
+              tablet: "100px",
+              laptop: "122px",
+              largeDesktop: "154px",
+            },
+            hieght: {
+              mobile: "17px",
+              tablet: "30px",
+              laptop: "37px",
+              largeDesktop: "47px",
+            },
             bgcolor: "#e2209e",
-            borderRadius: { mobile: "14px" },
-            fontSize: { mobile: "7px" },
+            borderRadius: { mobile: "14px", largeDesktop: "23px" },
+            fontSize: {
+              mobile: "7px",
+              tablet: "10px",
+              laptop: "12px",
+              largeDesktop: "15px",
+            },
             color: "#ececec",
             fontWeight: 500,
+            textTransform: "capitalize",
           }}
         >
           Login
