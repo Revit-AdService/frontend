@@ -21,7 +21,7 @@ export const MainProvider = ({ children }) => {
   useEffect(() => {
     fetchFromAPI(`authors/${user}`).then((response) => setUserData(response));
 
-    fetchFromAPI(`posts?author_id=${user}`).then((response) =>
+    fetchFromAPI(`posts?author.id=${user}`).then((response) =>
       setUserPosts(response)
     );
 

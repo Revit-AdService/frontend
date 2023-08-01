@@ -1,15 +1,10 @@
-// import * as React from "react";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import {
   Box,
-  Divider,
   IconButton,
   Input,
-  Link,
   Paper,
-  Stack,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -29,14 +24,13 @@ export default function BasicMenu() {
   return (
     <div>
       <Tooltip title="Category">
-        <IconButton size="large" aria-label="category">
+        <IconButton onClick={handleClick} size="large" aria-label="category">
           <Category
             color="primary"
             id="basic-button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
-            onClick={handleClick}
           />
         </IconButton>
       </Tooltip>

@@ -1,7 +1,16 @@
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 
-const PostCard = ({ post: { title, price, description, thumbnailurl } }) => {
-  // console.log(data);
+const PostCard = ({
+  viewOnly,
+  post: { title, price, description, thumbnailurl },
+}) => {
   return (
     <Card
       sx={{
@@ -26,6 +35,32 @@ const PostCard = ({ post: { title, price, description, thumbnailurl } }) => {
           height: { mobile: "16.25rem", laptop: "25rem" },
         }}
       >
+        {viewOnly && (
+          <Button
+            sx={{
+              position: "absolute",
+              display: "grid",
+              placeContent: "center",
+              bottom: 50,
+              right: 40,
+              width: "75px",
+              height: "18px",
+              borderRadius: "1.5625rem",
+              color: "#f9f9f9",
+              fontSize: "7px",
+              fontWeight: 500,
+              letterSpacing: "-0.025rem",
+              bgcolor: "spDeleteBtn.main",
+              textTransform: "capitalize",
+
+              ":hover": {
+                bgcolor: "spDeleteBtn.main",
+              },
+            }}
+          >
+            Order Now
+          </Button>
+        )}
         <Box
           sx={{
             position: "absolute",
@@ -40,7 +75,7 @@ const PostCard = ({ post: { title, price, description, thumbnailurl } }) => {
             fontSize: "0.625rem",
             fontWeight: 500,
             letterSpacing: "-0.025rem",
-            background: "linear-gradient(to bottom, #ffffff90, #e2209e90)",
+            background: "#ffffff90",
           }}
         >
           {`$${price}`}

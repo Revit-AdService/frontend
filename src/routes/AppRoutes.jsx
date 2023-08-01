@@ -22,6 +22,8 @@ import Notifications from "../pages/Notifications";
 import Wallet from "../pages/Wallet";
 import Withdraw from "../pages/Withdraw";
 import SearchFeed from "../pages/SearchFeed";
+import ViewProfile from "../layouts/ViewProfile";
+import ViewLandpage from "../components/ViewProfile/ViewLandpage";
 
 function AppRoutes({ theme }) {
   return (
@@ -74,6 +76,10 @@ function AppRoutes({ theme }) {
           path="/profile/:user_id/edit-profile-details"
           element={<ProfileDetails />}
         />
+      </Route>
+
+      <Route path="/view-profile/:profile_id" element={<ViewProfile />}>
+        <Route index element={<ViewLandpage />} />
       </Route>
 
       <Route path="notifications" element={<Notifications />} />

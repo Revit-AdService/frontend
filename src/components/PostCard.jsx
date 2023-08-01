@@ -9,7 +9,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PostCard = ({
   post: {
@@ -22,6 +22,8 @@ const PostCard = ({
     price,
   },
 }) => {
+  const navigate = useNavigate();
+
   return (
     <Stack direction="column" gap={2}>
       <Stack
@@ -49,11 +51,13 @@ const PostCard = ({
           </Box>
           <Box>
             <Typography
+              onClick={() => navigate(`/view-profile/${author.id}`)}
               sx={{
                 color: "#242254",
                 fontSize: "10px",
                 fontWeight: 500,
                 fontStyle: "italic",
+                cursor: "default",
               }}
             >
               {author?.name}
