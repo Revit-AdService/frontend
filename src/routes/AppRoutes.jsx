@@ -24,6 +24,8 @@ import Withdraw from "../pages/Withdraw";
 import SearchFeed from "../pages/SearchFeed";
 import ViewProfile from "../layouts/ViewProfile";
 import ViewLandpage from "../components/ViewProfile/ViewLandpage";
+import ViewCatalog from "../components/ViewProfile/ViewCatalog";
+import ViewPosts from "../components/ViewProfile/ViewPosts";
 
 function AppRoutes({ theme }) {
   return (
@@ -80,6 +82,11 @@ function AppRoutes({ theme }) {
 
       <Route path="/view-profile/:profile_id" element={<ViewProfile />}>
         <Route index element={<ViewLandpage />} />
+        <Route
+          path="/view-profile/:profile_id/catalog"
+          element={<ViewCatalog />}
+        />
+        <Route path="/view-profile/:profile_id/posts" element={<ViewPosts />} />
       </Route>
 
       <Route path="notifications" element={<Notifications />} />

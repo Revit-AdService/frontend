@@ -11,11 +11,14 @@ export const MainProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const [user, setUser] = useState("a2");
   const [products, setProducts] = useState(null);
+  const [allCatalogs, setAllCatalogs] = useState(null);
 
   useEffect(() => {
     fetchFromAPI("posts").then((response) => setPosts(response));
 
     fetchFromAPI("authors").then((response) => setAuthors(response));
+
+    fetchFromAPI("catalogs").then((response) => setAllCatalogs(response));
   }, []);
 
   useEffect(() => {
@@ -29,9 +32,11 @@ export const MainProvider = ({ children }) => {
       setProducts(response.products)
     );
   }, [user]);
+
   return (
     <MainContext.Provider
       value={{
+        allCatalogs,
         products,
         user,
         userData,
