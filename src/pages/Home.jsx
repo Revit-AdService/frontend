@@ -1,6 +1,6 @@
-import { Box, Button, Fab } from "@mui/material";
+import { Box, Button, Fab, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import { Chat } from "@mui/icons-material";
+import { Chat, Close } from "@mui/icons-material";
 import Banner from "../components/Home/Banner";
 import Posts from "../components/Posts";
 import SearchBar from "../components/Home/SearchBar";
@@ -9,6 +9,7 @@ import MainContext from "../context/mainContext";
 const Home = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [selected, setSelected] = useState("top rated");
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,7 +39,7 @@ const Home = () => {
             pt: 3,
           }}
         >
-          <SearchBar />
+          <SearchBar onSelect={(category) => setSelectedCategory(category)} />
         </Box>
       ) : (
         ""
@@ -113,6 +114,52 @@ const Home = () => {
           </Button>
         ))}
       </Box>
+
+      {selectedCategory && (
+        <Box
+          sx={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "7px 6px 15px rgba(0, 0, 0, 0.16)",
+            mx: "auto",
+            my: 1,
+            py: 0,
+            bgcolor: "#e8e8e8",
+            borderRadius: { mobile: "12px" },
+            width: {
+              mobile: `${String(selectedCategory.length) * 6}px`,
+              tablet: `${String(selectedCategory.length) * 9.2}px`,
+            },
+            height: { mobile: "18px", mobile: "26px" },
+          }}
+        >
+          {console.log(`${String(selectedCategory.length) * 9.2}px`)}
+          <Typography
+            sx={{
+              fontWeight: { mobile: 700, tablet: 600 },
+              textTransform: "uppercase",
+              color: "#242254",
+              fontSize: { mobile: "5px", tablet: "9px" },
+              mt: { mobile: 0.3, tablet: 0 },
+              cursor: "default",
+            }}
+          >
+            {selectedCategory}
+          </Typography>
+
+          <Close
+            onClick={() => setSelectedCategory(null)}
+            sx={{
+              color: "#242254",
+              fontSize: "10px",
+              position: "absolute",
+              right: { mobile: String(selectedCategory.length) - 5 },
+            }}
+          />
+        </Box>
+      )}
 
       <Posts />
       {/* <Fab

@@ -1,15 +1,10 @@
 import { IconButton, Input, Paper, Stack } from "@mui/material";
-import {
-  Filter,
-  Filter1,
-  Filter2,
-  FilterAlt,
-  Search,
-} from "@mui/icons-material";
+import { FilterAlt, Search } from "@mui/icons-material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CategoryFilter from "./CategoryFilter";
 
-const SearchBar = () => {
+const SearchBar = ({ onSelect }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
@@ -46,11 +41,15 @@ const SearchBar = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           disableUnderline
-          sx={{ width: { tablet: "365px" }, fontSize: "12px", fontWeight: 500 }}
+          sx={{
+            width: { tablet: "365px" },
+            fontSize: "12px",
+            fontWeight: 500,
+          }}
         />
       </Paper>
 
-      <FilterAlt sx={{ color: "#e2209e" }} />
+      <CategoryFilter onSelect={(category) => onSelect(category)} />
     </Stack>
   );
 };
