@@ -26,6 +26,9 @@ import ViewProfile from "../layouts/ViewProfile";
 import ViewLandpage from "../components/ViewProfile/ViewLandpage";
 import ViewCatalog from "../components/ViewProfile/ViewCatalog";
 import ViewPosts from "../components/ViewProfile/ViewPosts";
+import ClientProfile from "../layouts/ClientProfile";
+import Ratings from "../components/ClientProfile/Ratings";
+import Disputes from "../components/ClientProfile/Disputes";
 
 function AppRoutes({ theme }) {
   return (
@@ -88,6 +91,13 @@ function AppRoutes({ theme }) {
         />
         <Route path="/view-profile/:profile_id/posts" element={<ViewPosts />} />
       </Route>
+
+      {/* ****************** */}
+      <Route path="/client-profile" element={<ClientProfile />}>
+        <Route index element={<Ratings />} />
+        <Route path="/client-profile/disputes" element={<Disputes />} />
+      </Route>
+      {/* ****************** */}
 
       <Route path="notifications" element={<Notifications />} />
 

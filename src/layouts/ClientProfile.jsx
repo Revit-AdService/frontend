@@ -1,15 +1,9 @@
 import { AppBar, Avatar, Box, Button, Typography } from "@mui/material";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import banner from "../assets/images/Banner.png";
-import { Edit, Verified } from "@mui/icons-material";
-import { useContext } from "react";
-import MainContext from "../context/mainContext";
+import { Verified } from "@mui/icons-material";
 
-function ServiceProviderProfile() {
-  const { user_id } = useParams();
-  const { userData } = useContext(MainContext);
-  if (!userData) return "loading...";
-
+const ClientProfile = () => {
   return (
     <Box>
       {/* Banner Start */}
@@ -21,7 +15,7 @@ function ServiceProviderProfile() {
             tablet: 363,
             laptop: 258,
           },
-          background: `url(${userData.banner.url}) `,
+          background: `url(${banner}) `,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "40%",
@@ -52,8 +46,8 @@ function ServiceProviderProfile() {
             }}
           >
             <Avatar
-              src={userData?.avatar}
-              alt={`${userData?.firstname} ${userData?.lastname}`}
+              src={""}
+              alt={"Takudzwa Jauki"}
               sx={{
                 width: {
                   mobile: 70,
@@ -68,7 +62,7 @@ function ServiceProviderProfile() {
               }}
             />
 
-            <Box
+            {/* <Box
               sx={{
                 display: "grid",
                 placeContent: "center",
@@ -105,13 +99,10 @@ function ServiceProviderProfile() {
                   }}
                 />
               </Link>
-            </Box>
+            </Box> */}
 
             <Box sx={{ pb: 1 }}>
-              <Link
-                to={`/profile/${user_id}/personal-info`}
-                style={{ textDecoration: "none" }}
-              >
+              <Link to={""} style={{ textDecoration: "none" }}>
                 <Typography
                   sx={{
                     textAlign: "center",
@@ -126,7 +117,7 @@ function ServiceProviderProfile() {
                     },
                   }}
                 >
-                  {`${userData?.firstname} ${userData?.lastname}`}
+                  Takudzwa Jauki
                   <Verified
                     sx={{ color: "gold", fontSize: ".9rem", ml: "0.4375rem" }}
                   />
@@ -146,7 +137,7 @@ function ServiceProviderProfile() {
                   },
                 }}
               >
-                {userData?.service_type}
+                Graphics Designer
               </Typography>
             </Box>
           </Box>
@@ -175,11 +166,7 @@ function ServiceProviderProfile() {
           },
         }}
       >
-        {[
-          { title: "Catalog", link: `/profile/${user_id}/catalog` },
-          { title: "Post", link: `/profile/${user_id}/posts` },
-          { title: "Order Deals", link: `/profile/${user_id}/order-deals` },
-        ].map(({ title, link }, id) => (
+        {[{ title: "Reviews", link: `` }].map(({ title, link }, id) => (
           <NavLink key={id} to={link}>
             <Button
               variant={"contained"}
@@ -189,6 +176,7 @@ function ServiceProviderProfile() {
                 borderRadius: "1.4375rem",
                 bgcolor: "spNavBtnBg.main",
                 boxShadow: "none",
+                transition: "ease-in-out 0.3s",
                 padding: { tablet: "0 3rem" },
                 height: {
                   mobile: "1.375rem",
@@ -198,6 +186,10 @@ function ServiceProviderProfile() {
                 fontSize: {
                   mobile: "0.4375rem",
                   tablet: "0.8125rem",
+                },
+
+                ":hover": {
+                  bgcolor: "spNavBtnBg.main",
                 },
               }}
             >
@@ -210,6 +202,6 @@ function ServiceProviderProfile() {
       <Outlet />
     </Box>
   );
-}
+};
 
-export default ServiceProviderProfile;
+export default ClientProfile;
